@@ -1,0 +1,8 @@
+.üçbucaq {
+    width: 0; 
+    height: 0; 
+    border-left: 300px solid transparent ;
+    border-right: 300px solid transparent ;
+    border-bottom: 300px solid black ;
+    margin: 250px auto auto auto;
+  }
