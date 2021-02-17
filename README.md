@@ -8,7 +8,7 @@
 - html naming convention
 # Week02-Day01
 
-- Developer tools-dan necə istifaə etməli?
+- Developer tools-dan necə istifadə etməli?
 # Week02-Day02
 
 - padding
