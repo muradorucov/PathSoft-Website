@@ -1,1 +1,2 @@
-1.Ilk Tapsiriq- Bayraq Hazirlamaq
+1.Ilk Tapsiriq- Bayraq Hazirlamaq.
+2.İkinci tapşırıq- Bir div istifadə edərək üçbucaq qurmaq.
