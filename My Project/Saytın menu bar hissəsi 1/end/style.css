@@ -1,0 +1,53 @@
+body{
+    margin: 0px;
+    font-family: 'Istok Web', sans-serif;
+}
+#hd{
+    background-color:#303036 ;
+    font-size: 16px;
+    padding: 13px 0px;
+    color: rgba(255,255,255,.8);
+
+}
+.hd-container,.mb-container{
+    display: flex;
+    justify-content:  space-between; 
+    width: 1115px;
+    margin: 0px auto;
+}
+
+.hd-contact-info span .mail{
+margin: 0px 10px;
+}
+/* header-bar end */
+/* nav-meniu-bar start */
+.meniu-bar{
+    
+}
+.meniu-bar ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+.meniu-bar ul li{
+    list-style: none;
+    
+}
+/* li{
+    margin-left: 1.25rem;
+    padding: 1rem 0;
+    max-width: 100px;
+    text-align: -webkit-match-parent;
+    font-size: 14px;
+}
+li i{
+    padding-left: 8px;
+    display: flex;
+    align-items: center;
+    color: #2c7ae7;
+
+}
+.lang,.search{
+    display: flex;
+    justify-content:flex-end;
+} */
