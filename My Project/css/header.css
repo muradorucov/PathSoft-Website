@@ -1,0 +1,69 @@
+body{
+    margin: 0px;
+    font-family: 'Istok Web', sans-serif;
+}
+#hd{
+    background-color:#303036 ;
+    font-size: 16px;
+    padding: 13px 0px;
+    color: rgba(255,255,255,.8);
+
+}
+.hd-container{
+    display: flex;
+    justify-content:  space-between; 
+    width: 1115px;
+    margin: 0px auto;   
+}
+.hd-contact-info{
+    display: flex;
+}
+.hd-contact-info .info-phone{
+    margin: 0px 10px;
+}
+.hd-contact-info .mail{
+    margin-left:  8px;
+}
+.info-mail .fas{
+    color: aliceblue; 
+    font-size: 15px;
+}
+a:link{
+    text-decoration: none;
+}
+.info-mail{
+    color:rgba(255,255,255,.8);
+}
+.info-mail:hover{
+    color: aliceblue;
+}
+.hd-social-media .fab{
+    margin-right: 15px;
+    color: rgba(255,255,255,.8);
+}
+.hd-social-media .fab:hover{
+    color:aliceblue;
+}
+.hd-social-media{
+    display: flex;
+    
+}
+.call{
+    margin-left: 30px;
+    display: flex;
+    color:rgba(255,255,255,.8);
+}
+.call:hover{
+    color: aliceblue;
+}
+.callback{
+    border-bottom: dashed 1px;
+    margin-left:5px ;
+}
+ .callback:hover{
+    border-bottom: solid aliceblue 1px ;
+} 
+
+.call:hover .callback{
+    border-bottom: 1px  solid aliceblue ;
+}
