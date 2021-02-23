@@ -5,9 +5,8 @@ body{
 #hd{
     background-color:#303036 ;
     font-size: 16px;
-    padding: 13px 0px;
+    padding: 11px 0px;
     color: rgba(255,255,255,.8);
-
 }
 .hd-container{
     display: flex;
@@ -18,15 +17,15 @@ body{
 .hd-contact-info{
     display: flex;
 }
-.hd-contact-info .info-phone{
-    margin: 0px 10px;
+.info-phone{
+    margin: 0px 18px;
 }
-.hd-contact-info .mail{
+.mail{
     margin-left:  8px;
 }
 .info-mail .fas{
     color: aliceblue; 
-    font-size: 15px;
+    font-size: 13px;
 }
 a:link{
     text-decoration: none;
@@ -34,11 +33,12 @@ a:link{
 .info-mail{
     color:rgba(255,255,255,.8);
 }
-.info-mail:hover{
+.info-mail:hover {
     color: aliceblue;
 }
+
 .hd-social-media .fab{
-    margin-right: 15px;
+    margin-right: 20px;
     color: rgba(255,255,255,.8);
 }
 .hd-social-media .fab:hover{
@@ -46,10 +46,9 @@ a:link{
 }
 .hd-social-media{
     display: flex;
-    
 }
 .call{
-    margin-left: 30px;
+    margin-left: 25px;
     display: flex;
     color:rgba(255,255,255,.8);
 }
@@ -63,7 +62,12 @@ a:link{
  .callback:hover{
     border-bottom: solid aliceblue 1px ;
 } 
-
 .call:hover .callback{
     border-bottom: 1px  solid aliceblue ;
+}
+.info-phone a:link span{
+    color:rgba(255,255,255,.8)
+}
+.info-phone a:link span:hover{
+    color:aliceblue;
 }
