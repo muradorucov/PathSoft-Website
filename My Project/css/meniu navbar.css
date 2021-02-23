@@ -1,0 +1,113 @@
+body{
+    margin: 0px;
+    font-family: 'Istok Web', sans-serif;
+}
+#hd{
+    background-color:#303036 ;
+    font-size: 16px;
+    padding: 11px 0px;
+    color: rgba(255,255,255,.8); 
+}
+.hd-container, .nb-container{
+    display: flex;
+    justify-content:  space-between; 
+    width: 1115px;
+    margin: 0px auto; 
+    align-items: center;
+
+}
+.hd-contact-info{
+    display: flex;
+}
+.info-phone{
+    margin: 0px 18px;
+}
+.mail{
+    margin-left:  8px;
+}
+.info-mail .fas{
+    color: aliceblue; 
+    font-size: 13px;
+}
+a:link{
+    text-decoration: none;
+}
+.info-mail{
+    color:rgba(255,255,255,.8);
+}
+.info-mail:hover {
+    color: aliceblue;
+}
+
+.hd-social-media .fab{
+    margin-right: 20px;
+    color: rgba(255,255,255,.8);
+}
+.hd-social-media .fab:hover{
+    color:aliceblue;
+}
+.hd-social-media{
+    display: flex;
+}
+.call{
+    margin-left: 25px;
+    display: flex;
+    color:rgba(255,255,255,.8);
+}
+.call:hover{
+    color: aliceblue;
+}
+.callback{
+    border-bottom: dashed 1px;
+    margin-left:5px ;
+}
+ .callback:hover{
+    border-bottom: solid aliceblue 1px ;
+} 
+.call:hover .callback{
+    border-bottom: 1px  solid aliceblue ;
+}
+.info-phone a:link span{
+    color:rgba(255,255,255,.8)
+}
+.info-phone a:link span:hover{
+    color:aliceblue;
+}
+/* heared-bar end  */
+
+/* meniu-navbar start  */
+#nb{
+    color: #212529;
+    font-size: 1rem;
+    padding: 25px 0px;
+}
+
+.meniu-bar{
+    display: flex;
+}
+.meniu i{
+    margin-left: 5px;
+}
+.lang{
+    margin:0px 32px;
+}
+.meniu ul{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.meniu ul li{
+    list-style: none;
+    margin-right: 40px;
+}
+.logo img{
+    vertical-align:middle;
+}
+.logo span{
+    font-size: 1.125rem;
+}
+hr{
+    margin: 0px;
+}
+/* meniu-navbar start  */
