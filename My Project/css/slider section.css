@@ -1,0 +1,238 @@
+body{
+    margin: 0px;
+    font-family: 'Istok Web', sans-serif;
+}
+#hd{
+    background-color:#303036 ;
+    font-size: 16px;
+    padding: 11px 0px;
+    color: rgba(255,255,255,.8); 
+}
+.hd-container, .nb-container{
+    display: flex;
+    justify-content:  space-between; 
+    width: 1115px;
+    margin: 0px auto; 
+    align-items: center;
+
+}
+.hd-contact-info{
+    display: flex;
+}
+.info-phone{
+    margin: 0px 18px;
+}
+.mail{
+    margin-left:  8px;
+}
+.info-mail .fas{
+    color: aliceblue; 
+    font-size: 13px;
+}
+a:link{
+    text-decoration: none;
+}
+.info-mail{
+    color:rgba(255,255,255,.8);
+}
+.info-mail:hover {
+    color: aliceblue;
+}
+.hd-social-media .fab{
+    margin-right: 20px;
+    color: rgba(255,255,255,.8);
+}
+.hd-social-media .fab:hover{
+    color:aliceblue;
+}
+.hd-social-media{
+    display: flex;
+}
+.call{
+    margin-left: 25px;
+    display: flex;
+    color:rgba(255,255,255,.8);
+}
+.call:hover{
+    color: aliceblue;
+}
+.callback{
+    border-bottom: dashed 1px;
+    margin-left:5px ;
+}
+ .callback:hover{
+    border-bottom: solid aliceblue 1px ;
+} 
+.call:hover .callback{
+    border-bottom: 1px  solid aliceblue ;
+}
+.info-phone a:link span{
+    color:rgba(255,255,255,.8)
+}
+.info-phone a:link span:hover{
+    color:aliceblue;
+}
+/* heared-bar end  */
+
+/* meniu-navbar start  */
+#nb{
+    color: #303036;
+    font-size: 1rem;
+    padding: 25px 0px;
+}
+.meniu-bar{
+    display: flex;
+}
+.meniu i{
+    margin-left: 5px;
+    color: #2c7ae7;
+}
+.lang{
+    margin:0px 32px;
+    color:#303036;
+}
+.lang:hover{
+    color:#2c7ae7; 
+}
+.search{
+    color:#303036;
+}
+.search:hover{
+    color:#2c7ae7; 
+}
+.meniu ul{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.meniu ul li{
+    list-style: none;
+    margin-right: 40px;
+    color:#303036;
+}
+.meniu ul li:hover{
+    list-style: none;
+    margin-right: 40px;
+    color:#2c7ae7;
+}
+.logo img{
+    vertical-align:middle;
+}
+.logo span{
+    font-size: 1.125rem;
+    color:#303036;
+}
+hr{
+    margin: 0px;
+}
+/* meniu-navbar end  */
+
+/* slider section start  */
+#sm{
+    height: 565px;
+    position: relative;
+    cursor:grab;
+}
+
+.slider-item{
+    width: 100%;
+    height: 100%;
+    background-image: url(img/intro-img1.jpg);
+    background-position: center top  ; 
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+.slider-control{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    width: 100%;
+    top: 95%;
+}
+.slider-control ul{
+    margin:0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+}
+.slider-control ul li{
+    list-style: none;
+    font-size: 10px;
+    margin: 0px 10px;
+    color: #303036;
+}
+.slider-control ul li:hover{
+    color:#2876e2
+    
+}
+.slider-content h1{
+    color:#19191d;
+    font-size: 2.5rem;
+    font-family: Montserrat,sans-serif;
+    line-height: 50px;
+}
+.slider-content p{
+    color: #63636b;
+    width: 400px;
+    line-height: 23px;
+}
+.slider-content{
+    width: 850px;
+    margin: 0 auto;
+    text-align: left;
+}
+.button{
+    display: flex;
+    font-size: 14px;
+}
+.bttn-blue{
+    background-color:#2876e2;
+    color:white;
+    border: #2876e2 solid 1px;
+    padding: 10.5px 24.5px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px    ;
+    -moz-border-radius: 6px    ;
+    -ms-border-radius: 6px    ;
+    -o-border-radius: 6px    ;
+}
+.bttn-blue:hover{
+    color:#79f506;
+    background-color:black;
+    border: black solid 1px;
+    transition: all .1s  ease-in-out ;
+    -webkit-transition: all .1s  ease-in-out ;
+    -moz-transition: all .1s  ease-in-out ;
+    -ms-transition: all .1s  ease-in-out ;
+    -o-transition: all .1s  ease-in-out ;
+}
+.bttn-none{
+    border:#303036 solid 1px;
+    padding: 10.5px 24.5px;
+    color: #19191d;
+    border-radius: 6px ;
+}
+.bttn-none:hover{
+    color: blanchedalmond;
+    background-color: #070708;
+    transition: ease-out .3s all;
+    -webkit-transition: ease-out .3s all;
+    -moz-transition: ease-out .3s all;
+    -ms-transition: ease-out .3s all;
+    -o-transition: ease-out .3s all;
+}
+.button i {
+    margin-left: 5px;
+}
+.none{
+    padding: 10.5px 12px;
+}
+
+/* slider section end  */
