@@ -79,6 +79,9 @@ a:link{
     color: #303036;
     font-size: 1rem;
     padding: 25px 0px;
+    box-shadow: 0 0 0.8125rem 0 rgba(105, 98, 98, 0.8);
+    position: relative;
+    z-index: 100;
 }
 .meniu-bar{
     display: flex;
@@ -234,5 +237,4 @@ hr{
 .none{
     padding: 10.5px 12px;
 }
-
 /* slider section end  */
