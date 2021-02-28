@@ -2,7 +2,7 @@
 .container{
     width: 80%;
     margin: 0px auto;
-    padding: 5%  0;
+    padding: 3%  0;
 }
 /* setiri teyin etmek ucun lazim olan class */
 .row{
@@ -21,7 +21,6 @@
 }
 .col-4{
     width:calc(100%/12*4);
-    
 }
 .col-5{
     width: calc(100%/12*5);

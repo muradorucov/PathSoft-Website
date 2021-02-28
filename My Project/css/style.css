@@ -2,6 +2,9 @@ body{
     margin: 0px;
     font-family: 'Istok Web', sans-serif;
 }
+h1, h2, h3, h4{
+    font-family: Montserrat,sans-serif;
+}
 #hd{
     background-color:#303036 ;
     font-size: 16px;
@@ -355,7 +358,8 @@ hr{
 .bttn-row{
     display: flex;
     justify-content: center;
-    margin-top: 45px;
+    margin-top: 65px;
+    text-align: center;
 }
 .bttn-row .fas{
     font-size:14px;
@@ -414,6 +418,10 @@ hr{
     -o-border-radius: 10px;
     border:#adadb3 solid 1px;
     overflow: hidden;
+    -webkit-transition: ease-out .2s all;
+    -moz-transition: ease-out .2s all;
+    -ms-transition: ease-out .2s all;
+    -o-transition: ease-out .2s all;
 }
 .team-item:hover{
     box-shadow:  0 0 0.8125rem 0 rgb(196, 183, 183);
@@ -438,3 +446,60 @@ hr{
     
 }
 /* Team-info section end */
+/* Clients section start */
+.client-item{
+    height:100%;
+    padding: 18px 22px;
+    margin: 0 20px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border:#adadb3 solid 1px;
+    overflow: hidden;
+    transition: ease-out .2s all;
+    -webkit-transition: ease-out .2s all;
+    -moz-transition: ease-out .2s all;
+    -ms-transition: ease-out .2s all;
+    -o-transition: ease-out .2s all;
+}
+.client-item:hover{
+    box-shadow:  0 0 0.8125rem 0 rgb(196, 183, 183);
+    transition: ease-out .2s all;
+    -webkit-transition: ease-out .2s all;
+    -moz-transition: ease-out .2s all;
+    -ms-transition: ease-out .2s all;
+    -o-transition: ease-out .2s all;
+}
+.client-title{
+    display: flex;    
+}
+.client-name h4{
+    font-size: 18px;
+    margin: 0;
+}
+.client-name p{
+    margin: 0;
+    color: #63636b;
+    font-size: 14.2px;
+    padding-top: 6px;
+}
+.client-name{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.client-img img{
+    width:95%;
+}
+.client-info{
+    font-size: 14px;
+    padding-top: 12px;
+    color: #63636b;
+    line-height: 22px;
+}
+.client-info p{
+    margin: 0;
+}
+/* Clients section end  */
