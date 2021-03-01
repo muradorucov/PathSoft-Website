@@ -831,4 +831,33 @@ hr{
 .conditions:hover, .privacy:hover{
     border-bottom: solid #c6cdce 1px;
 }
+.company-contacts-form h4{
+     color: #fff;
+}
+.form-email{
+color: #c6cdce;
+ width: 185px;
+ height: 40px;
+ border: 1px #c6cdce solid;
+ padding: 0px 10px;
+ background-color: #303036;
+ margin-right: 10px;
+ border-radius: 6px;
+ -webkit-border-radius: 6px;
+ -moz-border-radius: 6px;
+ -ms-border-radius: 6px;
+ -o-border-radius: 6px;
+}
+.form-subscribe{
+color: white;
+width: 110px;
+height: 43px;
+border: 1px #917cddec solid;
+background: linear-gradient(to right,#568ad3 0,#0f58bd 100%);
+padding: 0px 0px;
+border-radius: 7px;
+}
+.form-subscribe:hover{
+    background: linear-gradient(to left,#568ad3 0,#0f58bd 100%);
+}
 /* footer Copyright end */
