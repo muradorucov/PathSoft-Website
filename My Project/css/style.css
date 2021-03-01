@@ -412,7 +412,6 @@ hr{
     margin: 0 15px;
     margin-bottom:45px;
     position: relative;
-    
     padding-bottom: 10px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -465,7 +464,6 @@ hr{
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
-    
 }
 .team-icon:hover .fab{
     
@@ -643,3 +641,194 @@ hr{
     text-align: center;
 }
 /* News section end */
+/* footer section start */
+#footer, #copyright{
+    border-bottom: solid 1px #72727c;
+    background-color: #303036;
+    width: 100%;
+    color: #fff;
+}
+.footer-item span{
+    color:white;
+}
+.company-sosial-media{
+    display: flex;
+    font-size: 18px;
+    color: white;
+    margin-top: 50px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    transition: all .1s;
+    -webkit-transition: all .1s;
+    -moz-transition: all .1s;
+    -ms-transition: all .1s;
+    -o-transition: all .1s;
+}
+.company-sosial-icon{
+    padding: 0px 1px;
+    padding-top: 6px;
+    text-align: center;
+    width:30px;
+    border: 1px solid #868691;;
+    background-color: #303036;
+    margin: 0px 4px;
+    transition: ease-out .1s all;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-transition: ease-out .1s all;
+    -moz-transition: ease-out .1s all;
+    -ms-transition: ease-out .1s all;
+    -o-transition: ease-out .1s all;
+}
+.company-sosial-icon:hover{
+    background-color:#ecf7f6;
+    border: 1px solid #ecf7f6;
+    color:#303036;
+    padding: 0px 1px;
+    padding-top: 6px;
+    width:30px;
+    margin: 0px 4px;
+    transition: ease-out .1s all;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-transition: ease-out .1s all;
+    -moz-transition: ease-out .1s all;
+    -ms-transition: ease-out .1s all;
+    -o-transition: ease-out .1s all;
+}
+.company-sosial-icon .fab{
+    color:white;
+}
+.company-sosial-icon:hover .fab{
+    color:#303036;;
+}
+.company-info {
+    padding-right: 100px;
+    font-size: 14px;
+    line-height: 25px;
+    color:#c6cdce;
+}
+.company-menu{
+    margin-right: 50px;
+}
+.company-menu h4, .company-contacts h4{
+    margin-top: 0px;
+}
+.turn {
+    font-size: 14px;
+    width:100% ;
+    height: 20px;
+    margin: 20px 0px;
+    overflow: hidden;
+    position: relative; 
+}
+.turnsecond{
+    font-size: 14px;
+    width:100% ;
+    height: 20px;
+    margin: 20px 0px;
+    overflow: hidden;
+    position: relative;
+}
+.turn1{
+    color:#c6cdce;
+    position: absolute;
+    top: 0px;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+.turn2{
+    color:#c6cdce;
+    position: absolute;
+    top: -20px;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+.turn:hover .turn1 {
+    top: 20px;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+.turn:hover .turn2 {
+    top: 0px;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+.turnsecond:hover .turn1{
+    top: 20px;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+.turnsecond:hover .turn2 {
+    top: 0px;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+.company-contacts-item{
+    color: #c6cdce;
+}
+.company{
+    margin: 20px 0px;
+}
+.location i{
+    margin-right: 8px;
+}
+.contacts i{
+    margin-right: 9px;
+}
+.phone1, .phone2{
+    color:#c6cdce;  
+}
+.phone1:hover , .phone2:hover, .company-mail span:hover{
+    border-bottom: #c6cdce 1px solid;
+}
+.company-mail span{
+    color:#c6cdce;
+}
+.company-mail i{
+    margin-right: 9px;
+}
+/* footer section end */
+/* footer Copyright start */
+.copyright-item{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color:#c6cdce
+}
+.conditions, .privacy{
+    margin-right: 8px;
+    color:#c6cdce;
+    border-bottom: dashed #c6cdce 1px;
+}
+.conditions:hover, .privacy:hover{
+    border-bottom: solid #c6cdce 1px;
+}
+/* footer Copyright end */
