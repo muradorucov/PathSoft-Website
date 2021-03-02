@@ -64,10 +64,14 @@ a:link{
 .callback{
     border-bottom: dashed 1px;
     margin-left:5px ;
+
 }
  .callback:hover{
     border-bottom: solid aliceblue 1px ;
 } 
+.call i{
+    font-size: 19px;
+}
 .call:hover .callback{
     border-bottom: 1px  solid aliceblue ;
 }
@@ -128,7 +132,7 @@ a:link{
     margin-left: 80%;
 }
 .contactus{
-    width: 90%;
+    width: 95%;
     margin-left: 60%;
 }
 .gallery{
@@ -886,7 +890,7 @@ hr{
 }
 .form-email{
 color: #c6cdce;
-width: 185px;
+width: 50%;
 height: 40px;
 border: 1px #c6cdce solid;
 padding: 0px 8px;
@@ -900,7 +904,7 @@ border-radius: 6px;
 }
 .form-subscribe{
 color: white;
-width: 110px;
+width: 30%;
 height: 43px;
 border: 1px #917cddec solid;
 background: linear-gradient(to right,#568ad3 0,#0f58bd 100%);
@@ -927,6 +931,8 @@ border-radius: 7px;
     border-bottom: solid #c6cdce 1px;
 }
 /* footer Copyright end */
+
+/* About.html sehifesinin css kodlari buradan baslayir */
 /*  crumbs section start  */
 #crumbs{
     background-color: #f0f4f8;
@@ -950,7 +956,7 @@ border-radius: 7px;
 .crumbs-about{
     color:#2c7ae7;
 }
-/*  crumbs section end  */
+/* crumbs section end  */
 /* more-info-about-us section start */
 .about-item{
     width: 99%;
