@@ -308,7 +308,8 @@ hr{
 }
 .services-item{
     margin: 0px 13px;
-    padding: 25px 10px;
+    margin-bottom: 26px;
+    padding: 25px 20px;
     border: 1px solid rgb(182, 182, 190);
     height: 100%;
     position: relative;
