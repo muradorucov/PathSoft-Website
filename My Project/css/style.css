@@ -1,89 +1,82 @@
 body{
-    margin: 0px;
+    padding:0;
+    margin: 0;
     font-family: 'Istok Web', sans-serif;
 }
 h1, h2, h3, h4{
     font-family: Montserrat,sans-serif;
 }
-#hd{
+/* header-contact-bar start */
+#header-contact-bar{
     width: 100%;
-    background-color:#303036 ;
-    background-size: cover;
+    background-color: #303036;
     font-size: 16px;
-    padding: 11px 0px;
-    color: rgba(255,255,255,.8); 
+    color: rgba(255,255,255,.8);
+    font-family: 'Istok Web', sans-serif;
 }
-.hd-container, .services{
+.contact{
+    padding: 0.5%  0;
+}
+.mail-and-phone, .social-media{
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content:  space-between; 
-    width: 75%;
-    margin: 0px auto; 
+    justify-content: space-around;
     align-items: center;
-
 }
-.hd-contact-info{
-    display: flex;
-}
-.info-phone{
-    margin: 0px 18px;
-}
-.mail{
-    margin-left:  8px;
-}
-.info-mail .fas{
-    color: aliceblue; 
-    font-size: 13px;
+.mail, .phone{
+    color: #dbdbe2;
+    transition: all .25s;
 }
 a:link{
     text-decoration: none;
 }
-.info-mail{
-    color:rgba(255,255,255,.8);
-}
-.info-mail:hover {
+.mail i{
+    font-size: 13px;
+    padding-right: 5px;
     color: aliceblue;
+    transition: all .25s;
 }
-.hd-social-media .fab{
-    margin-right: 20px;
-    color: rgba(255,255,255,.8);
-}
-.hd-social-media .fab:hover{
-    color:aliceblue;
-}
-.hd-social-media{
-    display: flex;
-}
-.call{
-    margin-left: 25px;
-    display: flex;
-    color:rgba(255,255,255,.8);
-}
-.call:hover{
+.mail:hover , .phone:hover{
     color: aliceblue;
+    transition: all .25s;
+}
+.sosial-media-icon i{
+    margin: 0px 8px;
+    color: #dbdbe2;
+    transition: all .25s;
+}
+.sosial-media-icon i:hover{
+    color: aliceblue;
+    transition: all .25s;
+}
+.ring i{
+    font-size: 15px;
+    padding-right: 4px;
+    color: #dbdbe2;
+    transition: all .25s;
 }
 .callback{
-    border-bottom: dashed 1px;
-    margin-left:5px ;
-
+    font-size: 15px;
+    color: #dbdbe2;
+    border-bottom: 1px dashed #dbdbe2;
+    transition: all .25s;
 }
- .callback:hover{
-    border-bottom: solid aliceblue 1px ;
-} 
-.call i{
-    font-size: 19px;
-}
-.call:hover .callback{
-    border-bottom: 1px  solid aliceblue ;
-}
-.info-phone a:link span{
-    color:rgba(255,255,255,.8)
-}
-.info-phone a:link span:hover{
+.ring:hover .callback{
     color:aliceblue;
+    border-bottom: 1px  solid aliceblue ;
+    transition: all .25s;
 }
-/* heared-bar end  */
+.ring:hover i{
+    color: aliceblue;
+    transition: all .25s;
+}
+.sosial-media-icon{
+    margin-left: 18%;
+}
+/* header-contact-bar end  */
 
-/* meniu-navbar start  */
+/* meniu-navbar start ( Müvəqqəti hazırladığım hissədir, yenidən düzəliş edəcəm)  */
 #nb{
     width: 100%;
     color: #303036;
@@ -575,7 +568,7 @@ hr{
 }
 .team-item h4{
     margin:0;
-    font-family: Montserrat,sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 .team-item p{
     color: #63636b;
@@ -788,7 +781,7 @@ hr{
     color:#c6cdce;
 }
 .company-menu{
-    margin-right: 50px;
+    margin-right: 25%;
 }
 .company-menu h4, .company-contacts h4{
     margin-top: 0px;
