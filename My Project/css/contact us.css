@@ -240,6 +240,7 @@ hr{
     color: #3b3b44;
 }
 .contact-info{
+    height: 83%;
     background-color: #f0f4f8;
     background-position: center;
     background-size: cover;
@@ -288,11 +289,10 @@ hr{
 }
 .contact-form{
     margin: 0 20px;
-    border: 1px dashed red;
     width: 100%;
 }
 .form{
-    width: 75%;
+    width: 80%;
     font-weight: 400;
     padding: 15px 10px;
     border-radius: .375rem;
@@ -302,7 +302,57 @@ hr{
 .form:focus{
     border: solid 1px #568ad3;
 }
+.form-text{
+    margin-top: 20px;
+}
+textarea{
+    width: 94%;
+    border: 1px solid #d4d4e1;
+    outline: 0;
+    font-weight: 400;
+    padding: 15px 10px;
+    border-radius: .375rem;
+}
+textarea:focus {
+    border: solid 1px #568ad3;
+}
+.bttn{
+    width: 200px;
+    background: linear-gradient(to right,#568ad3 0,#0f58bd 100%);
+    color:white;
+    padding: 10px 5px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px    ;
+    -moz-border-radius: 6px    ;
+    -ms-border-radius: 6px    ;
+    -o-border-radius: 6px    ;
+}
+.bttn:hover{
+    color: white;
+    background: linear-gradient(to left,#568ad3 0,#0f58bd 100%);
+    transition: ease-out .2s all;
+    -webkit-transition: ease-out .2s all;
+    -moz-transition: ease-out .2s all;
+    -ms-transition: ease-out .2s all;
+    -o-transition: ease-out .2s all;
+}
+.bttn-row{
+    display: flex;
+    margin-top: 15px;
+    text-align: center;
+}
+.bttn-row .fas{
+    font-size:14px;
+}
+.bttn span{
+    font-size: 14px;
+}
 /* contact-us section end */
+/*  map section start  */
+#map{
+    height: 500px;
+}
+/*  map section end */
 /* footer section start */
 #footer, #copyright{
     border-bottom: solid 1px #72727c;
@@ -485,6 +535,7 @@ hr{
     width: 50%;
     height: 40px;
     border: 1px #c6cdce solid;
+    outline: 0;
     padding: 0px 8px;
     background-color: #303036;
     margin-right: 10px;
@@ -494,7 +545,11 @@ hr{
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
 }
+.form-email:focus{
+    border: 1px #568ad3 solid;
+}
 .form-subscribe{
+    outline: 0;
     color: white;
     width: 30%;
     height: 43px;

@@ -925,6 +925,7 @@ hr{
     width: 50%;
     height: 40px;
     border: 1px #c6cdce solid;
+    outline: 0;
     padding: 0px 8px;
     background-color: #303036;
     margin-right: 10px;
@@ -934,7 +935,11 @@ hr{
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
 }
+.form-email:focus{
+    border: 1px #568ad3 solid;
+}
 .form-subscribe{
+    outline: 0;
     color: white;
     width: 30%;
     height: 43px;
