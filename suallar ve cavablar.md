@@ -15,4 +15,11 @@
 ## 2.Rəqəm və ədədlərin maşın dilinə tərcümə olunma prosesini bilirik. Bəs hərflər və simvollar necə tərcümə olunur?
  - Hərflər ve simvolları binary code-a tərcümə eləmək üçün UNİCODE sistemindən istifadə edilir. UNİCODE sistemində hərf və simvollar 16-lıq say sistemində 1 və 0 larla kodlaşdırılır. ASCİİ sistemində 256 simvol kodlaşdırıla bilirdik, amma, UNİCODE sisitemində 65536 simvol kodlaşdıra bilərik.
 ## 3.Günümüzdə istifadə olunan Js,PHP,Python və C# dillərində ortaq istifadə olunan data növləri hansılardır və qısaca izahatlarını yazın.
- - 
+ - Ortaq Data types:
+```
+    -  String - mətn tipli dəyişən
+    -  Number:
+            - int(integer) - tama ədələrdən ibarət olan dəyişən tipi 
+            - float - onluq ədədlərdən ibarət dəyişən tipi
+    -  Boolean -İki dəyərdən ibarət olan dəyişən tipi(true and false)
+``` 
