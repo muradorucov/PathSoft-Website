@@ -23,3 +23,21 @@
             - float - onluq ədədlərdən ibarət dəyişən tipi
     -  Boolean -İki dəyərdən ibarət olan dəyişən tipi(true and false)
 ``` 
+## 4.Type Conversion ya da Type Casting nədir? Hansı hallarda ehtiyac duyulur.
+ - Type Conversion ya da Type Casting:
+```
+   - Dəyişəni yeni bir dəyişənə və ya başqa bir məlumat növünə çevirə bmək deməkdir. Bunu iki cür etmək olar javascript funksiyalarından istifadə etməklə və ya avtomatik javascriptin özü tərəfindən. Məsələn, bele bir proqram yazaq: 
+   a=5//number
+   b=76//number
+   c=a+b=81//number (bu proqramdakı a və b dəyişənləri number tipində olduğuna görə c dəyişənin tipidə number olacaq), lakin bu proqramda ya,
+   a=5//number
+   b="76" //string
+   c=a+b="576"//string (bu proqramda isə a dəyişənin tipi number, b dəyişənin tipi isə stringdir(mətn tipli) , c dəyişənin tipi string olacaqdır, burada ki çevrilmə avtomatik javascript tərəfindən aparılır) və ya başqa bir proqram yazaq:
+   var b=6
+   b = Boolean(b);
+   document.write(b + " : " + typeof b);
+   bu proqramda ilk olaraq b-dəyişənin tipi number idi, sonra biz onun tipini boolean(true or false) olaraq dəyişdirdik.
+   - bu çevirmələ tipinə Conversion və ya Casting deyilir. 
+```
+## 5.Operator precedence nədir və əhəmiyyətini izah edin.
+ - 
