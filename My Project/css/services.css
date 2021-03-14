@@ -6,6 +6,13 @@ body{
 h1, h2, h3, h4{
     font-family: Montserrat,sans-serif;
 }
+.padding-top-bottom{
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+.padding-bottom{
+    padding-bottom: 50px;
+}
 /* header-contact-bar start */
 #header-contact-bar{
     width: 100%;
@@ -196,13 +203,15 @@ hr{
     background-color: #f0f4f8;
 }
 .crumbs-bread{
-    padding: 18px 0;
+    padding-top: 18px ;
+    padding-bottom: 18px ;
 }
 .crumbs-info{
     font-size: 14px;
 }
 .crumbs-home a{
     color: #63636b;
+    padding-left: 10px;
 } 
 .crumbs-home a:hover{
     text-decoration: underline;
@@ -223,7 +232,6 @@ hr{
     height: 100%;
 }
 .services-item{
-    margin: 0px 13px;
     margin-bottom: 26px;
     padding: 25px 20px;
     border: 1px solid rgb(182, 182, 190);
@@ -392,6 +400,7 @@ hr{
     width: 100%;
     color: #fff;
 }
+
 .footer-item span{
     color:white;
 }
@@ -456,13 +465,15 @@ hr{
     color:#303036;;
 }
 .company-info {
-    padding-right: 100px;
     font-size: 14px;
     line-height: 25px;
     color:#c6cdce;
 }
-.company-menu{
+/* .company-menu{
     margin-right: 25%;
+} */
+.company-contacts-item{
+    font-size: 14px;
 }
 .company-menu h4, .company-contacts h4{
     margin-top: 0px;
@@ -564,7 +575,7 @@ hr{
 }
 .form-email{
     color: #c6cdce;
-    width: 50%;
+    width: 70%;
     height: 40px;
     border: 1px #c6cdce solid;
     padding: 0px 8px;
@@ -575,16 +586,21 @@ hr{
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
+    outline: 0;
+}
+.form-email:focus{
+    border: solid 1px #568ad3;
 }
 .form-subscribe{
     color: white;
-    width: 30%;
+    width: 25%;
     height: 43px;
     border: 1px #917cddec solid;
     background: linear-gradient(to right,#568ad3 0,#0f58bd 100%);
     padding: 0px 0px;
-    border-radius: 7px;
+    border-radius: 5px;
     cursor:pointer;
+    outline: 0;
 }
 .form-subscribe:hover{
    background: linear-gradient(to left,#568ad3 0,#0f58bd 100%);
@@ -593,8 +609,8 @@ hr{
 /* footer Copyright start */
 .copyright-item{
     display: flex;
-    justify-content: space-between;
-    font-size: 14px;
+    justify-content: flex-start;
+    font-size: 13px;
     color:#c6cdce
 }
 .conditions, .privacy{
