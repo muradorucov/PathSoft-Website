@@ -76,118 +76,98 @@ a:link{
 }
 /* header-contact-bar end  */
 
-/* meniu-navbar start ( Müvəqqəti hazırladığım hissədir, yenidən düzəliş edəcəm)  */
-#nb{
-    width: 100%;
-    color: #303036;
-    font-size: 1rem;
-    padding: 25px 0px;
-    box-shadow: 0 0 0.3125rem 0 rgba(105, 98, 98, 0.8);
-    position: relative;
-    z-index: 100;
+/* meniu-navbar start  */
+#meniu-bar{
+    box-sizing: border-box;
+    box-shadow: 0.125rem 0.25rem 1.25rem 0.0875rem rgb(45 45 45 / 13%);
+    font-family: "Istok Web",sans-serif;
+    background-color: #fff;
+    height: 75px;
 }
-.meniu-bar{
+.meniu-nav{
+    width: 76%;
+    margin:0 auto;
+    padding: 20px 0;
     display: flex;
+    justify-content: space-between;
 }
+.meniu-nav ul>li{
+    text-decoration: none;
+    padding: 0 15px;
+    padding-bottom: 20px;
+}
+.meniu-item{
+    font-size: 14px;
+    height: 35px;
+    color: #212222;
+}
+.meniu-item a:link{
+    color: #212222;
+    text-decoration: none;
+}
+
+.icon{
+    font-size: 18px;
+    vertical-align:middle;
+    color: #2c7ae7;
+}
+.meniu-nav ul{
+    padding: 0;
+    margin: 0;
+    float: right;
+    list-style: none;
+    position: relative;
+    top: 10px;
+    z-index: 3;
+}
+.meniu-nav ul{
+    cursor:context-menu;
+}
+.meniu-nav ul  li{
+    float: left;
+}
+.meniu-nav ul  li:hover>ul{
+    opacity: 1;
+    visibility: visible;
+    top: 40px;
+}
+.meniu-nav ul >li>ul{
+    padding-top: 15px;
+}
+.meniu-nav ul ul{
+    position: absolute;
+    top: 50px;
+    background-color: #fff;
+    box-shadow: 0.125rem 0.25rem 1.25rem 0.0875rem rgb(45 45 45 / 13%);
+    opacity: 0;
+    visibility: hidden;
+    transition: top .3s;
+    -webkit-transition: top .3s;
+    -moz-transition: top .3s;
+    -ms-transition: top .3s;
+    -o-transition: top .3s;
+}
+.meniu-nav ul ul li{
+    position: relative;
+    margin: 0;
+    width: 170px;
+    padding: 0 0;
+    padding-left: 20px;
+    height:35px;
+    float: none;
+    display: list-item;
+}
+
 .logo img{
     vertical-align:middle;
 }
 .logo span{
     font-size: 1.125rem;
     color:#303036;
+    text-decoration: none;
 }
 .logo{
     align-items: center;  
-}
-.menu-top-bar{
-    padding: 0px;
-}
-.menu-bar{
-    align-items: center;
-    width:80% ;
-    height: 20px;
-    font-size: 14px;
-    margin:7px 5px;
-    overflow: hidden;
-    position: relative;
-
-}
-.menu-bar i{
-    margin-left: 4px;
-    color:#2c7ae7;
-}
-.home, .pages {
-    width:65%;
-    margin-left: 75%;
-}
-.blog{
-    width: 55%;
-    margin-left: 80%;
-}
-.contactus{
-    width: 95%;
-    margin-left: 60%;
-}
-.gallery{
-    width: 70%;
-    margin-left: 60%;
-}
-.services{
-    margin-left: 70%;
-}
-.aboutus{
-    margin-left: 65%;
-}
-.en{
-    width: 26%;
-    margin-left: 90%;
-}
-.search{
-    width: 30%;
-    margin-left: 38px;
-    margin-right: 0px;
-}
-.menu-bar-search{
-   margin-left: 0; 
-}
-.menu-bar-search i{
-    color:#303036;
-    transition: all .3s ease;
-}
-.menu-bar-search:hover i{
-    color:#2c7ae7;
-    transition: all .3s ease;
-}
-.menu-bar-link1{
-    color:#212222;
-    position: absolute;
-    top: 0px;
-    transition: all .3s ease;
-}
-.menu-bar-link2{
-    color:#2c7ae7;
-    position: absolute;
-    top: -20px;
-    transition: all .3s ease;
-}
-.menu-bar:hover .menu-bar-link1 {
-    top: 20px;
-    transition: all .3s ease;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-}
-.menu-bar:hover .menu-bar-link2 {
-    top: 0px;
-    transition: all .3s ease;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-}
-hr{
-    margin: 0px;
 }
 /* meniu-navbar end  */
 /*  crumbs section start  */
