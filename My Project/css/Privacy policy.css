@@ -200,22 +200,13 @@ a:link{
     margin-bottom: 56px;
     text-align: center;
 }
-.section-heading p{
-    padding-top: 8px;
-    font-size: 14px;
-    color: #63636b;
-    line-height: 24px;
-}
- .section-heading-span{
-    font-size: 1rem;
-    color: #2c7ae7;
- }
+
  .section-heading-h2{
     font-weight: 700;
     font-size: 2.5rem;
     margin: 0px;
     margin-top: 10px;
-    font-family: Montserrat,sans-serif;
+    font-family: "Istok Web",sans-serif;
     color: #3b3b44;
  }
  /* section-heading end */
