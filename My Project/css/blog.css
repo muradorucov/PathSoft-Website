@@ -107,7 +107,7 @@ a:link{
     display: flex;
     justify-content: space-between;
 }
-.meniu-nav ul>li{
+.meniu-item ul>li{
     text-decoration: none;
     padding-bottom: 20px;
     padding-left: 1.9rem;
@@ -127,7 +127,7 @@ a:link{
     vertical-align:middle;
     color: #2c7ae7;
 }
-.meniu-nav ul{
+.meniu-item >ul{
     padding: 0;
     margin: 0;
     float: right;
@@ -136,40 +136,39 @@ a:link{
     top: 10px;
     z-index: 3;
 }
-.meniu-nav ul{
+.meniu-item>ul{
     cursor:context-menu;
 }
-.meniu-nav ul  li{
+.meniu-nav ul>li{
     float: left;
     
 }
-.meniu-nav ul  li:hover>ul{
+.meniu-nav ul>li:hover>ul{
     opacity: 1;
     visibility: visible;
     top: 40px;
 }
-.meniu-nav ul >li>ul{
+.meniu-nav ul li>ul{
     padding-top: 15px;
 }
 
 .meniu-nav ul ul{
+    width: 200px;
     position: absolute;
     top: 50px;
+    padding: 0;
+    list-style: none;
     background-color: #fff;
     box-shadow: 0.125rem 0.25rem 1.25rem 0.0875rem rgb(45 45 45 / 13%);
     opacity: 0;
     visibility: hidden;
     transition: top .3s;
-    -webkit-transition: top .3s;
-    -moz-transition: top .3s;
-    -ms-transition: top .3s;
-    -o-transition: top .3s;
 }
 
 .meniu-nav ul ul li{
     position: relative;
     margin: 0;
-    width: 150px;
+    
     padding: 0 1.5625rem;
     height:35px;
     float: none;
