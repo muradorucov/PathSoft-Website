@@ -230,6 +230,18 @@ a:link{
     color: #2c7ae7;
     transition: all .2s;
 }
+.mnu-label {
+    font-size: .5rem;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 1px 3px;
+    background-color: #ff3d0d;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-weight: 600;
+    z-index: 1;
+}
 /* meniu-navbar end  */
 
 /* slider section start  */
