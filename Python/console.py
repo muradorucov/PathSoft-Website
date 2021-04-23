@@ -26,7 +26,7 @@ while True:
         print("Hesen")
     elif console == 6:
         print("Obama")
-    elif console == 7:
+    elif console == 0:
         print(" ")
     else:
         print("Uğursuz əməliyyat!")
