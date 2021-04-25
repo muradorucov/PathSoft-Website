@@ -1,5 +1,5 @@
-n=210
-if n==1:
+n=23
+if n%2==1 :
     print("Weird")
 elif n>=2 and n<=5 :
     print("Not Weird")
