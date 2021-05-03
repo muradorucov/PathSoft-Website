@@ -1,0 +1,10 @@
+{% extends 'layout.html' %} {% block content %}
+<h3 class="my-2">Yeni istifadəçilər</h3>
+<form action="/add" method='POST'>
+    <input type="text" class="form-control my-2" name='f_name' placeholder="Your Name">
+    <input type="text" class="form-control my-2" name='l_name' placeholder="Surname">
+    <input type="email" class="form-control my-2" name='email' placeholder="Enter your email" >
+    <input type="date" class="form-control my-2" name='birthday' placeholder="Birthday" >
+    <input type="submit" class="btn btn-primary px-2" value='Gonder'>
+</form>
+{% endblock %}
