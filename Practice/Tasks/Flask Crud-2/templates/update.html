@@ -3,8 +3,6 @@
 <form action="/update/{{user.id}}" method='POST'>
     <input type="text" class="form-control my-2" name='f_name' placeholder="Your Name" value="{{user.f_name}}">
     <input type="text" class="form-control my-2" name='l_name' placeholder="Surname" value="{{user.l_name}}">
-    <input type="email" class="form-control my-2" name='email' placeholder="Enter your email" value="{{user.email}}">
-    <input type="date" class="form-control my-2" name='birthday' placeholder="Birthday" value="{{user.email}}">
     <input type="submit" class="btn btn-primary px-2" value='UPDATE'>
 </form>
 {% endblock %}

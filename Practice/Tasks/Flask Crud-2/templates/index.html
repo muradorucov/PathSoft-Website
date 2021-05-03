@@ -6,8 +6,6 @@
             <th>Id</th>
             <th>Name</th>
             <th>Surname</th>
-            <th>E-mail</th>
-            <th>Birthday</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -17,8 +15,6 @@
                 <td scope="row">{{user.id}}</td>
                 <td>{{user.f_name}}</td>
                 <td>{{user.l_name}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.birthday}}</td>
                 <td>
                     <a href="/delete/{{user.id}}"><i class="bi bi-trash-fill"></i></a>
                     <a href="/update/{{user.id}}"><i class="bi bi-pencil-square"></i></a>
