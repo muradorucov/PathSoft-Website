@@ -1,0 +1,14 @@
+{% extends 'layout.html' %} {% block content %}
+<h3 class="my-2">Istifadəçi məlumatları</h3>
+<div class="card" style="width: 20rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{user.f_name}}</h5>
+        <p class="card-text">{{user.l_name}}</p>
+        <p class="card-text">{{user.username}}</p>
+        <p class="card-text">{{user.e_mail}}</p>
+        <p class="card-text">{{user.adress}}</p>
+        <p class="card-text">{{user.adress_2}}</p>
+        <a href="/" class="btn btn-primary">Bütün İstifadəçilər</a>
+    </div>
+</div>
+{% endblock %}

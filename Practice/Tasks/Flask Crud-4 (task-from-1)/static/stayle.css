@@ -1,0 +1,22 @@
+body {
+  background-color: #f8f9fa !important;
+}
+.container {
+  max-width: 960px  !important;
+}
+.title {
+  padding: 48px 0px;
+}
+.title h2,
+.title p {
+  text-align: center !important;
+}
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding:0 20px;
+}
