@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}{% block content %}
+<h3 class="my-2">Bütün Xeberler</h3>
+<div class="container">
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-4">
+                <div class="card " style="width: 100; height:450px">
+                    <img class="card-img-top" src="/static/uploads/{{post.p_img}}" alt="Card image cap" style="object-fit:cover; height:230px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{post.p_title}}</h5>
+                        <a href="/detail/{{post.id}}" class="btn btn-primary">Xəbərə Bax</a>
+                        <a href="/update/{{post.id}}"><i class="bi bi-pencil-square"></i></a>
+                        <a href="/delete/{{post.id}}"><i class="bi bi-trash-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
