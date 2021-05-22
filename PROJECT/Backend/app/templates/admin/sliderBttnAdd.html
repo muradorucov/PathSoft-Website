@@ -1,0 +1,54 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<h3 class="my-3" style="text-align: center;">Slider Button Add</h3>
+<hr>
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <form action="/admin/sliderBttnAdd" method='POST'>
+                <input type="text" class="form-control my-2" name='sliderurl_title' placeholder="Enter: Slider Button title">
+                <input type="text" class="form-control my-2" name='sliderurl_icon' placeholder="Enter: Slider Button Icon class">
+                <input type="text" class="form-control my-2" name='sliderurl_url' placeholder="Enter: Slider Button Url">
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Slider Button'>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <!-- =====Slider Url Start==== -->
+            <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                <thead>
+                    <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                        <th scope="col">id</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Icon</th>
+                        <th scope="col">Url</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sliderbttn in sliderbttns %}
+                    <tr>
+                        <td scope="row">{{sliderbttn.id}}</td>
+                        <td>{{sliderbttn.sliderurl_title}}</td>
+                        <td>{{sliderbttn.sliderurl_icon}}</td>
+                        <td>{{sliderbttn.sliderurl_url}}</td>
+                        <td>
+                            <a href="/admin/sliderBttnDelete/{{sliderbttn.id}}"><i class="bi bi-trash-fill"></i></a>
+                            <a href="/admin/sliderBttnUpdate/{{sliderbttn.id}}"><i class="bi bi-pencil-square"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- =====Slider Url End==== -->
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -30,6 +30,7 @@ def add():
         db.session.add(user)
         db.session.commit()
         return redirect('/')
+    
     return render_template('add.html')
 
 @app.route("/delete/<id>", methods=['GET','POST'])

@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<h3 class="my-3" style="text-align: center;">Reason Item Update</h3>
+<hr>
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9">
+            <form action="/admin/reasonItemUpdate/{{reasonitem.id}}" method='POST'>
+                <input type="text" class="form-control my-2" name='reasonitem_number' value="{{reasonitem.reasonitem_number}}" placeholder="Enter: Number ">
+                <input type="text" class="form-control my-2" name='reasonitem_title' value="{{reasonitem.reasonitem_title}}" placeholder="Enter: Title">
+                <input type="text" class="form-control my-2" name='reasonitem_text' value="{{reasonitem.reasonitem_text}}" placeholder="Enter: Text">
+                <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update Reason Item'>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<h3 class="my-3" style="text-align: center;">Header Contact Info Upadte</h3>
+<hr>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-9 marg">
+            <form action="/admin/hcContactUpdate/{{header_contact.id}}" method='POST'>
+                <input type="text" class="form-control my-2" name='hc_content' placeholder="Enter: Contact Content"
+                    value="{{header_contact.hc_content}}">
+                <input type="text" class="form-control my-2" name='hc_icon_class' placeholder="Enter: Icon Class"
+                    value="{{header_contact.hc_icon_class}}">
+                <input type="text" class="form-control my-2" name='hc_url' placeholder="Enter: Url"
+                    value="{{header_contact.hc_url}}">
+                <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update Contact info'>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container marg">
+    <div class="row d-flex justify-content-center">
+        <div class="col-7 ">
+            <div class="exam">
+                <h2>Url Example</h2>
+
+                <div class="row-url">
+                    <div>
+                        E-Mail
+                    </div>
+                    <div>
+                        mailto:jonkerry@mail.com
+                    </div>
+                </div>
+                <div class="row-url">
+                    <div>
+                        Telephone Number
+                    </div>
+                    <div>
+                        tel:+4537751425
+                    </div>
+                </div>
+                <div class="row-url">
+                    <div>
+                        Link
+                    </div>
+                    <div>
+                        http://tempate.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

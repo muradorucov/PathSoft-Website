@@ -1,6 +1,7 @@
 from flask import Flask,redirect,url_for,render_template,request
 from flask_sqlalchemy import SQLAlchemy
 import os
+import random
 
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -11,7 +12,6 @@ db = SQLAlchemy(app)
 class Post(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     p_title=db.Column(db.String(100))
-    p_content=db.Column(db.Text)
     p_img=db.Column(db.String(100))
     p_date=db.Column(db.String(100))
 
@@ -29,9 +29,8 @@ def add():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'],file_name))
         post=Post(
             p_title=request.form['p_title'],
-            p_content=request.form['p_content'],
-            p_img=file_name,
-            p_date=request.form['p_date']
+            p_date=request.form['p_date'],
+            p_img=file_name
         )
         db.session.add(post)
         db.session.commit()
@@ -53,12 +52,10 @@ def update(id):
         file=request.files['p_img']
         file_name=file.filename
         file.save(os.path.join(app.config['UPLOAD_FOLDER'],file_name))
-        post=Post(
-            p_title=request.form['p_title'],
-            p_content=request.form['p_content'],
-            p_img=file_name,
-            p_date=request.form['p_date']
-        )
+        post.p_title=request.form['p_title']
+        post.p_date=request.form['p_date']
+        post.p_img=file_name
+        db.session.commit()
         return redirect('/')
     return render_template('update.html', post=post)
 

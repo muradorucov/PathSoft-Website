@@ -1,0 +1,25 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<h3 class="my-3" style="text-align: center;">Meniu bar Update</h3>
+<hr>
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <form action="/admin/meniuNameUpdate/{{meniu_name.id}}" method='POST'>
+                <input type="text" class="form-control my-2" name='meniu_title' value='{{meniu_name.meniu_title}}'
+                    placeholder="Enter: Meniu Title">
+                <input type="text" class="form-control my-2" name='meniu_url' value='{{meniu_name.meniu_url}}'
+                    placeholder="Enter: Url">
+                <input type="text" class="form-control my-2" name='meniu_icon' value='{{meniu_name.meniu_icon}}'
+                    placeholder="Enter: Icon Css Class">
+                <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update Meniu Name'>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

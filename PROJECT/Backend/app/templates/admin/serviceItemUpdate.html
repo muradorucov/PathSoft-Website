@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+{% block content %}
+
+<h3 class="my-3" style="text-align: center;">Service Item Update</h3>
+<hr>
+
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <form action="/admin/serviceItemUpdate/{{serviceitem.id}}" method='POST'>
+                <input type="text" class="form-control my-2" name='servitem_title'
+                    placeholder="Enter: Service Item Title " value="{{serviceitem.servitem_title}}">
+                <input type="text" class="form-control my-2" name='servitem_text'
+                    value="{{serviceitem.servitem_text}}" placeholder="Enter: Service Item text">
+                <input type="text" class="form-control my-2" name='servitem_icon'
+                    value="{{serviceitem.servitem_icon}}" placeholder="Enter: Service Item Icon name">
+                <input type="text" class="form-control my-2" name='servitem_url' value="{{serviceitem.servitem_url}}"
+                    placeholder="Enter: Service Item Link">
+                <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update Service Item'>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

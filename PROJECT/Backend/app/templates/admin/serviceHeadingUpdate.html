@@ -1,0 +1,24 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<h3 class="my-3" style="text-align: center;">Service Heading Update</h3>
+<hr>
+
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <form action="/admin/serviceHeadingUpdate/{{serviceheading.id}}" method='POST'>
+                <input type="text" class="form-control my-2" name='service_subheading'
+                     placeholder="Enter: Service SubHeading" value="{{serviceheading.service_subheading}}">
+                <input type="text" class="form-control my-2" name='service_title' value="{{serviceheading.service_title}}"
+                    placeholder="Enter: Service Heading">
+                <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update Services Heading'>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

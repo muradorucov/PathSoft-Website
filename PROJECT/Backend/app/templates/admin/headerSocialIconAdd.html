@@ -1,0 +1,56 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<h3 class="my-3" style="text-align: center;">Header Social Icon Add</h3>
+<hr>
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <form action="/admin/headerSocialIconAdd" method='POST'>
+                <input type="text" class="form-control my-2" name='hsi_name' placeholder="Enter: Icon name">
+                <input type="text" class="form-control my-2" name='hsi_css_class' placeholder="Enter: Icon Class">
+                <input type="text" class="form-control my-2" name='hsi_url' placeholder="Enter: Url">
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Social Icon'>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <!-- =====Header Social Icon Start==== -->
+            <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                <thead>
+                    <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                        <th scope="col">id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Icon-Class</th>
+                        <th scope="col">Url</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for headersocial_icon in headersocial_icons %}
+                    <tr>
+                        <td scope="row">{{headersocial_icon.id}}</td>
+                        <td>{{headersocial_icon.hsi_name}}</td>
+                        <td>{{headersocial_icon.hsi_css_class}}</td>
+                        <td>{{headersocial_icon.hsi_url}}</td>
+                        <td>
+                            <a href="/admin/headerSocialIconDelete/{{headersocial_icon.id}}"><i class="bi bi-trash-fill"></i></a>
+                            <a href="/admin/headerSocialIconUpdate/{{headersocial_icon.id}}"><i class="bi bi-pencil-square"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- =====Header Social Icon End==== -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}

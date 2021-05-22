@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<h3 class="my-3" style="text-align: center;">Service Button Add</h3>
+<hr>
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <form action="/admin/serviceBttnUpdate/{{servicebttn.id}}" method='POST'>
+                <input type="text" class="form-control my-2" name='servbttn_title' value="{{servicebttn.servbttn_title}}" placeholder="Enter: Service Button Title">
+                <input type="text" class="form-control my-2" name='servbttn_icon' value="{{servicebttn.servbttn_icon}}" placeholder="Enter: Service Button Icon">
+                <input type="text" class="form-control my-2" name='servbttn_url' value="{{servicebttn.servbttn_url}}" placeholder="Enter: Service Button Link">
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Service Button'>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

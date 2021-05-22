@@ -1,0 +1,662 @@
+{% extends "main/base.html" %}{% block contentmain %}
+
+
+<!-- ==== Slider Section start=== -->
+<div id="carouselExampleIndicators" class="carousel  slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active bcricle"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" class="bcricle"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="bcricle"></li>
+    </ol>
+    <div class="col-3 button">
+        {% for sliderbttn in sliderbttns %}
+        <a href="{{sliderbttn.sliderurl_url}}">
+            <div class="bttn-blue"><span>{{sliderbttn.sliderurl_title}}</span><i
+                    class="material-icons">{{sliderbttn.sliderurl_icon}}</i></div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner ">
+        <div class="carousel-item  active ">
+            <img src="static/uploads/538727.jpg" alt="intro_img1">
+            <div class="carousel-caption d-none d-md-block textposition">
+                <h1>IT Solution for Your Business</h1>
+                <p>The template you will be able to create a site for your business. The template has many different
+                    blocks from which you
+                    can create your own unique site.</p>
+            </div>
+        </div>
+        {% for slider in sliders %}
+        <div class="carousel-item  ">
+            <img src="static/uploads/{{slider.slider_img}}" alt="{{slider.slider_alt}}">
+            <div class="carousel-caption d-none d-md-block textposition">
+                <h1>{{slider.slider_title}}</h1>
+                <p>{{slider.slider_text}}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+</div>
+<!-- ==== Slider Section End=== -->
+
+
+<!-- section Services start -->
+<section id="services-bar" class="section-padding">
+    <div class="container width">
+        <div class="row">
+            <div class="col-12 ">
+                {% for serviceheading in serviceheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{serviceheading.service_subheading}}</span>
+                    <h2 class="section-heading-h2">{{serviceheading.service_title}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for serviceitem in serviceitems %}
+            <div class="col-4 services-box">
+                <a href="{{serviceitem.servitem_url}}" class="service-style">
+                    <div class="services-item">
+                        <div class="overlay"></div>
+                        <i
+                            class=" services-icon material-icons material-icons-outlined md-icon1">{{serviceitem.servitem_icon}}</i>
+                        <div class="services-info">
+                            <i
+                                class=" services-icon-main material-icons material-icons-outlined md-icon1">{{serviceitem.servitem_icon}}</i>
+                            <h2 class="section-item-h2">{{serviceitem.servitem_title}}</h2>
+                            <p class="section-title">{{serviceitem.servitem_text}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+
+
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                {% for servicebttn in servicebttns %}
+                <div class="bttn-row">
+                    <a href="{{servicebttn.servbttn_url}}">
+                        <div class="bttn">
+                            <span>{{servicebttn.servbttn_title}}</span>
+                            <i class="material-icons"> {{servicebttn.servbttn_icon}}</i>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section Services end -->
+
+
+<!-- Reasons section start -->
+<section id="reasons" class="section-padding">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12">
+                {% for reasonheading in reasonheadings %}
+                <div class="section-heading">
+                    <span class="section-heading-span">{{reasonheading.reason_subheading}}</span>
+                    <h2 class="section-heading-h2">{{reasonheading.reason_title}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for reasonitem in reasonitems %}
+            <div class="col-4 col-margin">
+                <div class="reasons-item">
+                    <div class="reasons-item-number"><span>{{reasonitem.reasonitem_number}}</span></div>
+                    <div class="reasons-item-info">
+                        <h4>{{reasonitem.reasonitem_title}}</h4>
+                        <p>{{reasonitem.reasonitem_text}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- Reasons section end -->
+
+
+<!-- Counter section start -->
+<section class="counter">
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <div class="main-counter">
+                    <div class="main-counter-item">
+                        <div class="main-counter-item-center">
+                            <div>
+                                <div class="main-counter-numb" data-from="0" data-to="10">10</div>
+                                <div class="main-counter-title">Years Of Experience</div>
+                            </div>
+                        </div>
+                        <div class="main-counter-item-circ"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 ">
+                <div class="section-margin-second">
+                    <div class="">
+                        <div class="counter-item-numb"><span class="" data-from="0" data-to="2"
+                                style="opacity: 1;">2</span>K</div>
+                        <h4 class="counter-item-title">Аpps Developed</h4>
+                    </div>
+                    <div class="">
+                        <div class="counter-item-numb " data-from="0" data-to="40" style="opacity: 1;">40
+                        </div>
+                        <h4 class="counter-item-title">Consultans</h4>
+                    </div>
+                    <div class="">
+                        <div class="counter-item-numb " data-from="0" data-to="160" style="opacity: 1;">160
+                        </div>
+                        <h4 class="counter-item-title">Employers</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Counter section end -->
+
+
+<!-- Project Section start -->
+<section id="project" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <span class="section-heading-span">OUR WORKS</span>
+                    <h2 class="section-heading-h2">Latest Projects</h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <ul class="project-meniu">
+                    <li>
+                        <a href="#" class="menu-list-to " data-title="ALL">
+                            <span data-title="ALL"> ALL</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-list-to " data-title="MOBILE APPS">
+                            <span data-title="MOBILE APPS"> MOBILE APPS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-list-to " data-title="CUSTOM SOFTWARE">
+                            <span data-title="CUSTOM SOFTWARE"> CUSTOM SOFTWARE</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-list-to" data-title="QA & TESTING">
+                            <span data-title="QA & TESTING"> QA & TESTING</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="menu-list-to " data-title="UX AND DESIGN">
+                            <span data-title="UX AND DESIGN"> UX AND DESIGN</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row project-height justify-content-center">
+            <div class="col-4 col-margin project-box">
+                <div class="project-item">
+                    <div class="project-item-card front">
+                        <img src="/static/uploads/1.jpg" alt="">
+                    </div>
+                    <div class="project-item-card back">
+                        <div class="project-item-card-center">
+                            <h5 class="project-item-title">MPlanner</h5>
+                            <div class="project-item-desc">
+                                <p>We work hard on every app to deliver top-notch features with great UI that you
+                                    won’t find
+                                    anywhere else.</p>
+                            </div>
+                            <div class="wrapp-btn-circl-arrow justify-content-center">
+                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
+                                    <i class="material-icons"> east</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-margin project-box">
+                <div class="project-item">
+                    <div class="project-item-card front">
+                        <img src="/static/uploads/2.jpg" alt="">
+                    </div>
+                    <div class="project-item-card back">
+                        <div class="project-item-card-center">
+                            <h5 class="project-item-title">WeatherNow</h5>
+                            <div class="project-item-desc">
+                                <p>We work hard on every app to deliver top-notch features with great UI that you
+                                    won’t find
+                                    anywhere else.</p>
+                            </div>
+                            <div class="wrapp-btn-circl-arrow justify-content-center">
+                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
+                                    <i class="material-icons"> east</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-margin project-box">
+                <div class="project-item">
+                    <div class="project-item-card front">
+                        <img src="/static/uploads/3.jpg" alt="">
+                    </div>
+                    <div class="project-item-card back">
+                        <div class="project-item-card-center">
+                            <h5 class="project-item-title">Langer Messenger</h5>
+                            <div class="project-item-desc">
+                                <p>We work hard on every app to deliver top-notch features with great UI that you
+                                    won’t find anywhere else.</p>
+                            </div>
+                            <div class="wrapp-btn-circl-arrow justify-content-center">
+                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
+                                    <i class="material-icons"> east</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-margin project-box">
+                <div class="project-item">
+                    <div class="project-item-card front">
+                        <img src="/static/uploads/4.jpg" alt="">
+                    </div>
+                    <div class="project-item-card back">
+                        <div class="project-item-card-center">
+                            <h5 class="project-item-title">Mobile Finance</h5>
+                            <div class="project-item-desc">
+                                <p>We work hard on every app to deliver top-notch features with great UI that you
+                                    won’t find
+                                    anywhere else.</p>
+                            </div>
+                            <div class="wrapp-btn-circl-arrow justify-content-center">
+                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
+                                    <i class="material-icons"> east</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-margin project-box">
+                <div class="project-item">
+                    <div class="project-item-card front">
+                        <img src="/static/uploads/5.jpg" alt="">
+                    </div>
+                    <div class="project-item-card back">
+                        <div class="project-item-card-center">
+                            <h5 class="project-item-title">RaptCash</h5>
+                            <div class="project-item-desc">
+                                <p>We work hard on every app to deliver top-notch features with great UI that you
+                                    won’t find
+                                    anywhere else.</p>
+                            </div>
+                            <div class="wrapp-btn-circl-arrow justify-content-center">
+                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
+                                    <i class="material-icons"> east</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 col-margin project-box">
+                <div class="project-item">
+                    <div class="project-item-card front">
+                        <img src="/static/uploads/6.jpg" alt="">
+                    </div>
+                    <div class="project-item-card back">
+                        <div class="project-item-card-center">
+                            <h5 class="project-item-title">Search by photo</h5>
+                            <div class="project-item-desc">
+                                <p>We work hard on every app to deliver top-notch features with great UI that you
+                                    won’t find
+                                    anywhere else.</p>
+                            </div>
+                            <div class="wrapp-btn-circl-arrow justify-content-center">
+                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
+                                    <i class="material-icons"> east</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="bttn-row">
+                    <a href="/">
+                        <div class="bttn">
+                            <span>See All Projects</span>
+                            <i class="material-icons"> east</i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Project Section end-->
+
+<!-- Team-info section start -->
+<section id="teaminfo" class="section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-heading">
+                    <span class="section-heading-span">WHO WE ARE</span>
+                    <h2 class="section-heading-h2">
+                        Meet The Team</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-3 team-box">
+                <div class="team-item">
+                    <div class="team-img"><img src="/static/uploads/team-img-1.jpg" alt=""></div>
+                    <div class="team-con">
+                        <ul class="team-social-media">
+                            <li>
+                                <a href="#!" title="Facebook"><i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="Instagram"><i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="LinkedIn"><i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="Twitter"><i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="team-info-title">
+                            <h4>Mary Lee</h4>
+                            <p>Software Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 team-box">
+                <div class="team-item">
+                    <div class="team-img"><img src="/static/uploads/team-img-2.jpg" alt=""></div>
+                    <div class="team-con">
+                        <ul class="team-social-media">
+                            <li>
+                                <a href="#!" title="Facebook"><i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="Instagram"><i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="LinkedIn"><i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="Twitter"><i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="team-info-title">
+                            <h4>Ryan Wilson</h4>
+                            <p>CEO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 team-box">
+                <div class="team-item">
+                    <div class="team-img"><img src="/static/uploads/team-img-3.jpg" alt=""></div>
+                    <div class="team-con">
+                        <ul class="team-social-media">
+                            <li>
+                                <a href="#!" title="Facebook"><i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="Instagram"><i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="LinkedIn"><i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="Twitter"><i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="team-info-title">
+                            <h4>Sam Robinson</h4>
+                            <p>Senior Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 team-box">
+                <div class="team-item">
+                    <div class="team-img"><img src="/static/uploads/team-img-4.jpg" alt=""></div>
+                    <div class="team-con">
+                        <ul class="team-social-media">
+                            <li>
+                                <a href="#!" title="Facebook"><i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="Instagram"><i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="LinkedIn"><i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" title="Twitter"><i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="team-info-title">
+                            <h4>Jill Peterson</h4>
+                            <p> Senior Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team-info section end -->
+
+
+<!-- Clients section start -->
+<section id="client">
+    <div class="container section-padding">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <span class="section-heading-span">REVIEWS FROM OUR CLIENTS</span>
+                    <h2 class="section-heading-h2">What People Say</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4 team-box">
+                <div class="client-item">
+                    <div class="client-title">
+                        <div class="client-img"><img src="/static/uploads/auth-img-1.jpg" alt=""></div>
+                        <div class="client-name">
+                            <h4>Catherine Williams</h4>
+                            <p>Regular client</p>
+                        </div>
+                    </div>
+                    <div class="client-info">
+                        <p>PathSoft offers a high caliber of resources skilled in Microsoft Azure.NET, mobile and
+                            Quality Assurance. They became our true business partners over the past three years.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 team-box">
+                <div class="client-item">
+                    <div class="client-title">
+                        <div class="client-img"><img src="/static/uploads/auth-img-2.jpg" alt=""></div>
+                        <div class="client-name">
+                            <h4>Rupert Wood</h4>
+                            <p>Regular client</p>
+                        </div>
+                    </div>
+                    <div class="client-info">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit consequuntur sequi eos
+                            beatae deleniti culpa cupiditate rerum. Similique, blanditiis rem perspiciatis fugiat
+                            voluptatem quas officiis ducimus reprehenderit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 team-box">
+                <div class="client-item">
+                    <div class="client-title">
+                        <div class="client-img"><img src="/static/uploads/auth-img-3.jpg" alt=""></div>
+                        <div class="client-name">
+                            <h4>Samantha Brown</h4>
+                            <p>Regular client</p>
+                        </div>
+                    </div>
+                    <div class="client-info">
+                        <p>We sincerely hope that each and every user entering our website will find exactly. With
+                            advanced features of activating account and new login widgets, you will definitely have
+                            a great experience of using our web page.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="bttn-row">
+                    <a href="/">
+                        <div class="bttn">
+                            <span>See All Reviwes</span>
+                            <i class="material-icons"> east</i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- Clients section end -->
+
+
+<!-- News section start -->
+<section id="news">
+    <div class="container section-padding">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <span class="section-heading-span">MORE INFO ABOUT</span>
+                    <h2 class="section-heading-h2">Latest News</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <div class="news-item">
+                    <a href="#" class="news-img">
+                        <img src="/static/uploads/news-img-1.jpg" alt="">
+                    </a>
+                    <div class="news-info">
+                        <div class="news-day">
+                            <p>07/01/2020</p>
+                        </div>
+                        <div class="news-item-title">
+                            <a href="">
+                                <h4>Benefits Of Async/Await</h4>
+                            </a>
+                        </div>
+                        <div class="news-item-text">
+                            <p>Asynchronous functions are a good and bad thing in JavaScript.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="news-item">
+                    <a href="#" class="news-img">
+                        <img src="/static/uploads/news-img-2.jpg" alt="">
+                    </a>
+                    <div class="news-info">
+                        <div class="news-day">
+                            <p>07/01/2020</p>
+                        </div>
+                        <div class="news-item-title">
+                            <a href="">
+                                <h4>Key Considerations Of IPaaS</h4>
+                            </a>
+                        </div>
+                        <div class="news-item-text">
+                            <p>Digital transformation requires cloud appropriate adoption</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="news-item">
+                    <a href="#" class="news-img">
+                        <img src="/static/uploads/news-img-3.jpg" alt="">
+                    </a>
+                    <div class="news-info">
+                        <div class="news-day">
+                            <p>07/01/2020</p>
+                        </div>
+                        <div class="news-item-title">
+                            <a href="">
+                                <h4>Hibernate Query Language</h4>
+                            </a>
+                        </div>
+                        <div class="news-item-text">
+                            <p>In this tutorial, we will discuss the Hibernate Query Language.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="bttn-row">
+                    <a href="/">
+                        <div class="bttn">
+                            <span>See All Reviwes</span>
+                            <i class="material-icons"> east</i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- News section end -->
+
+
+{% endblock %}

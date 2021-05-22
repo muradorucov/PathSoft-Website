@@ -1,0 +1,56 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<h3 class="my-3" style="text-align: center;">Meniu bar Add</h3>
+<hr>
+
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <form action="/admin/meniuNameAdd" method='POST'>
+                <input type="text" class="form-control my-2" name='meniu_title' placeholder="Enter: Meniu Title">
+                <input type="text" class="form-control my-2" name='meniu_url' placeholder="Enter: Url">
+                <input type="text" class="form-control my-2" name='meniu_icon' placeholder="Enter: Icon Css Class">
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Meniu Name'>
+            </form>
+        </div>
+    </div>
+</div>
+
+ <!-- =====Meniu Nav Bar Start==== -->
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                <thead>
+                    <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                        <th scope="col">id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Url</th>
+                        <th scope="col">Icon Class</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for meniu_name in meniu_names %}
+                    <tr>
+                        <td scope="row">{{meniu_name.id}}</td>
+                        <td>{{meniu_name.meniu_title}}</td>
+                        <td>{{meniu_name.meniu_url}}</td>
+                        <td>{{meniu_name.meniu_icon}}</td>
+                        <td>
+                            <a href="/admin/meniuNameDelete/{{meniu_name.id}}"><i class="bi bi-trash-fill"></i></a>
+                            <a href="/admin/meniuNameUpdate/{{meniu_name.id}}"><i class="bi bi-pencil-square"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<!-- =====Meniu Nav Bar End==== -->
+{% endblock %}

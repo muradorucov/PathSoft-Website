@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<h3 class="my-3" style="text-align: center;">Slider Image Add</h3>
+<hr>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-9">
+            <form action="/admin/sliderImageAdd" method='POST' enctype="multipart/form-data">
+                <input type="text" class="form-control my-2" name='slider_title' placeholder="Enter: Slider Title">
+                <input type="text" class="form-control my-2" name='slider_text' placeholder="Enter: Slider Text">
+                <input type="text" class="form-control my-2" name='slider_alt' placeholder="Enter: Image Name">
+                <input type="file" class="form-control-file my-2 p-1" name='slider_img'>
+                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Slider'>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container marg">
+    <div class="row justify-content-center">
+        <div class="col-9 ">
+            <!-- =====Slider Section Start==== -->
+            <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                <thead>
+                    <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                        <th scope="col">id</th>
+                        <th scope="col">TiTle</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Alt</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for slider in sliders %}
+                    <tr>
+                        <td scope="row">{{slider.id}}</td>
+                        <td>{{slider.slider_title}}</td>
+                        <td>{{slider.slider_text}}</td>
+                        <td>{{slider.slider_alt}}</td>
+                        <td>{{slider.slider_img}}</td>
+                        <td>
+                            <a href="/admin/sliderImageDelete/{{slider.id}}"><i class="bi bi-trash-fill"></i></a>
+                            <a href="/admin/sliderImageUpdate/{{slider.id}}"><i class="bi bi-pencil-square"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- =====Slider Section End==== -->
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
