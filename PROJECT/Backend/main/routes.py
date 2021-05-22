@@ -28,6 +28,14 @@ def about_index():
     reasonitems=ReasonItem.query.all()
     return render_template("main/about.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, reasonheadings=reasonheadings, reasonitems=reasonitems)
 
+@app.route("/services")
+def service_index():
+    header_contacts=HeaderContact.query.all()
+    headersocial_icons=HeaderSocialIcon.query.all()
+    logos=MeniuLogo.query.all()
+    meniu_names=MeniuName.query.all()
+    return render_template("main/services.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
+
 
 
 
