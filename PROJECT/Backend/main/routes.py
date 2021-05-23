@@ -60,5 +60,12 @@ def news_index():
     meniu_names=MeniuName.query.all()
     return render_template("main/blog.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
 
+@app.route("/contact")
+def contact_index():
+    header_contacts=HeaderContact.query.all()
+    headersocial_icons=HeaderSocialIcon.query.all()
+    logos=MeniuLogo.query.all()
+    meniu_names=MeniuName.query.all()
+    return render_template("main/contact.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
 
 
