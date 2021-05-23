@@ -44,6 +44,21 @@ def team_index():
     meniu_names=MeniuName.query.all()
     return render_template("main/team.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
 
+@app.route("/testimonials")
+def testimonials_index():
+    header_contacts=HeaderContact.query.all()
+    headersocial_icons=HeaderSocialIcon.query.all()
+    logos=MeniuLogo.query.all()
+    meniu_names=MeniuName.query.all()
+    return render_template("main/testimonials.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
+
+@app.route("/news")
+def news_index():
+    header_contacts=HeaderContact.query.all()
+    headersocial_icons=HeaderSocialIcon.query.all()
+    logos=MeniuLogo.query.all()
+    meniu_names=MeniuName.query.all()
+    return render_template("main/blog.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
 
 
 
