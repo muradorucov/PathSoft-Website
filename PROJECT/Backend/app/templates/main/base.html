@@ -29,12 +29,13 @@
 
 
     <!--== CSS fayls  ==-->
-    <link rel="stylesheet" href="static/main/css/style.css">
+    <link rel="stylesheet" href="/static/main/css/style.css">
     <link rel="stylesheet" href="/static/main/css/about.css">
     <link rel="stylesheet" href="/static/main/css/blog.css">
     <link rel="stylesheet" href="/static/main/css/contact.css">
     <link rel="stylesheet" href="/static/main/css/login.css">
     <link rel="stylesheet" href="/static/main/css/gallery.css">
+    <link rel="stylesheet" href="/static/main/css/blogitem.css">
 
 </head>
 
@@ -91,7 +92,7 @@
             <div class="meniu-nav">
                 {% for logo in logos %}
                 <div class="logo">
-                    <a href="{{logo.logo_url}}"><img src="static/uploads/{{logo.logo_img}}" alt="{{logo.logo_alt}}">
+                    <a href="{{logo.logo_url}}"><img src="/static/uploads/{{logo.logo_img}}" alt="{{logo.logo_alt}}">
                         <span>{{logo.logo_title}}</span>
                     </a>
                 </div>
