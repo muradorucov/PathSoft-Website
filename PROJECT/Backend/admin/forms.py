@@ -75,12 +75,32 @@ class ProjectHeaderForm(FlaskForm):
     project_title=StringField('project_title')
     submit=SubmitField()
 
-"""class ProjectMeniuForm(FlaskForm):
-    project_meniu_name=StringField('project_meniu_name')
-    project_meniu_url=FileField('project_meniu_url')
+class ProjectMenuForm(FlaskForm):
+    project_menu_name=StringField('project_menu_name')
     submit=SubmitField()
 
-class Form(FlaskForm):
+class ProjectBoxForm(FlaskForm):
+    project_name=StringField()
+    project_info=StringField()
+    project_link=StringField()
+    project_link_icon=StringField()
+    project_img=FileField()
+    submit=SubmitField()
+
+class ProjectButtonForm(FlaskForm):
+    projectbtn_title=StringField()
+    projectbtn_icon=StringField()
+    projectbtn_url=StringField()
+    submit=SubmitField()
+
+
+class TeamHeadingForm(FlaskForm):
+    team_subheading=StringField()
+    team_title=StringField()
+    submit=SubmitField()
+
+
+"""class Form(FlaskForm):
     =StringField()
     =FileField()
     submit=SubmitField()"""

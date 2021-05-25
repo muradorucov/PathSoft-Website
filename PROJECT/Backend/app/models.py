@@ -72,7 +72,25 @@ class ProjectHeader(db.Model):
     project_subheading=db.Column(db.String(255))
     project_title=db.Column(db.String(255))
 
-class ProjectMeniu(db.Model):
+class ProjectMenu(db.Model):
     id=db.Column(db.Integer,primary_key=True)
-    project_meniu_name=db.Column(db.String(255))
-    project_meniu_url=db.Column(db.String(255))
+    project_menu_name=db.Column(db.String(255))
+
+class ProjectBox(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    project_name=db.Column(db.String(255))
+    project_info=db.Column(db.String(255))
+    project_link=db.Column(db.String(255))
+    project_link_icon=db.Column(db.String(255))
+    project_img=db.Column(db.String(255))
+
+class ProjectButton(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    projectbtn_title=db.Column(db.String(255))
+    projectbtn_icon=db.Column(db.String(255))
+    projectbtn_url=db.Column(db.String(255))
+
+class TeamHeading(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    team_subheading=db.Column(db.String(255))
+    team_title=db.Column(db.String(255))

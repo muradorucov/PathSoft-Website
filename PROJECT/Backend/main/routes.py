@@ -18,7 +18,10 @@ def index():
     reasonheadings=ReasonTitle.query.all()
     reasonitems=ReasonItem.query.all()
     projectheadings=ProjectHeader.query.all()
-    return render_template("main/index.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns, serviceheadings=serviceheadings, serviceitems=serviceitems ,servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems,projectheadings=projectheadings)
+    projectmenus=ProjectMenu.query.all()
+    projectboxs=ProjectBox.query.all()
+    projectbtns=ProjectButton.query.all()
+    return render_template("main/index.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns, serviceheadings=serviceheadings, serviceitems=serviceitems ,servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems,projectheadings=projectheadings, projectmenus=projectmenus,projectboxs=projectboxs, projectbtns=projectbtns)
 
 @app.route("/about")
 def about_index():

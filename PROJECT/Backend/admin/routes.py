@@ -21,7 +21,9 @@ def admin_index():
     reasonheadings=ServiceButton.query.all()
     reasonitems=ReasonItem.query.all()
     projectheadings=ProjectHeader.query.all()
-    return render_template("admin/index.html",header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns,serviceheadings=serviceheadings, serviceitems=serviceitems , servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems, projectheadings=projectheadings)
+    projectmenus=ProjectMenu.query.all()
+    projectbtns=ProjectButton.query.all()
+    return render_template("admin/index.html",header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns,serviceheadings=serviceheadings, serviceitems=serviceitems , servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems, projectheadings=projectheadings,projectmenus=projectmenus, projectbtns=projectbtns)
 
 
 # Header Contact Info start
@@ -505,3 +507,131 @@ def projectHeadingDelete(id):
     db.session.commit()
     return redirect(url_for('projectHeadingAdd'))
 # Project Heading end
+
+
+
+# Project Menu start
+@app.route("/admin/projectmenuAdd", methods=['GET', 'POST'])
+def projectmenuAdd():
+    form=ProjectMenuForm()
+    projectmenus=ProjectMenu.query.all()
+    if request.method== "POST":
+        projectmenu=ProjectMenu(
+            project_menu_name=form.project_menu_name.data
+        )
+        db.session.add(projectmenu)
+        db.session.commit()
+        return redirect(url_for('projectmenuAdd'))
+    return render_template('admin/projectmenuAdd.html',form=form, projectmenus=projectmenus)
+
+@app.route("/admin/projectmenuUpdate/<id>", methods=['GET','POST'])
+def projectmenuUpdate(id):
+    form=ProjectMenuForm()
+    projectmenu=ProjectMenu.query.get(id)
+    if request.method=='POST':
+        projectmenu.project_menu_name=form.project_menu_name.data
+        db.session.commit()
+        return redirect(url_for('projectmenuAdd'))
+    return render_template('admin/projectmenuUpdate.html',form=form, projectmenu=projectmenu)
+
+@app.route("/admin/projectmenuDelete/<id>")
+def projectmenuDelete(id):
+    projectmenu=ProjectMenu.query.get(id)
+    db.session.delete(projectmenu)
+    db.session.commit()
+    return redirect(url_for('projectmenuAdd'))
+# Project Menu end
+
+
+
+# Project Box start
+@app.route("/admin/projectboxAdd", methods=['GET', 'POST'])
+def projectboxAdd():
+    form=ProjectBoxForm()
+    projectboxs=ProjectBox.query.all()
+    if request.method== "POST":
+        file=form.project_img.data
+        project_img_name=file.filename
+        randomproject=random.randint(1679,5001)
+        project_name= secure_filename(form.project_name.data)
+        project_extention=project_img_name.split(".")[-1]
+        ProjectImg=project_name+ str(randomproject)+"."+project_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],ProjectImg))
+        projectbox=ProjectBox(
+            project_name=form.project_name.data,
+            project_info=form.project_info.data,
+            project_link=form.project_link.data,
+            project_link_icon=form.project_link_icon.data,
+            project_img=ProjectImg
+        )
+        db.session.add(projectbox)
+        db.session.commit()
+        return redirect(url_for('projectboxAdd'))
+    return render_template('admin/projectboxAdd.html',form=form, projectboxs=projectboxs)
+
+@app.route("/admin/projectboxUpdate/<id>", methods=['GET','POST'])
+def projectboxUpdate(id):
+    form=ProjectBoxForm()
+    projectbox=ProjectBox.query.get(id)
+    if request.method=='POST':
+        file=form.project_img.data
+        project_img_name=file.filename
+        randomproject=random.randint(1679,5001)
+        project_name= secure_filename(form.project_name.data)
+        project_extention=project_img_name.split(".")[-1]
+        ProjectImg=project_name+ str(randomproject)+"."+project_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],ProjectImg))
+        projectbox.project_name=form.project_name.data
+        projectbox.project_info=form.project_info.data
+        projectbox.project_link=form.project_link.data
+        projectbox.project_link_icon=form.project_link_icon.data
+        projectbox.project_img=ProjectImg
+        db.session.commit()
+        return redirect(url_for('projectboxAdd'))
+    return render_template('admin/projectboxUpdate.html',form=form, projectbox=projectbox)
+
+@app.route("/admin/projectboxDelete/<id>")
+def projectboxDelete(id):
+    projectbox=ProjectBox.query.get(id)
+    db.session.delete(projectbox)
+    db.session.commit()
+    return redirect(url_for('projectboxAdd'))
+# Project Box end
+
+
+# Project Button start
+@app.route("/admin/projectBtnAdd", methods=['GET', 'POST'])
+def projectBtnAdd():
+    form=ProjectButtonForm()
+    projectbtns=ProjectButton.query.all()
+    if request.method== "POST":
+        projectbtn=ProjectButton(
+            projectbtn_title=form.projectbtn_title.data,
+            projectbtn_icon=form.projectbtn_icon.data,
+            projectbtn_url=form.projectbtn_url.data
+        )
+        db.session.add(projectbtn)
+        db.session.commit()
+        return redirect(url_for('projectBtnAdd'))
+    return render_template('admin/projectBtnAdd.html',form=form, projectbtns=projectbtns)
+
+@app.route("/admin/projectBtnUpdate/<id>", methods=['GET','POST'])
+def projectBtnUpdate(id):
+    form=ProjectButtonForm()
+    projectbtn=ProjectButton.query.get(id)
+    if request.method=='POST':
+        projectbtn.projectbtn_title=form.projectbtn_title.data
+        projectbtn.projectbtn_icon=form.projectbtn_icon.data
+        projectbtn.projectbtn_url=form.projectbtn_url.data
+        db.session.commit()
+        return redirect(url_for('projectBtnAdd'))
+    return render_template('admin/projectBtnUpdate.html',form=form, projectbtn=projectbtn)
+
+@app.route("/admin/projectBtnDelete/<id>")
+def projectBtnDelete(id):
+    projectbtn=ProjectButton.query.get(id)
+    db.session.delete(projectbtn)
+    db.session.commit()
+    return redirect(url_for('projectBtnAdd'))
+
+# Project Button end

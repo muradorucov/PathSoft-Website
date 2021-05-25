@@ -183,177 +183,54 @@
             </div>
             <div class="col-12">
                 <ul class="project-meniu">
+                    {% for projectmenu in projectmenus %}
                     <li>
-                        <a href="#" class="menu-list-to " data-title="ALL">
-                            <span data-title="ALL"> ALL</span>
+                        <a href="#!" class="menu-list-to " data-title="{{projectmenu.project_menu_name}}">
+                            <span data-title="{{projectmenu.project_menu_name}}">
+                                {{projectmenu.project_menu_name}}</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="menu-list-to " data-title="MOBILE APPS">
-                            <span data-title="MOBILE APPS"> MOBILE APPS</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="menu-list-to " data-title="CUSTOM SOFTWARE">
-                            <span data-title="CUSTOM SOFTWARE"> CUSTOM SOFTWARE</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="menu-list-to" data-title="QA & TESTING">
-                            <span data-title="QA & TESTING"> QA & TESTING</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="menu-list-to " data-title="UX AND DESIGN">
-                            <span data-title="UX AND DESIGN"> UX AND DESIGN</span>
-                        </a>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
         <div class="row project-height justify-content-center">
+
+            {% for projectbox in projectboxs %}
             <div class="col-4 col-margin project-box">
                 <div class="project-item">
                     <div class="project-item-card front">
-                        <img src="/static/uploads/1.jpg" alt="">
+                        <img src="/static/uploads/{{projectbox.project_img}}" alt="">
                     </div>
                     <div class="project-item-card back">
                         <div class="project-item-card-center">
-                            <h5 class="project-item-title">MPlanner</h5>
+                            <h5 class="project-item-title">{{projectbox.project_name}}</h5>
                             <div class="project-item-desc">
-                                <p>We work hard on every app to deliver top-notch features with great UI that you
-                                    won’t find
-                                    anywhere else.</p>
+                                <p>{{projectbox.project_info}}</p>
                             </div>
                             <div class="wrapp-btn-circl-arrow justify-content-center">
-                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
-                                    <i class="material-icons"> east</i>
+                                <a href="{{projectbox.project_link}}" class="btn-circl-arrow btn-circl-arrow-white">
+                                    <i class="material-icons"> {{projectbox.project_link_icon}}</i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-4 col-margin project-box">
-                <div class="project-item">
-                    <div class="project-item-card front">
-                        <img src="/static/uploads/2.jpg" alt="">
-                    </div>
-                    <div class="project-item-card back">
-                        <div class="project-item-card-center">
-                            <h5 class="project-item-title">WeatherNow</h5>
-                            <div class="project-item-desc">
-                                <p>We work hard on every app to deliver top-notch features with great UI that you
-                                    won’t find
-                                    anywhere else.</p>
-                            </div>
-                            <div class="wrapp-btn-circl-arrow justify-content-center">
-                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
-                                    <i class="material-icons"> east</i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4 col-margin project-box">
-                <div class="project-item">
-                    <div class="project-item-card front">
-                        <img src="/static/uploads/3.jpg" alt="">
-                    </div>
-                    <div class="project-item-card back">
-                        <div class="project-item-card-center">
-                            <h5 class="project-item-title">Langer Messenger</h5>
-                            <div class="project-item-desc">
-                                <p>We work hard on every app to deliver top-notch features with great UI that you
-                                    won’t find anywhere else.</p>
-                            </div>
-                            <div class="wrapp-btn-circl-arrow justify-content-center">
-                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
-                                    <i class="material-icons"> east</i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4 col-margin project-box">
-                <div class="project-item">
-                    <div class="project-item-card front">
-                        <img src="/static/uploads/4.jpg" alt="">
-                    </div>
-                    <div class="project-item-card back">
-                        <div class="project-item-card-center">
-                            <h5 class="project-item-title">Mobile Finance</h5>
-                            <div class="project-item-desc">
-                                <p>We work hard on every app to deliver top-notch features with great UI that you
-                                    won’t find
-                                    anywhere else.</p>
-                            </div>
-                            <div class="wrapp-btn-circl-arrow justify-content-center">
-                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
-                                    <i class="material-icons"> east</i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4 col-margin project-box">
-                <div class="project-item">
-                    <div class="project-item-card front">
-                        <img src="/static/uploads/5.jpg" alt="">
-                    </div>
-                    <div class="project-item-card back">
-                        <div class="project-item-card-center">
-                            <h5 class="project-item-title">RaptCash</h5>
-                            <div class="project-item-desc">
-                                <p>We work hard on every app to deliver top-notch features with great UI that you
-                                    won’t find
-                                    anywhere else.</p>
-                            </div>
-                            <div class="wrapp-btn-circl-arrow justify-content-center">
-                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
-                                    <i class="material-icons"> east</i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4 col-margin project-box">
-                <div class="project-item">
-                    <div class="project-item-card front">
-                        <img src="/static/uploads/6.jpg" alt="">
-                    </div>
-                    <div class="project-item-card back">
-                        <div class="project-item-card-center">
-                            <h5 class="project-item-title">Search by photo</h5>
-                            <div class="project-item-desc">
-                                <p>We work hard on every app to deliver top-notch features with great UI that you
-                                    won’t find
-                                    anywhere else.</p>
-                            </div>
-                            <div class="wrapp-btn-circl-arrow justify-content-center">
-                                <a href="single-project.html" class="btn-circl-arrow btn-circl-arrow-white">
-                                    <i class="material-icons"> east</i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
+                {% for projectbtn in projectbtns %}
                 <div class="bttn-row">
-                    <a href="/">
+                    <a href="{{projectbtn.projectbtn_url}}">
                         <div class="bttn">
-                            <span>See All Projects</span>
-                            <i class="material-icons"> east</i>
+                            <span>{{projectbtn.projectbtn_title}}</span>
+                            <i class="material-icons">{{projectbtn.projectbtn_icon}}</i>
                         </div>
                     </a>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
