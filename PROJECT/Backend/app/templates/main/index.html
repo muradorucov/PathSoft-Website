@@ -174,10 +174,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                {% for projectheading in projectheadings %}
                 <div class="section-heading">
-                    <span class="section-heading-span">OUR WORKS</span>
-                    <h2 class="section-heading-h2">Latest Projects</h2>
+                    <span class="section-heading-span">{{projectheading.project_subheading}}</span>
+                    <h2 class="section-heading-h2">{{projectheading.project_title}}</h2>
                 </div>
+                {% endfor %}
             </div>
             <div class="col-12">
                 <ul class="project-meniu">

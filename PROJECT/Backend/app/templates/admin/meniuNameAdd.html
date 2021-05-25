@@ -1,7 +1,4 @@
-{% extends "admin/base.html" %}
-
-
-{% block content %}
+{% extends "admin/base.html" %} {% block content %}
 
 <h3 class="my-3" style="text-align: center;">Meniu bar Add</h3>
 <hr>
@@ -9,17 +6,17 @@
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9 ">
-            <form action="/admin/meniuNameAdd" method='POST'>
-                <input type="text" class="form-control my-2" name='meniu_title' placeholder="Enter: Meniu Title">
-                <input type="text" class="form-control my-2" name='meniu_url' placeholder="Enter: Url">
-                <input type="text" class="form-control my-2" name='meniu_icon' placeholder="Enter: Icon Css Class">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Meniu Name'>
+            <form action="{{url_for('meniuNameAdd')}}" method='POST'>
+                {{ form.meniu_title(class="form-control my-2",placeholder="Enter:Meniu Title")}}
+                {{ form.meniu_url(class="form-control my-2",placeholder="Enter: Url")}}
+                {{ form.meniu_icon(class="form-control my-2",placeholder="Enter: Icon Css Class")}}
+                {{ form.submit(value='Add Meniu Name',class='btn btn-primary btn-lg btn-block')}}
             </form>
         </div>
     </div>
 </div>
 
- <!-- =====Meniu Nav Bar Start==== -->
+<!-- =====Meniu Nav Bar Start==== -->
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9 ">
@@ -41,8 +38,10 @@
                         <td>{{meniu_name.meniu_url}}</td>
                         <td>{{meniu_name.meniu_icon}}</td>
                         <td>
-                            <a href="/admin/meniuNameDelete/{{meniu_name.id}}"><i class="bi bi-trash-fill"></i></a>
-                            <a href="/admin/meniuNameUpdate/{{meniu_name.id}}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{url_for('meniuNameDelete', id=meniu_name.id)}}"><i
+                                    class="bi bi-trash-fill"></i></a>
+                            <a href="{{url_for('meniuNameUpdate', id=meniu_name.id)}}"><i
+                                    class="bi bi-pencil-square"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

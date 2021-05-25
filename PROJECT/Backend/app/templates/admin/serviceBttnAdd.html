@@ -8,14 +8,11 @@
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9 ">
-            <form action="/admin/serviceBttnAdd" method='POST'>
-                <input type="text" class="form-control my-2" name='servbttn_title'
-                    placeholder="Enter: Service Button Title">
-                <input type="text" class="form-control my-2" name='servbttn_icon'
-                    placeholder="Enter: Service Button Icon">
-                <input type="text" class="form-control my-2" name='servbttn_url'
-                    placeholder="Enter: Service Button Link">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Service Button'>
+            <form action="{{url_for('serviceBttnAdd')}}" method='POST'>
+                {{ form.servbttn_title(class="form-control my-2",placeholder="Enter: Service Button Title")}}
+                {{ form.servbttn_icon(class="form-control my-2",placeholder="Enter: Service Button Icon")}}
+                {{ form.servbttn_url(class="form-control my-2",placeholder="Enter: Service Button Link")}}
+                {{ form.submit(value='Add Service Button',class='btn btn-primary btn-lg btn-block')}}
             </form>
         </div>
     </div>
@@ -44,8 +41,10 @@
                         <td>{{servicebttn.servbttn_icon}}</td>
                         <td>{{servicebttn.servbttn_url}}</td>
                         <td>
-                            <a href="/admin/serviceBttnDelete/{{servicebttn.id}}"><i class="bi bi-trash-fill"></i></a>
-                            <a href="/admin/serviceBttnUpdate/{{servicebttn.id}}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{url_for('serviceBttnDelete', id=servicebttn.id)}}"><i
+                                    class="bi bi-trash-fill"></i></a>
+                            <a href="{{url_for('serviceBttnUpdate', id=servicebttn.id)}}"><i
+                                    class="bi bi-pencil-square"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

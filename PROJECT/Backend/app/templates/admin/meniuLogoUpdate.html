@@ -9,14 +9,11 @@
     <div class="row justify-content-center">
         <div class="col-9 ">
             <form action="/admin/meniuLogoUpdate/{{logo.id}}" method='POST' enctype="multipart/form-data">
-                <input type="text" class="form-control my-2" name='logo_title' placeholder="Enter: Logo Name"
-                    value="{{logo.logo_title}}">
-                <input type="text" class="form-control my-2" name='logo_url' placeholder="Enter: Logo Url"
-                    value="{{logo.logo_url}}">
-                <input type="text" class="form-control my-2" name='logo_alt' placeholder="Enter: Company Name"
-                    value="{{logo.logo_alt}}">
-                <input type="file" class="form-control-file my-2 p-1" name='logo_img' value="{{logo.logo_img}}">
-                <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update Logo'>
+                {{ form.logo_title(class="form-control my-2",placeholder="Enter: Logo Name", value=logo.logo_title)}}
+                {{ form.logo_url(class="form-control my-2",placeholder="Enter: Logo Url", value=logo.logo_url)}}
+                {{ form.logo_alt(class="form-control my-2",placeholder="Enter: Company Name", value=logo.logo_alt)}}
+                {{ form.logo_img(class="form-control-file")}}
+                {{ form.submit(value='Update Logo',class='btn btn-primary btn-lg btn-block')}}
             </form>
         </div>
     </div>
@@ -24,4 +21,3 @@
 
 
 {% endblock %}
-

@@ -8,11 +8,11 @@
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9 ">
-            <form action="/admin/sliderBttnAdd" method='POST'>
-                <input type="text" class="form-control my-2" name='sliderurl_title' placeholder="Enter: Slider Button title">
-                <input type="text" class="form-control my-2" name='sliderurl_icon' placeholder="Enter: Slider Button Icon class">
-                <input type="text" class="form-control my-2" name='sliderurl_url' placeholder="Enter: Slider Button Url">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Slider Button'>
+            <form action="{{url_for('sliderBttnAdd')}}" method='POST'>
+                {{ form.sliderurl_title(class="form-control my-2",placeholder="Enter:Slider Button title")}}
+                {{ form.sliderurl_icon(class="form-control my-2",placeholder="Enter: Slider Button Icon class")}}
+                {{ form.sliderurl_url(class="form-control my-2",placeholder="Enter: Slider Button Url")}}
+                {{ form.submit(value='Add Slider Button',class='btn btn-primary btn-lg btn-block')}}
             </form>
         </div>
     </div>
@@ -40,8 +40,10 @@
                         <td>{{sliderbttn.sliderurl_icon}}</td>
                         <td>{{sliderbttn.sliderurl_url}}</td>
                         <td>
-                            <a href="/admin/sliderBttnDelete/{{sliderbttn.id}}"><i class="bi bi-trash-fill"></i></a>
-                            <a href="/admin/sliderBttnUpdate/{{sliderbttn.id}}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{url_for('sliderBttnDelete', id=sliderbttn.id)}}"><i
+                                    class="bi bi-trash-fill"></i></a>
+                            <a href="{{url_for('sliderBttnUpdate', id=sliderbttn.id)}}"><i
+                                    class="bi bi-pencil-square"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

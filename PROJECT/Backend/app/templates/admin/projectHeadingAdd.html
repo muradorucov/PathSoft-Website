@@ -3,15 +3,15 @@
 
 {% block content %}
 
-<h3 class="my-3" style="text-align: center;">Reason Heading Add</h3>
+<h3 class="my-3" style="text-align: center;">Project Heading Add</h3>
 <hr>
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9">
-            <form action="{{url_for('reasonHeadingAdd')}}" method='POST'>
-                {{ form.reason_subheading(class="form-control my-2",placeholder="Enter: Subheading")}}
-                {{ form.reason_title(class="form-control my-2",placeholder="Enter: Heading")}}
-                {{ form.submit(value='Add Reason Heading',class='btn btn-primary btn-lg btn-block')}}
+            <form action="{{url_for('projectHeadingAdd')}}" method='POST'>
+                {{ form.project_subheading(class="form-control my-2",placeholder="Enter:Subheading")}}
+                {{ form.project_title(class="form-control my-2",placeholder="Enter: Heading")}}
+                {{ form.submit(value='Add Project Heading',class='btn btn-primary btn-lg btn-block')}}
             </form>
         </div>
     </div>
@@ -30,15 +30,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for reasonheading in reasonheadings %}
+                    {% for projectheading in projectheadings %}
                     <tr>
-                        <td scope="row">{{reasonheading.id}}</td>
-                        <td>{{reasonheading.reason_subheading}}</td>
-                        <td>{{reasonheading.reason_title}}</td>
+                        <td scope="row">{{projectheading.id}}</td>
+                        <td>{{projectheading.project_subheading}}</td>
+                        <td>{{projectheading.project_title}}</td>
                         <td>
-                            <a href="{{url_for('reasonHeadingDelete', id=reasonheading.id)}}"><i
+                            <a href="{{url_for('projectHeadingDelete',id=projectheading.id)}}"><i
                                     class="bi bi-trash-fill"></i></a>
-                            <a href="{{url_for('reasonHeadingUpdate', id=reasonheading.id)}}"><i
+                            <a href="{{url_for('projectHeadingUpdate',id=projectheading.id)}}"><i
                                     class="bi bi-pencil-square"></i></a>
                         </td>
                     </tr>

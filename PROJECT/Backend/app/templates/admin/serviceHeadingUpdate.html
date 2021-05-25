@@ -9,12 +9,12 @@
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9 ">
-            <form action="/admin/serviceHeadingUpdate/{{serviceheading.id}}" method='POST'>
-                <input type="text" class="form-control my-2" name='service_subheading'
-                     placeholder="Enter: Service SubHeading" value="{{serviceheading.service_subheading}}">
-                <input type="text" class="form-control my-2" name='service_title' value="{{serviceheading.service_title}}"
-                    placeholder="Enter: Service Heading">
-                <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update Services Heading'>
+            <form action="{{url_for('serviceHeadingUpdate', id=serviceheading.id)}}" method='POST'>
+                {{ form.service_subheading(class="form-control my-2",placeholder="Enter: Service
+                SubHeading",value=serviceheading.service_subheading)}}
+                {{ form.service_title(class="form-control my-2",placeholder="Enter: Service
+                Heading",value=serviceheading.service_title )}}
+                {{ form.submit(value='Add Service Heading',class='btn btn-secondary btn-lg btn-block')}}
             </form>
         </div>
     </div>

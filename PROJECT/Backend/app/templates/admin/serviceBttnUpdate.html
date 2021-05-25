@@ -9,10 +9,13 @@
     <div class="row justify-content-center">
         <div class="col-9 ">
             <form action="/admin/serviceBttnUpdate/{{servicebttn.id}}" method='POST'>
-                <input type="text" class="form-control my-2" name='servbttn_title' value="{{servicebttn.servbttn_title}}" placeholder="Enter: Service Button Title">
-                <input type="text" class="form-control my-2" name='servbttn_icon' value="{{servicebttn.servbttn_icon}}" placeholder="Enter: Service Button Icon">
-                <input type="text" class="form-control my-2" name='servbttn_url' value="{{servicebttn.servbttn_url}}" placeholder="Enter: Service Button Link">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Service Button'>
+                {{ form.servbttn_title(class="form-control my-2",placeholder="Enter: Service Button Title",
+                value=servicebttn.servbttn_title)}}
+                {{ form.servbttn_icon(class="form-control my-2",placeholder="Enter: Service Button Icon",
+                value=servicebttn.servbttn_ic)}}
+                {{ form.servbttn_url(class="form-control my-2",placeholder="Enter: Service Button Link",
+                value=servicebttn.servbttn_u)}}
+                {{ form.submit(value='Update Service Button',class='btn btn-secondary btn-lg btn-block')}}
             </form>
         </div>
     </div>

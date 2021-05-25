@@ -8,11 +8,13 @@
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9 ">
-            <form action="/admin/headerSocialIconUpdate/{{headersocial_icon.id}}" method='POST'>
-                <input type="text" class="form-control my-2" name='hsi_name' placeholder="Enter: Icon name" value="{{headersocial_icon.hsi_name}}">
-                <input type="text" class="form-control my-2" name='hsi_css_class' placeholder="Enter: Icon Class" value="{{headersocial_icon.hsi_css_class}}">
-                <input type="text" class="form-control my-2" name='hsi_url' placeholder="Enter: Url" value="{{headersocial_icon.hsi_url}}">
-                <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update Social Icon'>
+            <form action="{{url_for('headerSocialIconUpdate', id=headersocial_icon.id)}}" method='POST'>
+                {{ form.hsi_name(class="form-control my-2",placeholder="Enter: Icon name",
+                value=headersocial_icon.hsi_name)}}
+                {{ form.hsi_css_class(class="form-control my-2",placeholder="Enter: Icon Class",
+                value=headersocial_icon.hsi_css_class)}}
+                {{ form.hsi_url(class="form-control my-2",placeholder="Enter: Url", value=headersocial_icon.hsi_url)}}
+                {{ form.submit(value='Update Social Icon',class='btn btn-secondary btn-lg btn-block')}}
             </form>
         </div>
     </div>

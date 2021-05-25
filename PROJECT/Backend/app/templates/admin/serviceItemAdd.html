@@ -8,12 +8,12 @@
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9 ">
-            <form action="/admin/serviceItemAdd" method='POST'>
-                <input type="text" class="form-control my-2" name='servitem_title'  placeholder="Enter: Service Item Title">
-                <input type="text" class="form-control my-2" name='servitem_text'  placeholder="Enter: Service Item text">
-                <input type="text" class="form-control my-2" name='servitem_icon'  placeholder="Enter: Service Item Icon name">
-                <input type="text" class="form-control my-2" name='servitem_url'  placeholder="Enter: Service Item Link">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Service Item'>
+            <form action="{{url_for('serviceItemAdd')}}" method='POST'>
+                {{ form.servitem_title(class="form-control my-2",placeholder="Enter: Service Item Title")}}
+                {{ form.servitem_text(class="form-control my-2",placeholder="Enter: Service Item text")}}
+                {{ form.servitem_icon(class="form-control my-2",placeholder="Enter: Service Item Icon name")}}
+                {{ form.servitem_url(class="form-control my-2",placeholder="Enter: Service Item Link")}}
+                {{ form.submit(value='Add Service Item',class='btn btn-primary btn-lg btn-block')}}
             </form>
         </div>
     </div>
@@ -44,9 +44,9 @@
                         <td>{{serviceitem.servitem_icon}}</td>
                         <td>{{serviceitem.servitem_url}}</td>
                         <td>
-                            <a href="/admin/serviceItemDelete/{{serviceitem.id}}"><i
+                            <a href="{{url_for('serviceItemDelete', id=serviceitem.id)}}"><i
                                     class="bi bi-trash-fill"></i></a>
-                            <a href="/admin/serviceItemUpdate/{{serviceitem.id}}"><i
+                            <a href="{{url_for('serviceItemUpdate', id=serviceitem.id)}}"><i
                                     class="bi bi-pencil-square"></i></a>
                         </td>
                     </tr>

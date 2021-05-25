@@ -8,12 +8,10 @@
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9 ">
-            <form action="/admin/serviceHeadingAdd" method='POST'>
-                <input type="text" class="form-control my-2" name='service_subheading'
-                    placeholder="Enter: Service SubHeading">
-                <input type="text" class="form-control my-2" name='service_title'
-                    placeholder="Enter: Service Heading">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Service Heading'>
+            <form action="{{url_for('serviceHeadingAdd')}}" method='POST'>
+                {{ form.service_subheading(class="form-control my-2",placeholder="Enter: Service SubHeading")}}
+                {{ form.service_title(class="form-control my-2",placeholder="Enter: Service Heading")}}
+                {{ form.submit(value='Add Service Heading',class='btn btn-primary btn-lg btn-block')}}
             </form>
         </div>
     </div>
@@ -35,15 +33,17 @@
                 </thead>
                 <tbody>
                     {% for serviceheading in serviceheadings %}
-                        <tr>
-                            <td scope="row">{{serviceheading.id}}</td>
-                            <td>{{serviceheading.service_subheading}}</td>
-                            <td>{{serviceheading.service_title}}</td>
-                            <td>
-                                <a href="/admin/serviceHeadingDelete/{{serviceheading.id}}"><i class="bi bi-trash-fill"></i></a>
-                                <a href="/admin/serviceHeadingUpdate/{{serviceheading.id}}"><i class="bi bi-pencil-square"></i></a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td scope="row">{{serviceheading.id}}</td>
+                        <td>{{serviceheading.service_subheading}}</td>
+                        <td>{{serviceheading.service_title}}</td>
+                        <td>
+                            <a href="{{url_for('serviceHeadingDelete', id=serviceheading.id)}}"><i
+                                    class="bi bi-trash-fill"></i></a>
+                            <a href="{{url_for('serviceHeadingUpdate', id=serviceheading.id)}}"><i
+                                    class="bi bi-pencil-square"></i></a>
+                        </td>
+                    </tr>
                     {% endfor %}
                 </tbody>
             </table>

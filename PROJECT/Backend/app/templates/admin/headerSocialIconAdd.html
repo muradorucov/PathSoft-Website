@@ -8,11 +8,11 @@
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9 ">
-            <form action="/admin/headerSocialIconAdd" method='POST'>
-                <input type="text" class="form-control my-2" name='hsi_name' placeholder="Enter: Icon name">
-                <input type="text" class="form-control my-2" name='hsi_css_class' placeholder="Enter: Icon Class">
-                <input type="text" class="form-control my-2" name='hsi_url' placeholder="Enter: Url">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Social Icon'>
+            <form action="{{url_for('headerSocialIconAdd')}}" method='POST'>
+                {{ form.hsi_name(class="form-control my-2",placeholder="Enter: Icon name")}}
+                {{ form.hsi_css_class(class="form-control my-2",placeholder="Enter: Icon Class")}}
+                {{ form.hsi_url(class="form-control my-2",placeholder="Enter: Url")}}
+                {{ form.submit(value='Add Social Icon',class='btn btn-primary btn-lg btn-block')}}
             </form>
         </div>
     </div>
@@ -41,8 +41,10 @@
                         <td>{{headersocial_icon.hsi_css_class}}</td>
                         <td>{{headersocial_icon.hsi_url}}</td>
                         <td>
-                            <a href="/admin/headerSocialIconDelete/{{headersocial_icon.id}}"><i class="bi bi-trash-fill"></i></a>
-                            <a href="/admin/headerSocialIconUpdate/{{headersocial_icon.id}}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{url_for('headerSocialIconDelete', id=headersocial_icon.id)}}"><i
+                                    class="bi bi-trash-fill"></i></a>
+                            <a href="{{url_for('headerSocialIconUpdate',id=headersocial_icon.id)}}"><i
+                                    class="bi bi-pencil-square"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

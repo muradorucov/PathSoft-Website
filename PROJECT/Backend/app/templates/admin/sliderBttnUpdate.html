@@ -9,14 +9,11 @@
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9 ">
-            <form action="/admin/sliderBttnUpdate/{{sliderbttn.id}}" method='POST'>
-                <input type="text" class="form-control my-2" name='sliderurl_title' value="{{sliderbttn.sliderurl_title}}"
-                    placeholder="Enter: Slider Button title">
-                <input type="text" class="form-control my-2" name='sliderurl_icon' value="{{sliderbttn.sliderurl_icon}}"
-                    placeholder="Enter: Slider Button Icon class">
-                <input type="text" class="form-control my-2" name='sliderurl_url' value="{{sliderbttn.sliderurl_url}}"
-                    placeholder="Enter: Slider Button Url">
-                <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update Slider Button'>
+            <form action="{{url_for('sliderBttnUpdate', id=sliderbttn.id)}}" method='POST'>
+                {{ form.sliderurl_title(class="form-control my-2",placeholder="Enter:Slider Button title", value=sliderbttn.sliderurl_title)}}
+                {{ form.sliderurl_icon(class="form-control my-2",placeholder="Enter: Slider Button Icon class", value=sliderbttn.sliderurl_icon)}}
+                {{ form.sliderurl_url(class="form-control my-2",placeholder="Enter: Slider Button Url", value=sliderbttn.sliderurl_url)}}
+                {{ form.submit(value='Update Slider Button',class='btn btn-secondary btn-lg btn-block')}}
             </form>
         </div>
     </div>

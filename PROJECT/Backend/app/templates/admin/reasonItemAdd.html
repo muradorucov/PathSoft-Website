@@ -8,11 +8,11 @@
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9">
-            <form action="/admin/reasonItemAdd" method='POST'>
-                <input type="text" class="form-control my-2" name='reasonitem_number' placeholder="Enter: Number ">
-                <input type="text" class="form-control my-2" name='reasonitem_title' placeholder="Enter: Title">
-                <input type="text" class="form-control my-2" name='reasonitem_text' placeholder="Enter: Text">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value='Add Reason Item'>
+            <form action="{{url_for('reasonItemAdd')}}" method='POST'>
+                {{ form.reasonitem_number(class="form-control my-2",placeholder="Enter:Number")}}
+                {{ form.reasonitem_title(class="form-control my-2",placeholder="Enter: Title")}}
+                {{ form.reasonitem_text(class="form-control my-2",placeholder="Enter: Text")}}
+                {{ form.submit(value='Add Reason Item',class='btn btn-primary btn-lg btn-block')}}
             </form>
         </div>
     </div>
@@ -41,8 +41,8 @@
                         <td>{{reasonitem.reasonitem_title}}</td>
                         <td>{{reasonitem.reasonitem_text}}</td>
                         <td>
-                            <a href="/admin/reasonItemDelete/{{reasonitem.id}}"><i class="bi bi-trash-fill"></i></a>
-                            <a href="/admin/reasonItemUpdate/{{reasonitem.id}}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{url_for('reasonItemDelete',id=reasonitem.id)}}"><i class="bi bi-trash-fill"></i></a>
+                            <a href="{{url_for('reasonItemUpdate',id=reasonitem.id)}}"><i class="bi bi-pencil-square"></i></a>
                         </td>
                     </tr>
                     {% endfor %}

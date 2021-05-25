@@ -6,6 +6,7 @@ app=Flask(__name__)
 UPLOAD_FOLDER="app/static/uploads"
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///data.db'
 app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
+app.config['SECRET_KEY']='mysecretkey'
 
 
 db=SQLAlchemy(app)

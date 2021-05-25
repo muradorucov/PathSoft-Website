@@ -8,11 +8,14 @@
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9">
-            <form action="/admin/reasonItemUpdate/{{reasonitem.id}}" method='POST'>
-                <input type="text" class="form-control my-2" name='reasonitem_number' value="{{reasonitem.reasonitem_number}}" placeholder="Enter: Number ">
-                <input type="text" class="form-control my-2" name='reasonitem_title' value="{{reasonitem.reasonitem_title}}" placeholder="Enter: Title">
-                <input type="text" class="form-control my-2" name='reasonitem_text' value="{{reasonitem.reasonitem_text}}" placeholder="Enter: Text">
-                <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update Reason Item'>
+            <form action="{{url_for('reasonItemUpdate',id=reasonitem.id)}}" method='POST'>
+                {{ form.reasonitem_number(class="form-control my-2",placeholder="Enter:Number",
+                value=reasonitem.reasonitem_number)}}
+                {{ form.reasonitem_title(class="form-control my-2",placeholder="Enter: Title",
+                value=reasonitem.reasonitem_title)}}
+                {{ form.reasonitem_text(class="form-control my-2",placeholder="Enter: Text",
+                value=reasonitem.reasonitem_text)}}
+                {{ form.submit(value='Update Reason Item',class='btn btn-secondary btn-lg btn-block')}}
             </form>
         </div>
     </div>

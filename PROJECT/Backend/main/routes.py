@@ -1,6 +1,7 @@
 from app import app
 from app.models import*
 from app import db
+
 from flask import Flask,redirect,url_for,render_template,request
 
 @app.route("/")
@@ -16,7 +17,8 @@ def index():
     servicebttns=ServiceButton.query.all()
     reasonheadings=ReasonTitle.query.all()
     reasonitems=ReasonItem.query.all()
-    return render_template("main/index.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns, serviceheadings=serviceheadings, serviceitems=serviceitems ,servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems)
+    projectheadings=ProjectHeader.query.all()
+    return render_template("main/index.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns, serviceheadings=serviceheadings, serviceitems=serviceitems ,servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems,projectheadings=projectheadings)
 
 @app.route("/about")
 def about_index():
