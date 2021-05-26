@@ -23,7 +23,11 @@ def admin_index():
     projectheadings=ProjectHeader.query.all()
     projectmenus=ProjectMenu.query.all()
     projectbtns=ProjectButton.query.all()
-    return render_template("admin/index.html",header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns,serviceheadings=serviceheadings, serviceitems=serviceitems , servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems, projectheadings=projectheadings,projectmenus=projectmenus, projectbtns=projectbtns)
+    teamheadings=TeamHeading.query.all()
+    teamboxs=TeamBox.query.all()
+    teamsocialicons=TeamSocilIcon.query.all()
+    teambuttons=TeamButton.query.all()
+    return render_template("admin/index.html",header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns,serviceheadings=serviceheadings, serviceitems=serviceitems , servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems, projectheadings=projectheadings,projectmenus=projectmenus, projectbtns=projectbtns,teamheadings=teamheadings, teamboxs=teamboxs, teamsocialicons=teamsocialicons, teambuttons=teambuttons)
 
 
 # Header Contact Info start
@@ -633,5 +637,167 @@ def projectBtnDelete(id):
     db.session.delete(projectbtn)
     db.session.commit()
     return redirect(url_for('projectBtnAdd'))
-
 # Project Button end
+
+
+# Team Heading start
+@app.route("/admin/teamHeadingAdd", methods=['GET', 'POST'])
+def teamHeadingAdd():
+    form=TeamHeadingForm()
+    teamheadings=TeamHeading.query.all()
+    if request.method== "POST":
+        teamheading=TeamHeading(
+            team_subheading=form.team_subheading.data,
+            team_title=form.team_title.data
+        )
+        db.session.add(teamheading)
+        db.session.commit()
+        return redirect(url_for('teamHeadingAdd'))
+    return render_template('admin/teamHeadingAdd.html',form=form, teamheadings=teamheadings)
+
+@app.route("/admin/teamHeadingUpdate/<id>", methods=['GET','POST'])
+def teamHeadingUpdate(id):
+    form=TeamHeadingForm()
+    teamheading=TeamHeading.query.get(id)
+    if request.method=='POST':
+        teamheading.team_subheading=form.team_subheading.data
+        teamheading.team_title=form.team_title.data
+        db.session.commit()
+        return redirect(url_for('teamHeadingAdd'))
+    return render_template('admin/teamHeadingUpdate.html',form=form, teamheading=teamheading)
+
+@app.route("/admin/teamHeadingDelete/<id>")
+def teamHeadingDelete(id):
+    teamheading=TeamHeading.query.get(id)
+    db.session.delete(teamheading)
+    db.session.commit()
+    return redirect(url_for('teamHeadingAdd'))
+# Team Heading end
+
+
+
+# Teammate Image Start
+@app.route("/admin/teamboxAdd/", methods=['GET','POST'])
+def teamboxAdd():
+    form=TeamBoxForm()
+    teamboxs=TeamBox.query.all()
+    if request.method=='POST':
+        file=form.teammate_img.data
+        teammate_img_name=file.filename
+        randomteammate_img=random.randint(5002,9958)
+        teammate_name= secure_filename(form.teammate_name.data)
+        teammate_extention=teammate_img_name.split(".")[-1]
+        TeammateImg=teammate_name+ str(randomteammate_img)+"."+teammate_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],TeammateImg))
+        teambox=TeamBox(
+            teammate_name=form.teammate_name.data,
+            teammate_position=form.teammate_position.data,
+            teammate_img=TeammateImg
+        )
+        db.session.add(teambox)
+        db.session.commit()
+        return redirect(url_for('teamboxAdd'))
+    return render_template("admin/teamboxAdd.html",form=form, teamboxs=teamboxs)
+
+@app.route("/admin/teamboxUpdate/<id>",methods=['GET','POST'])
+def teamboxUpdate(id):
+    form=TeamBoxForm()
+    teambox=TeamBox.query.get(id)
+    if request.method=='POST':
+        file=form.teammate_img.data
+        teammate_img_name=file.filename
+        randomteammate_img=random.randint(5002,9958)
+        teammate_name= secure_filename(form.teammate_name.data)
+        teammate_extention=teammate_img_name.split(".")[-1]
+        TeammateImg=teammate_name+ str(randomteammate_img)+"."+teammate_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],TeammateImg))
+        teambox.teammate_name=form.teammate_name.data
+        teambox.teammate_position=form.teammate_position.data
+        teambox.teammate_img=TeammateImg
+        db.session.commit()
+        return redirect(url_for('teamboxAdd'))
+    return render_template('admin/teamboxUpdate.html',form=form, teambox=teambox)
+
+@app.route("/admin/teamboxDelete/<id>")
+def teamboxDelete(id):
+    teambox=TeamBox.query.get(id)
+    db.session.delete(teambox)
+    db.session.commit()
+    return redirect(url_for('teamboxAdd'))
+# Teammate Image End
+
+
+
+# Team Social Icon start
+@app.route("/admin/teamSocilaIconAdd", methods=['GET', 'POST'])
+def teamSocilaIconAdd():
+    form=TeamSocilIconForm()
+    teamsocialicons=TeamSocilIcon.query.all()
+    if request.method== "POST":
+        teamsocialicon=TeamSocilIcon(
+            teammate_icon_name=form.teammate_icon_name.data,
+            teammate_icon_class=form.teammate_icon_class.data,
+            teammate_icon_link=form.teammate_icon_link.data
+        )
+        db.session.add(teamsocialicon)
+        db.session.commit()
+        return redirect(url_for('teamSocilaIconAdd'))
+    return render_template('admin/teamSocilaIconAdd.html',form=form, teamsocialicons=teamsocialicons)
+
+@app.route("/admin/teamSocilaIconUpdate/<id>", methods=['GET','POST'])
+def teamSocilaIconUpdate(id):
+    form=TeamSocilIconForm()
+    teamsocialicon=TeamSocilIcon.query.get(id)
+    if request.method=='POST':
+        teamsocialicon.teammate_icon_name=form.teammate_icon_name.data
+        teamsocialicon.teammate_icon_class=form.teammate_icon_class.data
+        teamsocialicon.teammate_icon_link=form.teammate_icon_link.data
+        db.session.commit()
+        return redirect(url_for('teamSocilaIconAdd'))
+    return render_template('admin/teamSocilaIconUpdate.html',form=form, teamsocialicon=teamsocialicon)
+
+@app.route("/admin/teamSocilaIconDelete/<id>")
+def teamSocilaIconDelete(id):
+    teamsocialicon=TeamSocilIcon.query.get(id)
+    db.session.delete(teamsocialicon)
+    db.session.commit()
+    return redirect(url_for('teamSocilaIconAdd'))
+#Team Social Icon end
+
+
+
+# Team Button start
+@app.route("/admin/teambuttonAdd", methods=['GET', 'POST'])
+def teambuttonAdd():
+    form=TeamButtonForm()
+    teambuttons=TeamButton.query.all()
+    if request.method== "POST":
+        teambutton=TeamButton(
+            teambuuton_title=form.teambuuton_title.data,
+            teambuuton_icon=form.teambuuton_icon.data,
+            teambuuton_url=form.teambuuton_url.data
+        )
+        db.session.add(teambutton)
+        db.session.commit()
+        return redirect(url_for('teambuttonAdd'))
+    return render_template('admin/teambuttonAdd.html',form=form, teambuttons=teambuttons)
+
+@app.route("/admin/teambuttonUpdate/<id>", methods=['GET','POST'])
+def teambuttonUpdate(id):
+    form=TeamButtonForm()
+    teambutton=TeamButton.query.get(id)
+    if request.method=='POST':
+        teambutton.teambuuton_title=form.teambuuton_title.data
+        teambutton.teambuuton_icon=form.teambuuton_icon.data
+        teambutton.teambuuton_url=form.teambuuton_url.data
+        db.session.commit()
+        return redirect(url_for('teambuttonAdd'))
+    return render_template('admin/teambuttonUpdate.html',form=form, teambutton=teambutton)
+
+@app.route("/admin/teambuttonDelete/<id>")
+def teambuttonDelete(id):
+    teambutton=TeamButton.query.get(id)
+    db.session.delete(teambutton)
+    db.session.commit()
+    return redirect(url_for('teambuttonAdd'))
+# Team Button end

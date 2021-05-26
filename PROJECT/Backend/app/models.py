@@ -94,3 +94,21 @@ class TeamHeading(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     team_subheading=db.Column(db.String(255))
     team_title=db.Column(db.String(255))
+
+class TeamBox(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    teammate_img=db.Column(db.String(255))
+    teammate_name=db.Column(db.String(255))
+    teammate_position=db.Column(db.String(255))
+
+class TeamSocilIcon(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    teammate_icon_name=db.Column(db.String(255))
+    teammate_icon_class=db.Column(db.String(255))
+    teammate_icon_link=db.Column(db.String(255))
+
+class TeamButton(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    teambuuton_title=db.Column(db.String(255))
+    teambuuton_icon=db.Column(db.String(255))
+    teambuuton_url=db.Column(db.String(255))

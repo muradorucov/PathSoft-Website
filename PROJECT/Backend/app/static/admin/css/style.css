@@ -3,10 +3,7 @@
   margin: 0 !important;
 }
 .col-admin {
-  width: 230px;
-  margin: 0 15px;
-  position: fixed;
-  top: 25%;
+  margin: 15px 15px;
 }
 .marg {
   margin-bottom: 40px;

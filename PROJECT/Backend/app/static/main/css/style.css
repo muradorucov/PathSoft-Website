@@ -1127,7 +1127,7 @@ ul {
   border-radius: 6px;
   transform: translateX(-50%);
 }
-.news-item-title {
+.news-item-title h4 {
   font-family: "Montserrat", sans-serif;
   font-size: 1.125rem;
   font-weight: bold;

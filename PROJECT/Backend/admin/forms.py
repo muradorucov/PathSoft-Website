@@ -99,6 +99,23 @@ class TeamHeadingForm(FlaskForm):
     team_title=StringField()
     submit=SubmitField()
 
+class TeamBoxForm(FlaskForm):
+    teammate_name=StringField()
+    teammate_position=StringField()
+    teammate_img=FileField()
+    submit=SubmitField()
+
+class TeamSocilIconForm(FlaskForm):
+    teammate_icon_name=StringField()
+    teammate_icon_class=StringField()
+    teammate_icon_link=StringField()
+    submit=SubmitField()
+
+class TeamButtonForm(FlaskForm):
+    teambuuton_title=StringField()
+    teambuuton_icon=StringField()
+    teambuuton_url=StringField()
+    submit=SubmitField()
 
 """class Form(FlaskForm):
     =StringField()

@@ -242,141 +242,53 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
+                {% for teamheading in teamheadings %}
                 <div class="section-heading">
-                    <span class="section-heading-span">WHO WE ARE</span>
-                    <h2 class="section-heading-h2">
-                        Meet The Team</h2>
+                    <span class="section-heading-span">{{teamheading.team_subheading}}</span>
+                    <h2 class="section-heading-h2">{{teamheading.team_title}}</h2>
                 </div>
+                {% endfor %}
             </div>
         </div>
         <div class="row justify-content-center">
+            {% for teambox in teamboxs %}
             <div class="col-3 team-box">
                 <div class="team-item">
-                    <div class="team-img"><img src="/static/uploads/team-img-1.jpg" alt=""></div>
+                    <div class="team-img"><img src="/static/uploads/{{teambox.teammate_img}}"
+                            alt="{{teambox.teammate_name}}"></div>
                     <div class="team-con">
                         <ul class="team-social-media">
+
+                            {% for teamsocialicon in teamsocialicons %}
                             <li>
-                                <a href="#!" title="Facebook"><i class="fab fa-facebook-f"></i>
+                                <a href="{{teamsocialicon.teammate_icon_link}}"
+                                    title="{{teamsocialicon.teammate_icon_name}}"><i
+                                        class="{{teamsocialicon.teammate_icon_class}}"></i>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#!" title="Instagram"><i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" title="LinkedIn"><i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" title="Twitter"><i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
+                            {% endfor %}
                         </ul>
                         <div class="team-info-title">
-                            <h4>Mary Lee</h4>
-                            <p>Software Developer</p>
+                            <h4>{{teambox.teammate_name}}</h4>
+                            <p>{{teambox.teammate_position}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-3 team-box">
-                <div class="team-item">
-                    <div class="team-img"><img src="/static/uploads/team-img-2.jpg" alt=""></div>
-                    <div class="team-con">
-                        <ul class="team-social-media">
-                            <li>
-                                <a href="#!" title="Facebook"><i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" title="Instagram"><i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" title="LinkedIn"><i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" title="Twitter"><i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="team-info-title">
-                            <h4>Ryan Wilson</h4>
-                            <p>CEO</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 team-box">
-                <div class="team-item">
-                    <div class="team-img"><img src="/static/uploads/team-img-3.jpg" alt=""></div>
-                    <div class="team-con">
-                        <ul class="team-social-media">
-                            <li>
-                                <a href="#!" title="Facebook"><i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" title="Instagram"><i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" title="LinkedIn"><i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" title="Twitter"><i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="team-info-title">
-                            <h4>Sam Robinson</h4>
-                            <p>Senior Developer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 team-box">
-                <div class="team-item">
-                    <div class="team-img"><img src="/static/uploads/team-img-4.jpg" alt=""></div>
-                    <div class="team-con">
-                        <ul class="team-social-media">
-                            <li>
-                                <a href="#!" title="Facebook"><i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" title="Instagram"><i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" title="LinkedIn"><i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" title="Twitter"><i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="team-info-title">
-                            <h4>Jill Peterson</h4>
-                            <p> Senior Developer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
+                {% for teambutton in teambuttons %}
                 <div class="bttn-row">
-                    <a href="/team">
+                    <a href="{{teambutton.teambuuton_url}}">
                         <div class="bttn">
-                            <span>See All Team</span>
-                            <i class="material-icons"> east</i>
+                            <span>{{teambutton.teambuuton_title}}</span>
+                            <i class="material-icons"> {{teambutton.teambuuton_icon}}</i>
                         </div>
                     </a>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
