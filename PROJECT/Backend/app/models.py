@@ -112,3 +112,40 @@ class TeamButton(db.Model):
     teambuuton_title=db.Column(db.String(255))
     teambuuton_icon=db.Column(db.String(255))
     teambuuton_url=db.Column(db.String(255))
+
+class ClientHeading(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    client_subheading=db.Column(db.String(255))
+    client_title=db.Column(db.String(255))
+
+class ClientBox(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    client_name=db.Column(db.String(255))
+    client_status=db.Column(db.String(255))
+    client_desc=db.Column(db.String(255))
+    client_img=db.Column(db.String(255))
+
+class ClientButton(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    clientbutton_title=db.Column(db.String(255))
+    clientbutton_icon=db.Column(db.String(255))
+    clientbutton_url=db.Column(db.String(255))
+
+class NewsHeading(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    news_subheading=db.Column(db.String(255))
+    news_title=db.Column(db.String(255))
+
+class NewsBox(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    newsbox_title=db.Column(db.String(255))
+    newsbox_desc=db.Column(db.String(255))
+    newsbox_date=db.Column(db.String(255))
+    newsbox_link=db.Column(db.String(255))
+    newsbox_img=db.Column(db.String(255))
+
+class NewsButton(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    newsbutton_title=db.Column(db.String(255))
+    newsbutton_icon=db.Column(db.String(255))
+    newsbutton_url=db.Column(db.String(255))

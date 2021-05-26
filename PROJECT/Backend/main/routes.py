@@ -25,7 +25,10 @@ def index():
     teamboxs=TeamBox.query.all()
     teamsocialicons=TeamSocilIcon.query.all()
     teambuttons=TeamButton.query.all()
-    return render_template("main/index.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns, serviceheadings=serviceheadings, serviceitems=serviceitems ,servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems,projectheadings=projectheadings, projectmenus=projectmenus,projectboxs=projectboxs, projectbtns=projectbtns,teamheadings=teamheadings, teamboxs=teamboxs, teamsocialicons=teamsocialicons, teambuttons=teambuttons)
+    clientheadings=ClientHeading.query.all()
+    clientboxs=ClientBox.query.all()
+    clientbuttons=ClientButton.query.all()
+    return render_template("main/index.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns, serviceheadings=serviceheadings, serviceitems=serviceitems ,servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems,projectheadings=projectheadings, projectmenus=projectmenus,projectboxs=projectboxs, projectbtns=projectbtns,teamheadings=teamheadings, teamboxs=teamboxs, teamsocialicons=teamsocialicons, teambuttons=teambuttons, clientboxs=clientboxs,clientheadings=clientheadings, clientbuttons=clientbuttons )
 
 @app.route("/about")
 def about_index():

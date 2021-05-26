@@ -301,71 +301,45 @@
     <div class="container section-padding">
         <div class="row">
             <div class="col-12">
+                {% for clientheading in clientheadings %}
                 <div class="section-heading">
-                    <span class="section-heading-span">REVIEWS FROM OUR CLIENTS</span>
-                    <h2 class="section-heading-h2">What People Say</h2>
+                    <span class="section-heading-span">{{clientheading.client_subheading}}</span>
+                    <h2 class="section-heading-h2">{{clientheading.client_title}}</h2>
                 </div>
+                {% endfor %}
             </div>
         </div>
         <div class="row justify-content-center">
+            {% for clientbox in clientboxs %}
             <div class="col-4 team-box">
                 <div class="client-item">
                     <div class="client-title">
-                        <div class="client-img"><img src="/static/uploads/auth-img-1.jpg" alt=""></div>
+                        <div class="client-img"><img src="/static/uploads/{{clientbox.client_img}}"
+                                alt="{{clientbox.client_name}}"></div>
                         <div class="client-name">
-                            <h4>Catherine Williams</h4>
-                            <p>Regular client</p>
+                            <h4>{{clientbox.client_name}}</h4>
+                            <p>{{clientbox.client_status}}</p>
                         </div>
                     </div>
                     <div class="client-info">
-                        <p>PathSoft offers a high caliber of resources skilled in Microsoft Azure.NET, mobile and
-                            Quality Assurance. They became our true business partners over the past three years.</p>
+                        <p>{{clientbox.client_desc}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-4 team-box">
-                <div class="client-item">
-                    <div class="client-title">
-                        <div class="client-img"><img src="/static/uploads/auth-img-2.jpg" alt=""></div>
-                        <div class="client-name">
-                            <h4>Rupert Wood</h4>
-                            <p>Regular client</p>
-                        </div>
-                    </div>
-                    <div class="client-info">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit consequuntur sequi eos
-                            beatae deleniti culpa cupiditate rerum. Similique, blanditiis rem perspiciatis fugiat
-                            voluptatem quas officiis ducimus reprehenderit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4 team-box">
-                <div class="client-item">
-                    <div class="client-title">
-                        <div class="client-img"><img src="/static/uploads/auth-img-3.jpg" alt=""></div>
-                        <div class="client-name">
-                            <h4>Samantha Brown</h4>
-                            <p>Regular client</p>
-                        </div>
-                    </div>
-                    <div class="client-info">
-                        <p>We sincerely hope that each and every user entering our website will find exactly. With
-                            advanced features of activating account and new login widgets, you will definitely have
-                            a great experience of using our web page.</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
+                {% for clientbutton in clientbuttons %}
                 <div class="bttn-row">
-                    <a href="/testimonials">
+                    <a href="{{clientbutton.clientbutton_url}}">
                         <div class="bttn">
-                            <span>See All Reviwes</span>
-                            <i class="material-icons"> east</i>
+                            <span>{{clientbutton.clientbutton_title}}</span>
+                            <i class="material-icons">{{clientbutton.clientbutton_icon}}</i>
                         </div>
                     </a>
                 </div>
+                {% endfor %}
             </div>
         </div>
 </section>
@@ -377,84 +351,50 @@
     <div class="container section-padding">
         <div class="row">
             <div class="col-12">
+                {% for newsheading in newsheading %}
                 <div class="section-heading">
-                    <span class="section-heading-span">MORE INFO ABOUT</span>
-                    <h2 class="section-heading-h2">Latest News</h2>
+                    <span class="section-heading-span">{{newsheading.news_subheading}}</span>
+                    <h2 class="section-heading-h2">{{newsheading.news_title}}</h2>
                 </div>
+                {% endfor %}
             </div>
         </div>
         <div class="row justify-content-center">
+            {% for newsbox in newsboxs %}
             <div class="col-4">
                 <div class="news-item">
-                    <a href="#" class="news-img">
-                        <img src="/static/uploads/news-img-1.jpg" alt="">
+                    <a href="{{newsbox.newsbox_link}}" class="news-img">
+                        <img src="/static/uploads/{{newsbox.newsbox_img}}" alt="{{newsbox.newsbox_title}}">
                     </a>
                     <div class="news-info">
                         <div class="news-day">
-                            <p>07/01/2020</p>
+                            <p>{{newsbox.newsbox_date}}</p>
                         </div>
                         <div class="news-item-title">
                             <a href="">
-                                <h4>Benefits Of Async/Await</h4>
+                                <h4>{{newsbox.newsbox_title}}</h4>
                             </a>
                         </div>
                         <div class="news-item-text">
-                            <p>Asynchronous functions are a good and bad thing in JavaScript.</p>
+                            <p>{{newsbox.newsbox_desc}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="news-item">
-                    <a href="#" class="news-img">
-                        <img src="/static/uploads/news-img-2.jpg" alt="">
-                    </a>
-                    <div class="news-info">
-                        <div class="news-day">
-                            <p>07/01/2020</p>
-                        </div>
-                        <div class="news-item-title">
-                            <a href="">
-                                <h4>Key Considerations Of IPaaS</h4>
-                            </a>
-                        </div>
-                        <div class="news-item-text">
-                            <p>Digital transformation requires cloud appropriate adoption</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="news-item">
-                    <a href="#" class="news-img">
-                        <img src="/static/uploads/news-img-3.jpg" alt="">
-                    </a>
-                    <div class="news-info">
-                        <div class="news-day">
-                            <p>07/01/2020</p>
-                        </div>
-                        <div class="news-item-title">
-                            <a href="">
-                                <h4>Hibernate Query Language</h4>
-                            </a>
-                        </div>
-                        <div class="news-item-text">
-                            <p>In this tutorial, we will discuss the Hibernate Query Language.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
+                {% for newsbutton in newsbuttons %}
                 <div class="bttn-row">
-                    <a href="/">
+                    <a href="{{newsbutton.newsbutton_url}}">
                         <div class="bttn">
-                            <span>See All Reviwes</span>
-                            <i class="material-icons"> east</i>
+                            <span>{{newsbutton.newsbutton_title}}</span>
+                            <i class="material-icons">{{newsbutton.newsbutton_icon}}</i>
                         </div>
                     </a>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>

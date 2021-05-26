@@ -27,7 +27,10 @@ def admin_index():
     teamboxs=TeamBox.query.all()
     teamsocialicons=TeamSocilIcon.query.all()
     teambuttons=TeamButton.query.all()
-    return render_template("admin/index.html",header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns,serviceheadings=serviceheadings, serviceitems=serviceitems , servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems, projectheadings=projectheadings,projectmenus=projectmenus, projectbtns=projectbtns,teamheadings=teamheadings, teamboxs=teamboxs, teamsocialicons=teamsocialicons, teambuttons=teambuttons)
+    clientheadings=ClientHeading.query.all()
+    clientboxs=ClientBox.query.all()
+    clientbuttons=ClientButton.query.all()
+    return render_template("admin/index.html",header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns,serviceheadings=serviceheadings, serviceitems=serviceitems , servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems, projectheadings=projectheadings,projectmenus=projectmenus, projectbtns=projectbtns,teamheadings=teamheadings, teamboxs=teamboxs, teamsocialicons=teamsocialicons, teambuttons=teambuttons, clientboxs=clientboxs, clientheadings=clientheadings, clientbuttons=clientbuttons)
 
 
 # Header Contact Info start
@@ -801,3 +804,129 @@ def teambuttonDelete(id):
     db.session.commit()
     return redirect(url_for('teambuttonAdd'))
 # Team Button end
+
+
+# Client Heading start
+@app.route("/admin/clientheadingAdd", methods=['GET', 'POST'])
+def clientheadingAdd():
+    form=ClientHeadingForm()
+    clientheadings=ClientHeading.query.all()
+    if request.method== "POST":
+        clientheading=ClientHeading(
+            client_subheading=form.client_subheading.data,
+            client_title=form.client_title.data
+        )
+        db.session.add(clientheading)
+        db.session.commit()
+        return redirect(url_for('clientheadingAdd'))
+    return render_template('admin/clientheadingAdd.html',form=form, clientheadings=clientheadings)
+
+@app.route("/admin/clientheadingUpdate/<id>", methods=['GET','POST'])
+def clientheadingUpdate(id):
+    form=ClientHeadingForm()
+    clientheading=ClientHeading.query.get(id)
+    if request.method=='POST':
+        clientheading.client_subheading=form.client_subheading.data
+        clientheading.client_title=form.client_title.data
+        db.session.commit()
+        return redirect(url_for('clientheadingAdd'))
+    return render_template('admin/clientheadingUpdate.html',form=form, clientheading=clientheading)
+
+@app.route("/admin/clientheadingDelete/<id>")
+def clientheadingDelete(id):
+    clientheading=ClientHeading.query.get(id)
+    db.session.delete(clientheading)
+    db.session.commit()
+    return redirect(url_for('clientheadingAdd'))
+# Client Heading end
+
+
+# Client Box  Start
+@app.route("/admin/clientboxAdd/", methods=['GET','POST'])
+def clientboxAdd():
+    form=ClientBoxForm()
+    clientboxs=ClientBox.query.all()
+    if request.method=='POST':
+        file=form.client_img.data
+        client_img_name=file.filename
+        randomclient_img=random.randint(9959,12809)
+        client_name= secure_filename(form.client_name.data)
+        client_extention=client_img_name.split(".")[-1]
+        ClientImg=client_name+ str(randomclient_img)+"."+client_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],ClientImg))
+        clientbox=ClientBox(
+            client_name=form.client_name.data,
+            client_status=form.client_status.data,
+            client_desc=form.client_desc.data,
+            client_img=ClientImg
+        )
+        db.session.add(clientbox)
+        db.session.commit()
+        return redirect(url_for('clientboxAdd'))
+    return render_template("admin/clientboxAdd.html",form=form, clientboxs=clientboxs)
+
+@app.route("/admin/clientboxUpdate/<id>",methods=['GET','POST'])
+def clientboxUpdate(id):
+    form=ClientBoxForm()
+    clientbox=ClientBox.query.get(id)
+    if request.method=='POST':
+        file=form.client_img.data
+        client_img_name=file.filename
+        randomclient_img=random.randint(9959,12809)
+        client_name= secure_filename(form.client_name.data)
+        client_extention=client_img_name.split(".")[-1]
+        ClientImg=client_name+ str(randomclient_img)+"."+client_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],ClientImg))
+        clientbox.client_name=form.client_name.data
+        clientbox.client_status=form.client_status.data
+        clientbox.client_desc=form.client_desc.data
+        clientbox.client_img=ClientImg
+        db.session.commit()
+        return redirect(url_for('clientboxAdd'))
+    return render_template('admin/clientboxUpdate.html',form=form, clientbox=clientbox)
+
+@app.route("/admin/clientboxDelete/<id>")
+def clientboxDelete(id):
+    clientbox=ClientBox.query.get(id)
+    db.session.delete(clientbox)
+    db.session.commit()
+    return redirect(url_for('clientboxAdd'))
+# Client Box End
+
+
+
+# Client Button start
+@app.route("/admin/clientbuttonAdd", methods=['GET', 'POST'])
+def clientbuttonAdd():
+    form=ClientButtonForm()
+    clientbuttons=ClientButton.query.all()
+    if request.method== "POST":
+        clientbutton=ClientButton(
+            clientbutton_title=form.clientbutton_title.data,
+            clientbutton_icon=form.clientbutton_icon.data,
+            clientbutton_url=form.clientbutton_url.data
+        )
+        db.session.add(clientbutton)
+        db.session.commit()
+        return redirect(url_for('clientbuttonAdd'))
+    return render_template('admin/clientbuttonAdd.html',form=form, clientbuttons=clientbuttons)
+
+@app.route("/admin/clientbuttonUpdate/<id>", methods=['GET','POST'])
+def clientbuttonUpdate(id):
+    form=ClientButtonForm()
+    clientbutton=ClientButton.query.get(id)
+    if request.method=='POST':
+        clientbutton.clientbutton_title=form.clientbutton_title.data
+        clientbutton.clientbutton_icon=form.clientbutton_icon.data
+        clientbutton.clientbutton_url=form.clientbutton_url.data
+        db.session.commit()
+        return redirect(url_for('clientbuttonAdd'))
+    return render_template('admin/clientbuttonUpdate.html',form=form, clientbutton=clientbutton)
+
+@app.route("/admin/clientbuttonDelete/<id>")
+def clientbuttonDelete(id):
+    clientbutton=ClientButton.query.get(id)
+    db.session.delete(clientbutton)
+    db.session.commit()
+    return redirect(url_for('clientbuttonAdd'))
+# Client Button end

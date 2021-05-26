@@ -117,6 +117,42 @@ class TeamButtonForm(FlaskForm):
     teambuuton_url=StringField()
     submit=SubmitField()
 
+class ClientHeadingForm(FlaskForm):
+    client_subheading=StringField()
+    client_title=StringField()
+    submit=SubmitField()
+
+class ClientBoxForm(FlaskForm):
+    client_name=StringField()
+    client_status=StringField()
+    client_desc=StringField()
+    client_img=FileField()
+    submit=SubmitField()
+
+class ClientButtonForm(FlaskForm):
+    clientbutton_title=StringField()
+    clientbutton_icon=StringField()
+    clientbutton_url=StringField()
+    submit=SubmitField()
+
+class NewsHeadingForm(FlaskForm):
+    news_subheading=StringField()
+    news_title=StringField()
+    submit=SubmitField()
+
+class NewsBoxForm(FlaskForm):
+    newsbox_title=StringField()
+    newsbox_desc=StringField()
+    newsbox_date=StringField()
+    newsbox_link=StringField()
+    newsbox_img=FileField()
+    submit=SubmitField()
+
+class NewsButtonForm(FlaskForm):
+    newsbutton_title=StringField()
+    newsbutton_icon=StringField()
+    newsbutton_url=StringField()
+    submit=SubmitField()
 """class Form(FlaskForm):
     =StringField()
     =FileField()

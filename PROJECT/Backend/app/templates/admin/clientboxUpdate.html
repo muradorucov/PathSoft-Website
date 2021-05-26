@@ -1,0 +1,27 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<h3 class="my-3" style="text-align: center;">Client Box Update</h3>
+<hr>
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-9  ">
+            <form action="{{url_for('clientboxUpdate', id=clientbox.id)}}" method='POST'
+                enctype="multipart/form-data">
+                {{ form.client_name(class="form-control my-2",placeholder="Enter: Client Name",
+                value=clientbox.client_name)}}
+                {{ form.client_status(class="form-control my-2",placeholder="Enter: Client Status",
+                value=clientbox.client_status)}}
+                {{ form.client_desc(class="form-control my-2",placeholder="Enter: Client Comment",
+                value=clientbox.client_desc)}}
+                {{ form.client_img(class="form-control-file my-2")}}
+                {{ form.submit(value='Update Client',class='btn btn-secondary btn-lg btn-block')}}
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
