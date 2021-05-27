@@ -9,28 +9,7 @@ from werkzeug.utils import secure_filename
 
 @app.route("/admin/")
 def admin_index():
-    header_contacts=HeaderContact.query.all()
-    headersocial_icons=HeaderSocialIcon.query.all()
-    logos=MeniuLogo.query.all()
-    meniu_names=MeniuName.query.all()
-    sliders=Slider.query.all()
-    sliderbttns=SliderUrl.query.all()
-    serviceheadings=ServiceTitle.query.all()
-    serviceitems=ServiceItem.query.all()
-    servicebttns=ServiceButton.query.all()
-    reasonheadings=ServiceButton.query.all()
-    reasonitems=ReasonItem.query.all()
-    projectheadings=ProjectHeader.query.all()
-    projectmenus=ProjectMenu.query.all()
-    projectbtns=ProjectButton.query.all()
-    teamheadings=TeamHeading.query.all()
-    teamboxs=TeamBox.query.all()
-    teamsocialicons=TeamSocilIcon.query.all()
-    teambuttons=TeamButton.query.all()
-    clientheadings=ClientHeading.query.all()
-    clientboxs=ClientBox.query.all()
-    clientbuttons=ClientButton.query.all()
-    return render_template("admin/index.html",header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns,serviceheadings=serviceheadings, serviceitems=serviceitems , servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems, projectheadings=projectheadings,projectmenus=projectmenus, projectbtns=projectbtns,teamheadings=teamheadings, teamboxs=teamboxs, teamsocialicons=teamsocialicons, teambuttons=teambuttons, clientboxs=clientboxs, clientheadings=clientheadings, clientbuttons=clientbuttons)
+    return render_template("admin/index.html")
 
 
 # Header Contact Info start
@@ -930,3 +909,311 @@ def clientbuttonDelete(id):
     db.session.commit()
     return redirect(url_for('clientbuttonAdd'))
 # Client Button end
+
+
+# News Heading start
+@app.route("/admin/newsheadingAdd", methods=['GET', 'POST'])
+def newsheadingAdd():
+    form=NewsHeadingForm()
+    newsheadings=NewsHeading.query.all()
+    if request.method== "POST":
+        newsheading=NewsHeading(
+            news_subheading=form.news_subheading.data,
+            news_title=form.news_title.data
+        )
+        db.session.add(newsheading)
+        db.session.commit()
+        return redirect(url_for('newsheadingAdd'))
+    return render_template('admin/newsheadingAdd.html',form=form, newsheadings=newsheadings)
+
+@app.route("/admin/newsheadingUpdate/<id>", methods=['GET','POST'])
+def newsheadingUpdate(id):
+    form=NewsHeadingForm()
+    newsheading=NewsHeading.query.get(id)
+    if request.method=='POST':
+        newsheading.news_subheading=form.news_subheading.data
+        newsheading.news_title=form.news_title.data
+        db.session.commit()
+        return redirect(url_for('newsheadingAdd'))
+    return render_template('admin/newsheadingUpdate.html',form=form, newsheading=newsheading)
+
+@app.route("/admin/newsheadingDelete/<id>")
+def newsheadingDelete(id):
+    newsheading=NewsHeading.query.get(id)
+    db.session.delete(newsheading)
+    db.session.commit()
+    return redirect(url_for('newsheadingAdd'))
+# News Heading end
+
+
+
+# News Box  Start
+@app.route("/admin/newsboxAdd/", methods=['GET','POST'])
+def newsboxAdd():
+    form=NewsBoxForm()
+    newsboxs=NewsBox.query.all()
+    if request.method=='POST':
+        file=form.newsbox_img.data
+        newsbox_img_name=file.filename
+        randomnewsbox_img=random.randint(12810,20006)
+        newsbox_title= secure_filename(form.newsbox_title.data)
+        client_extention=newsbox_img_name.split(".")[-1]
+        NewsImg=newsbox_title+ str(randomnewsbox_img)+"."+client_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],NewsImg))
+        newsbox=NewsBox(
+            newsbox_title=form.newsbox_title.data,
+            newsbox_desc=form.newsbox_desc.data,
+            newsbox_link=form.newsbox_link.data,
+            newsbox_date=form.newsbox_date.data,
+            newsbox_img=NewsImg
+        )
+        db.session.add(newsbox)
+        db.session.commit()
+        return redirect(url_for('newsboxAdd'))
+    return render_template("admin/newsboxAdd.html",form=form, newsboxs=newsboxs)
+
+@app.route("/admin/newsboxUpdate/<id>",methods=['GET','POST'])
+def newsboxUpdate(id):
+    form=NewsBoxForm()
+    newsbox=NewsBox.query.get(id)
+    if request.method=='POST':
+        file=form.newsbox_img.data
+        newsbox_img_name=file.filename
+        randomnewsbox_img=random.randint(12810,20006)
+        newsbox_title= secure_filename(form.newsbox_title.data)
+        client_extention=newsbox_img_name.split(".")[-1]
+        NewsImg=newsbox_title+ str(randomnewsbox_img)+"."+client_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],NewsImg))
+        newsbox.newsbox_title=form.newsbox_title.data
+        newsbox.newsbox_desc=form.newsbox_desc.data
+        newsbox.newsbox_link=form.newsbox_link.data
+        newsbox.newsbox_date=form.newsbox_date.data
+        newsbox.newsbox_img=NewsImg
+        db.session.commit()
+        return redirect(url_for('newsboxAdd'))
+    return render_template('admin/newsboxUpdate.html',form=form, newsbox=newsbox)
+
+@app.route("/admin/newsboxDelete/<id>")
+def newsboxDelete(id):
+    newsbox=NewsBox.query.get(id)
+    db.session.delete(newsbox)
+    db.session.commit()
+    return redirect(url_for('newsboxAdd'))
+# News Box End
+
+
+
+# News Button start
+@app.route("/admin/newsbuttonAdd", methods=['GET', 'POST'])
+def newsbuttonAdd():
+    form=NewsButtonForm()
+    newsbuttons=NewsButton.query.all()
+    if request.method== "POST":
+        newsbutton=NewsButton(
+            newsbutton_title=form.newsbutton_title.data,
+            newsbutton_icon=form.newsbutton_icon.data,
+            newsbutton_url=form.newsbutton_url.data
+        )
+        db.session.add(newsbutton)
+        db.session.commit()
+        return redirect(url_for('newsbuttonAdd'))
+    return render_template('admin/newsbuttonAdd.html',form=form, newsbuttons=newsbuttons)
+
+@app.route("/admin/newsbuttonUpdate/<id>", methods=['GET','POST'])
+def newsbuttonUpdate(id):
+    form=NewsButtonForm()
+    newsbutton=NewsButton.query.get(id)
+    if request.method=='POST':
+        newsbutton.newsbutton_title=form.newsbutton_title.data
+        newsbutton.newsbutton_icon=form.newsbutton_icon.data
+        newsbutton.newsbutton_url=form.newsbutton_url.data
+        db.session.commit()
+        return redirect(url_for('newsbuttonAdd'))
+    return render_template('admin/newsbuttonUpdate.html',form=form, newsbutton=newsbutton)
+
+@app.route("/admin/newsbuttonDelete/<id>")
+def newsbuttonDelete(id):
+    newsbutton=NewsButton.query.get(id)
+    db.session.delete(newsbutton)
+    db.session.commit()
+    return redirect(url_for('newsbuttonAdd'))
+# News Button end
+
+
+# Footer Info start
+@app.route("/admin/footerinfoAdd", methods=['GET', 'POST'])
+def footerinfoAdd():
+    form=FooterCompanyInfoForm()
+    company_info_footers=FooterCompanyInfo.query.all()
+    if request.method== "POST":
+        company_info_footer=FooterCompanyInfo(
+            company_info=form.company_info.data
+        )
+        db.session.add(company_info_footer)
+        db.session.commit()
+        return redirect(url_for('footerinfoAdd'))
+    return render_template('admin/footerinfoAdd.html',form=form, company_info_footers=company_info_footers)
+
+@app.route("/admin/footerinfoUpdate/<id>", methods=['GET','POST'])
+def footerinfoUpdate(id):
+    form=FooterCompanyInfoForm()
+    company_info_footer=FooterCompanyInfo.query.get(id)
+    if request.method=='POST':
+        company_info_footer.company_info=form.company_info.data
+        db.session.commit()
+        return redirect(url_for('footerinfoAdd'))
+    return render_template('admin/footerinfoUpdate.html',form=form, company_info_footer=company_info_footer)
+
+@app.route("/admin/footerinfoDelete/<id>")
+def footerinfoDelete(id):
+    company_info_footer=FooterCompanyInfo.query.get(id)
+    db.session.delete(company_info_footer)
+    db.session.commit()
+    return redirect(url_for('footerinfoAdd'))
+# Footer Info end
+
+
+# Footer Social icon start
+@app.route("/admin/footersocialiconAdd/", methods=['GET','POST'])
+def footersocialiconAdd():
+    form=FooterSocialIconForm()
+    footer_social_icons=FooterSocialIcon.query.all()
+    if request.method=='POST':
+        footer_social_icon=FooterSocialIcon(
+            footer_si_name=form.footer_si_name.data,
+            footer_si_class=form.footer_si_class.data,
+            footer_si_link=form.footer_si_link.data
+        )
+        db.session.add(footer_social_icon)
+        db.session.commit()
+        return redirect(url_for('footersocialiconAdd'))
+    return render_template("admin/footersocialiconAdd.html",form=form, footer_social_icons=footer_social_icons)
+
+@app.route("/admin/footersocialiconUpdate/<id>",methods=['GET','POST'])
+def footersocialiconUpdate(id):
+    form=FooterSocialIconForm()
+    footer_social_icon=FooterSocialIcon.query.get(id)
+    if request.method=='POST':
+        footer_social_icon.footer_si_name=form.footer_si_name.data
+        footer_social_icon.footer_si_class=form.footer_si_class.data
+        footer_social_icon.footer_si_link=form.footer_si_link.data
+        db.session.commit()
+        return redirect(url_for('footersocialiconAdd'))
+    return render_template('admin/footersocialiconUpdate.html',form=form, footer_social_icon=footer_social_icon)
+
+@app.route("/admin/footersocialiconDelete/<id>")
+def footersocialiconDelete(id):
+    footer_social_icon=FooterSocialIcon.query.get(id)
+    db.session.delete(footer_social_icon)
+    db.session.commit()
+    return redirect(url_for('footersocialiconAdd'))
+# Footer Socila icon End
+
+
+# Header Meniu Name start
+@app.route("/admin/footermenuAdd", methods=['GET','POST'])
+def footermenuAdd():
+    form=FooterMenuForm()
+    footer_menus=FooterMenu.query.all()
+    if request.method=='POST':
+        footer_menu=FooterMenu(
+            ft_menu_name=form.ft_menu_name.data,
+            ft_menu_link=form.ft_menu_link.data
+        )
+        db.session.add(footer_menu)
+        db.session.commit()
+        return redirect(url_for('footermenuAdd'))
+    return render_template("admin/footermenuAdd.html",form=form, footer_menus=footer_menus)
+
+@app.route("/admin/footermenuUpdate/<id>",methods=['GET','POST'])
+def footermenuUpdate(id):
+    form=FooterMenuForm()
+    footer_menu=FooterMenu.query.get(id)
+    if request.method=='POST':
+        footer_menu.ft_menu_name=form.ft_menu_name.data
+        footer_menu.ft_menu_link=form.ft_menu_link.data
+        db.session.commit()
+        return redirect(url_for('footermenuAdd'))
+    return render_template('admin/footermenuUpdate.html',form=form, footer_menu=footer_menu)
+
+@app.route("/admin/footermenuDelete/<id>")
+def footermenuDelete(id):
+    footer_menu=FooterMenu.query.get(id)
+    db.session.delete(footer_menu)
+    db.session.commit()
+    return redirect(url_for('footermenuAdd'))
+# Header Meniu Name end
+
+
+
+# Header Offer Name start
+@app.route("/admin/footerofferAdd", methods=['GET','POST'])
+def footerofferAdd():
+    form=FooterOfferForm()
+    footer_offers=FooterOffer.query.all()
+    if request.method=='POST':
+        footer_offer=FooterOffer(
+            offer=form.offer.data,
+            offer_link=form.offer_link.data
+        )
+        db.session.add(footer_offer)
+        db.session.commit()
+        return redirect(url_for('footerofferAdd'))
+    return render_template("admin/footerofferAdd.html",form=form, footer_offers=footer_offers)
+
+@app.route("/admin/footerofferUpdate/<id>",methods=['GET','POST'])
+def footerofferUpdate(id):
+    form=FooterOfferForm()
+    footer_offer=FooterOffer.query.get(id)
+    if request.method=='POST':
+        footer_offer.offer=form.offer.data
+        footer_offer.offer_link=form.offer_link.data
+        db.session.commit()
+        return redirect(url_for('footerofferAdd'))
+    return render_template('admin/footerofferUpdate.html',form=form, footer_offer=footer_offer)
+
+@app.route("/admin/footerofferDelete/<id>")
+def footerofferDelete(id):
+    footer_offer=FooterOffer.query.get(id)
+    db.session.delete(footer_offer)
+    db.session.commit()
+    return redirect(url_for('footerofferAdd'))
+# Header Offer Name end
+
+
+
+# Footer Social icon start
+@app.route("/admin/footercontactAdd/", methods=['GET','POST'])
+def footercontactAdd():
+    form=FooterContactForm()
+    footer_contacts=FooterContact.query.all()
+    if request.method=='POST':
+        footer_contact=FooterContact(
+            footer_contact_name=form.footer_contact_name.data,
+            footer_contact_icon=form.footer_contact_icon.data,
+            footer_contact_link=form.footer_contact_link.data
+        )
+        db.session.add(footer_contact)
+        db.session.commit()
+        return redirect(url_for('footercontactAdd'))
+    return render_template("admin/footercontactAdd.html",form=form, footer_contacts=footer_contacts)
+
+@app.route("/admin/footercontactUpdate/<id>",methods=['GET','POST'])
+def footercontactUpdate(id):
+    form=FooterContactForm()
+    footer_contact=FooterContact.query.get(id)
+    if request.method=='POST':
+        footer_contact.footer_contact_name=form.footer_contact_name.data
+        footer_contact.footer_contact_icon=form.footer_contact_icon.data
+        footer_contact.footer_contact_link=form.footer_contact_link.data
+        db.session.commit()
+        return redirect(url_for('footercontactAdd'))
+    return render_template('admin/footercontactUpdate.html',form=form, footer_contact=footer_contact)
+
+@app.route("/admin/footercontactDelete/<id>")
+def footercontactDelete(id):
+    footer_contact=FooterContact.query.get(id)
+    db.session.delete(footer_contact)
+    db.session.commit()
+    return redirect(url_for('footercontactAdd'))
+# Footer Socila icon End

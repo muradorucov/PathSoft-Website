@@ -2,7 +2,9 @@
 <h3 class="my-2">Yeni istifadəçilər</h3>
 <form action="/update/{{post.id}}" method='POST' enctype="multipart/form-data">
     <input type="text" class="form-control my-2" name='p_title' placeholder="Bashliq" value="{{post.p_title}}">
-    <input type="file" class="form-control my-2" name='p_img' multiple>
+    <textarea name="desc" class="form-control my-2" cols="100" rows="10" " placeholder=" Mətni bura
+        yazın">{{post.desc}}</textarea>
+    <input type="file" class="form-control my-2" name='p_img' value="p_img" multiple>
     <input type="date" class="form-control my-2" name='p_date' value="{{post.p_date}}">
     <input type="submit" class="btn btn-primary px-2" value='Gonder'>
 </form>

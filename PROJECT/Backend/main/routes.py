@@ -28,7 +28,15 @@ def index():
     clientheadings=ClientHeading.query.all()
     clientboxs=ClientBox.query.all()
     clientbuttons=ClientButton.query.all()
-    return render_template("main/index.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns, serviceheadings=serviceheadings, serviceitems=serviceitems ,servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems,projectheadings=projectheadings, projectmenus=projectmenus,projectboxs=projectboxs, projectbtns=projectbtns,teamheadings=teamheadings, teamboxs=teamboxs, teamsocialicons=teamsocialicons, teambuttons=teambuttons, clientboxs=clientboxs,clientheadings=clientheadings, clientbuttons=clientbuttons )
+    newsheadings=NewsHeading.query.all()
+    newsboxs=NewsBox.query.all()
+    newsbuttons=NewsButton.query.all()
+    company_info_footers=FooterCompanyInfo.query.all()
+    footer_social_icons=FooterSocialIcon.query.all()
+    footer_menus=FooterMenu.query.all()
+    footer_offers=FooterOffer.query.all()
+    footer_contacts=FooterContact.query.all()
+    return render_template("main/index.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns, serviceheadings=serviceheadings, serviceitems=serviceitems ,servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems,projectheadings=projectheadings, projectmenus=projectmenus,projectboxs=projectboxs, projectbtns=projectbtns,teamheadings=teamheadings, teamboxs=teamboxs, teamsocialicons=teamsocialicons, teambuttons=teambuttons, clientboxs=clientboxs,clientheadings=clientheadings, clientbuttons=clientbuttons , newsheadings=newsheadings,newsboxs=newsboxs,newsbuttons=newsbuttons,company_info_footers=company_info_footers , footer_social_icons=footer_social_icons,footer_menus=footer_menus , footer_offers=footer_offers, footer_contacts=footer_contacts)
 
 @app.route("/about")
 def about_index():

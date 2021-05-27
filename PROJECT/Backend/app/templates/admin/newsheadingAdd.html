@@ -3,20 +3,20 @@
 
 {% block content %}
 
-<h3 class="my-3" style="text-align: center;">Project Heading Add</h3>
+<h3 class="my-3" style="text-align: center;">News Heading Add</h3>
 <hr>
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9">
-            <form action="{{url_for('projectHeadingAdd')}}" method='POST'>
-                {{ form.project_subheading(class="form-control my-2",placeholder="Enter:Subheading")}}
-                {{ form.project_title(class="form-control my-2",placeholder="Enter: Heading")}}
-                {{ form.submit(value='Add Project Heading',class='btn btn-primary btn-lg btn-block')}}
+            <form action="{{url_for('newsheadingAdd')}}" method='POST'>
+                {{ form.news_subheading(class="form-control my-2",placeholder="Enter:Subheading")}}
+                {{ form.news_title(class="form-control my-2",placeholder="Enter: Heading")}}
+                {{ form.submit(value='Add News Heading',class='btn btn-primary btn-lg btn-block')}}
             </form>
         </div>
     </div>
 </div>
-<!-- =====Project Heading End==== -->
+<!-- =====News Heading End==== -->
 <div class="container marg">
     <div class="row justify-content-center">
         <div class="col-9 ">
@@ -30,15 +30,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for projectheading in projectheadings %}
+                    {% for newsheading in newsheadings %}
                     <tr>
-                        <td scope="row">{{projectheading.id}}</td>
-                        <td>{{projectheading.project_subheading}}</td>
-                        <td>{{projectheading.project_title}}</td>
+                        <td scope="row">{{newsheading.id}}</td>
+                        <td>{{newsheading.news_subheading}}</td>
+                        <td>{{newsheading.news_title}}</td>
                         <td>
-                            <a href="{{url_for('projectHeadingDelete',id=projectheading.id)}}"><i
+                            <a href="{{url_for('newsheadingDelete',id=newsheading.id)}}"><i
                                     class="bi bi-trash-fill"></i></a>
-                            <a href="{{url_for('projectHeadingUpdate',id=projectheading.id)}}"><i
+                            <a href="{{url_for('newsheadingUpdate',id=newsheading.id)}}"><i
                                     class="bi bi-pencil-square"></i></a>
                         </td>
                     </tr>
@@ -48,5 +48,5 @@
         </div>
     </div>
 </div>
-<!-- =====Project Heading Start==== -->
+<!-- =====News Heading Start==== -->
 {% endblock %}

@@ -12,6 +12,7 @@ db = SQLAlchemy(app)
 class Post(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     p_title=db.Column(db.String(100))
+    desc=db.Column(db.String(100))
     p_img=db.Column(db.String(100))
     p_date=db.Column(db.String(100))
 
@@ -29,6 +30,7 @@ def add():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'],file_name))
         post=Post(
             p_title=request.form['p_title'],
+            desc=request.form['desc'],
             p_date=request.form['p_date'],
             p_img=file_name
         )
@@ -53,6 +55,7 @@ def update(id):
         file_name=file.filename
         file.save(os.path.join(app.config['UPLOAD_FOLDER'],file_name))
         post.p_title=request.form['p_title']
+        post.desc=request.form['desc']
         post.p_date=request.form['p_date']
         post.p_img=file_name
         db.session.commit()

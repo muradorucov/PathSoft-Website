@@ -134,27 +134,26 @@
             <div class="row">
                 <div class="col-4">
                     <div class="footer-item">
+                        {% for logo in logos %}
                         <div class="logo">
-                            <a href="#"><img src="/static/uploads/2264.png" alt="LOGO PathSoft">
-                                <span><b>PathSoft</b></span></a>
+                            <a href="{{logo.logo_url}}"><img src="/static/uploads/{{logo.logo_img}}"
+                                    alt="{{logo.logo_alt}}">
+                                <span>{{logo.logo_title}}</span>
+                            </a>
                         </div>
+                        {% endfor %}
                         <div class="company-info">
-                            <p>Our company has been developing high-quality and reliable software for corporate needs
-                                since 2008. We are renowned professionals of software development.</p>
+                            {% for company_info_footer in company_info_footers %}
+                            <p>{{company_info_footer.company_info}}</p>
+                            {% endfor %}
                         </div>
                         <div class="company-sosial-media">
-                            <a href="https://www.facebook.com/">
-                                <div class="company-sosial-icon"><i class="fab fa-facebook-f"></i></div>
+                            {% for footer_social_icon in footer_social_icons %}
+                            <a href="{{footer_social_icon.footer_si_link}}">
+                                <div class="company-sosial-icon" title="{{footer_social_icon.footer_si_name}}"><i
+                                        class="{{footer_social_icon.footer_si_class}}"></i></div>
                             </a>
-                            <a href="http://www.instagram.com/">
-                                <div class="company-sosial-icon"><i class="fab fa-instagram"></i></div>
-                            </a>
-                            <a href="http://www.linkedin.com">
-                                <div class="company-sosial-icon"><i class="fab fa-linkedin-in"></i></div>
-                            </a>
-                            <a href="http://www.twitter.com">
-                                <div class="company-sosial-icon"><i class="fab fa-twitter"></i></div>
-                            </a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -162,31 +161,14 @@
                     <div class="company-menu">
                         <h4>Menu</h4>
                         <ul class="company-footer-meniu">
+                            {% for footer_menu in footer_menus %}
                             <li>
-                                <a href="/about" class="menu-list-to footer-list-to" data-title="About Us">
-                                    <span data-title="About Us"> About Us</span>
+                                <a href="{{footer_menu.ft_menu_link}}" class="menu-list-to footer-list-to"
+                                    data-title="{{footer_menu.ft_menu_name}}">
+                                    <span data-title="{{footer_menu.ft_menu_name}}">{{footer_menu.ft_menu_name}}</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/services" class="menu-list-to footer-list-to" data-title="Services">
-                                    <span data-title="Services"> Services</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/team" class="menu-list-to footer-list-to" data-title="Our Team">
-                                    <span data-title="Our Team"> Our Team</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/news" class="menu-list-to footer-list-to" data-title="News">
-                                    <span data-title="News"> News</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/contact" class="menu-list-to footer-list-to" data-title="Contact Us">
-                                    <span data-title="Contact Us"> Contact Us</span>
-                                </a>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -194,31 +176,14 @@
                     <div class="company-menu">
                         <h4>What We Offer</h4>
                         <ul class="company-footer-meniu">
+                            {% for footer_offer in footer_offers %}
                             <li>
-                                <a href="#" class="menu-list-to footer-list-to" data-title="DB Management">
-                                    <span data-title="DB Management"> DB Management</span>
+                                <a href="{{footer_offer.offer_link}}" class="menu-list-to footer-list-to"
+                                    data-title="{{footer_offer.offer}}">
+                                    <span data-title="{{footer_offer.offer}}"> {{footer_offer.offer}}</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#" class="menu-list-to footer-list-to" data-title="IOS/MacOS">
-                                    <span data-title="IOS/MacOS"> IOS/MacOS</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="menu-list-to footer-list-to" data-title="Android Apps">
-                                    <span data-title="Android Apps"> Android Apps</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="menu-list-to footer-list-to" data-title="Windows Apps">
-                                    <span data-title="Windows Apps"> Windows Apps</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="menu-list-to footer-list-to" data-title="UX & UI">
-                                    <span data-title="UX & UI"> UX & UI</span>
-                                </a>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -227,26 +192,14 @@
                         <h4>Our contacts</h4>
                         <div class="company-contacts-item">
                             <ul class="footer-contact">
+                                {% for footer_contact in footer_contacts %}
                                 <li class="d-flex">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <div class="footer-contact-info">301 S Irving Blvd Los Angeles, CA 90020</div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-mobile-alt"></i>
-                                    <div class="footer-contact-info"> <a href="tel:+1 323-913-4688">+1 323-913-4688</a>
+                                    <i class="{{footer_contact.footer_contact_icon}}"></i>
+                                    <div class="footer-contact-info"> <a
+                                            href="{{footer_contact.footer_contact_link}}">{{footer_contact.footer_contact_name}}</a>
                                     </div>
                                 </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-mobile-alt"></i>
-                                    <div class="footer-contact-info"><a href="tel:+1 323-888-4554"> +1 323-888-4554</a>
-                                    </div>
-                                </li>
-                                <li class="d-flex">
-                                    <i class="fas fa-envelope"></i>
-                                    <div class="footer-contact-info"><a
-                                            href="mailto:mail@example.com">mail@example.com</a>
-                                    </div>
-                                </li>
+                                {% endfor %}
                             </ul>
                             <div class="company-contacts-form">
                                 <h4>Subscribe</h4>

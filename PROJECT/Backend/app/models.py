@@ -140,12 +140,38 @@ class NewsBox(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     newsbox_title=db.Column(db.String(255))
     newsbox_desc=db.Column(db.String(255))
-    newsbox_date=db.Column(db.String(255))
     newsbox_link=db.Column(db.String(255))
     newsbox_img=db.Column(db.String(255))
+    newsbox_date=db.Column(db.String(255))
 
 class NewsButton(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     newsbutton_title=db.Column(db.String(255))
     newsbutton_icon=db.Column(db.String(255))
     newsbutton_url=db.Column(db.String(255))
+
+class FooterCompanyInfo(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    company_info=db.Column(db.String(255))
+
+class FooterSocialIcon(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    footer_si_name=db.Column(db.String(255))
+    footer_si_class=db.Column(db.String(255))
+    footer_si_link=db.Column(db.String(255))
+
+class FooterMenu(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    ft_menu_name=db.Column(db.String(255))
+    ft_menu_link=db.Column(db.String(255))
+
+class FooterOffer(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    offer=db.Column(db.String(255))
+    offer_link=db.Column(db.String(255))
+
+class FooterContact(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    footer_contact_name=db.Column(db.String(255))
+    footer_contact_icon=db.Column(db.String(255))
+    footer_contact_link=db.Column(db.String(255))

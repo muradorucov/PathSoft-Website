@@ -32,7 +32,7 @@
   width: 99%;
 }
 .about-img {
-  height: 400px;
+  height: 450px;
   border: 1px solid #d4d4e1;
   background-color: #f0f4f8;
   border-radius: 0.625rem;
@@ -42,6 +42,7 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
+  object-fit: cover;
 }
 .about-item h2 {
   font-size: 2rem;
