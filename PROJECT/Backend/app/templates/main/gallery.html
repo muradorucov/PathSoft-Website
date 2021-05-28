@@ -3,11 +3,10 @@
 <!-- crumbs section start -->
 <section id="crumbs">
     <div class="container crumbs-bread">
-        <div class="row">
-            <div class="col-12">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
                 <div class="crumbs-info">
-                    <span class="crumbs-home"><a href="../html/index.html">Home</a></span> <i
-                        class="fas fa-angle-right"></i>
+                    <span class="crumbs-home"><a href="/">Home</a></span> <i class="fas fa-angle-right"></i>
                     <span class="crumbs-about">Gallery</span>
                 </div>
             </div>
@@ -38,61 +37,15 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center ">
+            {% for gallerybox in galleryboxs %}
             <div class="col-4 col-margin">
                 <a href="#!" class="gallery-item">
-                    <img src="static/uploads/gallery-img-1.jpg" alt="">
-                    <div class="gallery-item-caption"><span>Corporate Solution</span></div>
+                    <img src="/static/uploads/{{gallerybox.gallerybox_img}}" alt="{{gallerybox.gallerybox_title}}">
+                    <div class="gallery-item-caption"><span>{{gallerybox.gallerybox_title}}</span></div>
                 </a>
             </div>
-            <div class="col-4 col-margin">
-                <a href="#!" class="gallery-item">
-                    <img src="static/uploads/gallery-img-2.jpg" alt="">
-                    <div class="gallery-item-caption"><span>IOS/MacOS Apps</span></div>
-                </a>
-            </div>
-            <div class="col-4 col-margin">
-                <a href="#!" class="gallery-item">
-                    <img src="static/uploads/gallery-img-3.jpg" alt="">
-                    <div class="gallery-item-caption"><span>Cloud Development</span></div>
-                </a>
-            </div>
-            <div class="col-4 col-margin">
-                <a href="#!" class="gallery-item">
-                    <img src="static/uploads/gallery-img-4.jpg" alt="">
-                    <div class="gallery-item-caption"><span>IOS/MacOS Apps</span></div>
-                </a>
-            </div>
-            <div class="col-4 col-margin">
-                <a href="#!" class="gallery-item">
-                    <img src="static/uploads/gallery-img-5.jpg" alt="">
-                    <div class="gallery-item-caption"><span>Android Applications</span></div>
-                </a>
-            </div>
-            <div class="col-4 col-margin">
-                <a href="#!" class="gallery-item">
-                    <img src="static/uploads/gallery-img-6.jpg" alt="">
-                    <div class="gallery-item-caption"><span>UX And Design</span></div>
-                </a>
-            </div>
-            <div class="col-4 col-margin">
-                <a href="#!" class="gallery-item">
-                    <img src="static/uploads/gallery-img-7.jpg" alt="">
-                    <div class="gallery-item-caption"><span>Corporate Solution</span></div>
-                </a>
-            </div>
-            <div class="col-4 col-margin">
-                <a href="#!" class="gallery-item">
-                    <img src="static/uploads/gallery-img-8.jpg" alt="">
-                    <div class="gallery-item-caption"><span>UX And Design</span></div>
-                </a>
-            </div>
-            <div class="col-4 col-margin">
-                <a href="#!" class="gallery-item">
-                    <img src="static/uploads/gallery-img-9.jpg" alt="">
-                    <div class="gallery-item-caption"><span>IOS/MacOS Apps</span></div>
-                </a>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

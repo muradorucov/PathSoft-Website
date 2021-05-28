@@ -17,17 +17,8 @@
         {% endfor %}
     </div>
     <div class="carousel-inner ">
-        <div class="carousel-item  active ">
-            <img src="/static/uploads/538727.jpg" alt="intro_img1">
-            <div class="carousel-caption d-none d-md-block textposition">
-                <h1>IT Solution for Your Business</h1>
-                <p>The template you will be able to create a site for your business. The template has many different
-                    blocks from which you
-                    can create your own unique site.</p>
-            </div>
-        </div>
         {% for slider in sliders %}
-        <div class="carousel-item  ">
+        <div class="carousel-item {%if loop.index==1%} active {%endif %} ">
             <img src="static/uploads/{{slider.slider_img}}" alt="{{slider.slider_alt}}">
             <div class="carousel-caption d-none d-md-block textposition">
                 <h1>{{slider.slider_title}}</h1>

@@ -107,9 +107,12 @@ ul {
 /*<====-- header contact info and social icon end --====>*/
 
 /*<====-- header meniu start --====>*/
+.sticky-menu {
+  position: sticky;
+  top: 0;
+  z-index: 10000000;
+}
 #meniu-bar {
-  position: relative;
-  z-index: 100000000;
   box-sizing: border-box;
   box-shadow: 0.125rem 0.25rem 1.25rem 0.0875rem rgb(45 45 45 / 13%);
   font-family: "Istok Web", sans-serif;
@@ -288,6 +291,7 @@ ul {
   font-weight: 600;
   z-index: 1;
 }
+
 /*<====-- header meniu end --====>*/
 
 /*<====-- Slider Section Start --====>*/
@@ -561,6 +565,11 @@ ul {
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
+  outline: 0;
+  border: 1px #917cddec solid;
+}
+.bttn:focus{
+  outline: 0;
 }
 .bttn i {
   height: 21px;

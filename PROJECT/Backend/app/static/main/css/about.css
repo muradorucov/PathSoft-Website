@@ -3,7 +3,6 @@
 }
 /*  crumbs section start  */
 #crumbs {
-  width: 100%;
   background-color: #f0f4f8;
 }
 .crumbs-bread {
@@ -11,6 +10,7 @@
 }
 .crumbs-info {
   font-size: 14px;
+  margin:0 30px;
 }
 .crumbs-home a {
   color: #63636b;

@@ -6,11 +6,37 @@ import os
 import random
 from flask import Flask,redirect,url_for,render_template,request
 from werkzeug.utils import secure_filename
+from datetime import date
+today = date.today()
 
 @app.route("/admin/")
 def admin_index():
-    return render_template("admin/index.html")
+    contactforms=ContactForm.query.all()
+    usercomments=UserComment.query.all()
+    return render_template("admin/index.html",usercomments=usercomments, contactforms=contactforms)
 
+@app.route('/admin/usercomment', methods=['GET','POST']) 
+def admincomment():
+   form=UserCommentForm()
+   usercomments=UserComment.query.all()
+   if request.method=='POST':
+      usercomment=UserComment(
+        commentusername=form.commentusername.data,
+        commentuseremail=form.commentuseremail.data,
+        commentdate=today,
+        comment=form.comment.data
+      )     
+      db.session.add(usercomment)
+      db.session.commit()
+      return redirect('/news/usercomment')
+   return render_template("admin/usercomment.html", form=form, usercomments=usercomments)
+
+@app.route("/admin/usercommentDelete/<id>")
+def usercommentDelete(id):
+   usercomment=UserComment.query.get(id)
+   db.session.delete(usercomment)
+   db.session.commit()
+   return redirect('/admin/comment')
 
 # Header Contact Info start
 @app.route("/admin/hcContactAdd/", methods=['GET','POST'])
@@ -1217,3 +1243,86 @@ def footercontactDelete(id):
     db.session.commit()
     return redirect(url_for('footercontactAdd'))
 # Footer Socila icon End
+
+
+# Contact Loaction Link start
+@app.route("/admin/contactmapAdd", methods=['GET', 'POST'])
+def contactmapAdd():
+    form=ContactMapForm()
+    contactmaps=ContactMap.query.all()
+    if request.method== "POST":
+        contactmap=ContactMap(
+            map_link=form.map_link.data
+        )
+        db.session.add(contactmap)
+        db.session.commit()
+        return redirect(url_for('contactmapAdd'))
+    return render_template('admin/contactmapAdd.html',form=form, contactmaps=contactmaps)
+
+@app.route("/admin/contactmapUpdate/<id>", methods=['GET','POST'])
+def contactmapUpdate(id):
+    form=ContactMapForm()
+    contactmap=ContactMap.query.get(id)
+    if request.method=='POST':
+        contactmap.map_link=form.map_link.data
+        db.session.commit()
+        return redirect(url_for('contactmapAdd'))
+    return render_template('admin/contactmapUpdate.html',form=form, contactmap=contactmap)
+
+@app.route("/admin/contactmapDelete/<id>")
+def contactmapDelete(id):
+    contactmap=ContactMap.query.get(id)
+    db.session.delete(contactmap)
+    db.session.commit()
+    return redirect(url_for('contactmapAdd'))
+# Contact Loaction Link end
+
+
+
+# Client Box  Start
+@app.route("/admin/galleryboxAdd/", methods=['GET','POST'])
+def galleryboxAdd():
+    form=GalleryBoxForm()
+    galleryboxs=GalleryBox.query.all()
+    if request.method=='POST':
+        file=form.gallerybox_img.data
+        gallerybox_img_name=file.filename
+        randomgallerybox_img=random.randint(20007,30000)
+        gallerybox_title= secure_filename(form.gallerybox_title.data)
+        gallerybox_extention=gallerybox_img_name.split(".")[-1]
+        GalleryImg=gallerybox_title+ str(randomgallerybox_img)+"."+gallerybox_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],GalleryImg))
+        gallerybox=GalleryBox(
+            gallerybox_title=form.gallerybox_title.data,
+            gallerybox_img=GalleryImg
+        )
+        db.session.add(gallerybox)
+        db.session.commit()
+        return redirect(url_for('galleryboxAdd'))
+    return render_template("admin/galleryboxAdd.html",form=form, galleryboxs=galleryboxs)
+
+@app.route("/admin/galleryboxUpdate/<id>",methods=['GET','POST'])
+def galleryboxUpdate(id):
+    form=GalleryBoxForm()
+    gallerybox=GalleryBox.query.get(id)
+    if request.method=='POST':
+        file=form.gallerybox_img.data
+        gallerybox_img_name=file.filename
+        randomgallerybox_img=random.randint(20007,30000)
+        gallerybox_title= secure_filename(form.gallerybox_title.data)
+        gallerybox_extention=gallerybox_img_name.split(".")[-1]
+        GalleryImg=gallerybox_title+ str(randomgallerybox_img)+"."+gallerybox_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],GalleryImg))
+        gallerybox.gallerybox_title=form.gallerybox_title.data
+        gallerybox.gallerybox_img=GalleryImg
+        db.session.commit()
+        return redirect(url_for('galleryboxAdd'))
+    return render_template('admin/galleryboxUpdate.html',form=form, gallerybox=gallerybox)
+
+@app.route("/admin/galleryboxDelete/<id>")
+def galleryboxDelete(id):
+    gallerybox=GalleryBox.query.get(id)
+    db.session.delete(gallerybox)
+    db.session.commit()
+    return redirect(url_for('galleryboxAdd'))
+# Client Box End

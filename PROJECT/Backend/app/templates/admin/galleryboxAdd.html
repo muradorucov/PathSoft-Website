@@ -3,19 +3,20 @@
 
 {% block content %}
 <div class="adminright">
-    <h3 class="my-3" style="text-align: center;">Project Menu Add</h3>
+    <h3 class="my-3" style="text-align: center;">Gallery Box Add</h3>
     <hr>
     <div class="container marg">
         <div class="row justify-content-center">
             <div class="col-9">
-                <form action="{{url_for('projectmenuAdd')}}" method='POST'>
-                    {{ form.project_menu_name(class="form-control my-2",placeholder="Enter:Menu name")}}
-                    {{ form.submit(value='Add Project Menu',class='btn btn-primary btn-lg btn-block')}}
+                <form action="{{url_for('galleryboxAdd')}}" method='POST' enctype="multipart/form-data">
+                    {{ form.gallerybox_title(class="form-control my-2",placeholder="Enter: Gallery Box Title")}}
+                    {{ form.gallerybox_img(class="form-control-file my-2")}}
+                    {{ form.submit(value='Add Gallery Image',class='btn btn-primary btn-lg btn-block')}}
                 </form>
             </div>
         </div>
     </div>
-    <!-- =====Reason Heading End==== -->
+    <!-- =====Gallery Box End==== -->
     <div class="container marg">
         <div class="row justify-content-center">
             <div class="col-9 ">
@@ -23,19 +24,21 @@
                     <thead>
                         <tr style="background-color: rgba(0,0,0,.075); color:blue">
                             <th scope="col">id</th>
-                            <th scope="col">Menu Name</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for projectmenu in projectmenus %}
+                        {% for gallerybox in galleryboxs %}
                         <tr>
-                            <td scope="row">{{projectmenu.id}}</td>
-                            <td>{{projectmenu.project_menu_name}}</td>
+                            <td scope="row">{{gallerybox.id}}</td>
+                            <td>{{gallerybox.gallerybox_title}}</td>
+                            <td>{{gallerybox.gallerybox_img}}</td>
                             <td>
-                                <a href="{{url_for('projectmenuDelete',id=projectmenu.id)}}"><i
+                                <a href="{{url_for('galleryboxDelete',id=gallerybox.id)}}"><i
                                         class="bi bi-trash-fill"></i></a>
-                                <a href="{{url_for('projectmenuUpdate',id=projectmenu.id)}}"><i
+                                <a href="{{url_for('galleryboxUpdate',id=gallerybox.id)}}"><i
                                         class="bi bi-pencil-square"></i></a>
                             </td>
                         </tr>
@@ -45,6 +48,6 @@
             </div>
         </div>
     </div>
+    <!-- =====Gallery Box Start==== -->
 </div>
-<!-- =====Reason Heading Start==== -->
 {% endblock %}

@@ -3,19 +3,21 @@
 
 {% block content %}
 <div class="adminright">
-    <h3 class="my-3" style="text-align: center;">Project Menu Add</h3>
+    <h3 class="my-3" style="text-align: center;">Company Loaction Link</h3>
     <hr>
     <div class="container marg">
         <div class="row justify-content-center">
-            <div class="col-9">
-                <form action="{{url_for('projectmenuAdd')}}" method='POST'>
-                    {{ form.project_menu_name(class="form-control my-2",placeholder="Enter:Menu name")}}
-                    {{ form.submit(value='Add Project Menu',class='btn btn-primary btn-lg btn-block')}}
+            <div class="col-9 ">
+                <form action="{{url_for('contactmapAdd')}}" method='POST'>
+                    {{ form.map_link(class="form-control my-2",placeholder="Enter: Map ")}}
+                    {{ form.submit(value='Add Map',class='btn btn-primary btn-lg btn-block')}}
                 </form>
             </div>
         </div>
     </div>
-    <!-- =====Reason Heading End==== -->
+
+
+    <!-- =====Company Info Start==== -->
     <div class="container marg">
         <div class="row justify-content-center">
             <div class="col-9 ">
@@ -23,19 +25,19 @@
                     <thead>
                         <tr style="background-color: rgba(0,0,0,.075); color:blue">
                             <th scope="col">id</th>
-                            <th scope="col">Menu Name</th>
+                            <th scope="col">Company Map Loaction</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for projectmenu in projectmenus %}
+                        {% for contactmap in contactmaps %}
                         <tr>
-                            <td scope="row">{{projectmenu.id}}</td>
-                            <td>{{projectmenu.project_menu_name}}</td>
+                            <td scope="row">{{contactmap.id}}</td>
+                            <td>{{contactmap.map_link}}</td>
                             <td>
-                                <a href="{{url_for('projectmenuDelete',id=projectmenu.id)}}"><i
+                                <a href="{{url_for('contactmapDelete', id=contactmap.id)}}"><i
                                         class="bi bi-trash-fill"></i></a>
-                                <a href="{{url_for('projectmenuUpdate',id=projectmenu.id)}}"><i
+                                <a href="{{url_for('contactmapUpdate', id=contactmap.id)}}"><i
                                         class="bi bi-pencil-square"></i></a>
                             </td>
                         </tr>
@@ -45,6 +47,6 @@
             </div>
         </div>
     </div>
+    <!-- =====Company Info End==== -->
 </div>
-<!-- =====Reason Heading Start==== -->
 {% endblock %}

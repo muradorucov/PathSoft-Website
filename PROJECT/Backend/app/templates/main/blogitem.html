@@ -3,12 +3,13 @@
 <!-- crumbs section start -->
 <section id="crumbs">
     <div class="container crumbs-bread">
-        <div class="row">
-            <div class="crumbs-info">
-                <span class="crumbs-home"><a href="../html/index.html">Home</a></span> <i
-                    class="fas fa-angle-right"></i>
-                <span class="crumbs-home"><a href="../html/blog.html">News</a></span> <i class="fas fa-angle-right"></i>
-                <span class="crumbs-about">Benefits Of ASync/Await In Programming</span>
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
+                <div class="crumbs-info">
+                    <span class="crumbs-home"><a href="/">Home</a></span> <i class="fas fa-angle-right"></i>
+                    <span class="crumbs-home"><a href="/news">News</a></span> <i class="fas fa-angle-right"></i>
+                    <span class="crumbs-about">Benefits Of ASync/Await In Programming</span>
+                </div>
             </div>
         </div>
     </div>
@@ -42,7 +43,7 @@
                         </div>
                     </div>
                     <div class="news-post-img">
-                        <img src="/static/uploads/news-img-1.jpg" alt="">
+                        <img src="/app/static/uploads/news-img-1.jpg" alt="">
                     </div>
                     <article class="news-post-article">
                         <p>Whenever I’m TA for a introductory CS class where students learn some programming
@@ -336,7 +337,8 @@
                                                 <div class="col">
                                                     <div class="comment-item-author d-flex align-items-center">
                                                         <div class="comment-item-author-img">
-                                                            <img src="/static/uploads/auth-img-1.jpg" alt="">
+                                                            <img src="/static/uploads/user.png"
+                                                                alt="">
                                                         </div>
                                                         <div class="comment-item-author-info">
                                                             <h4>Catherine Williams</h4>
@@ -362,7 +364,7 @@
                                                     <div class="col">
                                                         <div class="comment-item-author d-flex align-items-center">
                                                             <div class="comment-item-author-img">
-                                                                <img src="/static/uploads/auth-img-2.jpg" alt="">
+                                                                <img src="/static/uploads/user.png" alt="">
                                                             </div>
                                                             <div class="comment-item-author-info">
                                                                 <h4>Rupert Wood</h4>
@@ -386,7 +388,8 @@
                                                     <div class="col">
                                                         <div class="comment-item-author d-flex align-items-center">
                                                             <div class="comment-item-author-img">
-                                                                <img src="/static/uploads/auth-img-1.jpg" alt="">
+                                                                <img src="/static/uploads/user.png"
+                                                                    alt="">
                                                             </div>
                                                             <div class="comment-item-author-info">
                                                                 <h4>Catherine Williams</h4>
@@ -405,6 +408,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% for usercomment in usercomments %}
                                 <div class="blog-comment-item">
                                     <div class="comment-item">
                                         <div class="comment-item-person">
@@ -412,27 +416,25 @@
                                                 <div class="col">
                                                     <div class="comment-item-author d-flex align-items-center">
                                                         <div class="comment-item-author-img">
-                                                            <img src="/static/uploads/auth-img-3.jpg" alt="">
+                                                            <img src="/static/uploads/user.png" alt="">
                                                         </div>
                                                         <div class="comment-item-author-info">
-                                                            <h4>Samantha Brown</h4>
-                                                            <p>Jan 23, 2021</p>
+                                                            <h4>{{usercomment.commentusername}}</h4>
+                                                            <p>{{usercomment.commentdate}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <a href="#!" class="comment-item-replay">Reply</a>
+                                                    <a href="/news/blogitem" class="comment-item-replay">Reply</a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="comment-item-desc">
-                                            <p>PathSoft offers a high caliber of resources skilled in Microsoft
-                                                Azure.NET, mobile and Quality Assurance.
-                                                They became
-                                                our true business partners over the past three years.</p>
+                                            <p>{{usercomment.comment}}</p>
                                         </div>
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -444,29 +446,27 @@
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <form action="#" class="contact-form">
+                                <form action="/news/blogitem" class="contact-form" method='POST'>
                                     <div class="row ">
                                         <div class="col-6">
-                                            <input type="text" i placeholder="Your Name" class="form">
+                                            <input type="text" name="commentusername" placeholder="Your Name"
+                                                class="form">
                                         </div>
                                         <div class="col-6">
-                                            <input type="tel" i placeholder="Your Email" class="form">
+                                            <input type="email" name="commentuseremail" placeholder="Your Email"
+                                                class="form">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
-                                            <textarea cols="30" rows="8" placeholder="Your Comment"
+                                            <textarea cols="30" rows="8" name="comment" placeholder="Your Comment"
                                                 class="textarea"></textarea>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-12 d-flex justify-content-start">
                                             <div class="bttn-row " style="margin-top:20px;">
-                                                <a href="/">
-                                                    <div class="bttn">
-                                                        <span>Add Comment</span>
-                                                    </div>
-                                                </a>
+                                                <button type="submit" class="bttn">Add Comment</button>
                                             </div>
                                         </div>
                                     </div>

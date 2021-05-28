@@ -175,3 +175,28 @@ class FooterContact(db.Model):
     footer_contact_name=db.Column(db.String(255))
     footer_contact_icon=db.Column(db.String(255))
     footer_contact_link=db.Column(db.String(255))
+
+class ContactMap(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    map_link=db.Column(db.String(255))
+
+class ContactForm(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    username=db.Column(db.String(255))
+    userphone=db.Column(db.String(255))
+    useremail=db.Column(db.String(255))
+    usermessage=db.Column(db.Text)
+
+class GalleryBox(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    gallerybox_title=db.Column(db.String(255))
+    gallerybox_img=db.Column(db.String(255))
+
+
+
+class UserComment(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    commentusername=db.Column(db.String(255))
+    commentuseremail=db.Column(db.String(255))
+    commentdate=db.Column(db.Date)
+    comment=db.Column(db.String(255))

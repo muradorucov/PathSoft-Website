@@ -183,6 +183,28 @@ class FooterContactForm(FlaskForm):
     footer_contact_link=StringField('footer_contact_link')
     submit=SubmitField()
 
+class ContactMapForm(FlaskForm):
+    map_link=TextAreaField('map_link')
+    submit=SubmitField()
+
+class ContactFormForm(FlaskForm):
+    username=StringField('username')
+    userphone=StringField('userphone')
+    useremail=StringField('useremail')
+    usermessage=TextAreaField('useremail')
+    submit=SubmitField()
+
+class GalleryBoxForm(FlaskForm):
+    gallerybox_title=StringField('gallerybox_title')
+    gallerybox_img=FileField('gallerybox_img')
+    submit=SubmitField()
+
+class UserCommentForm(FlaskForm):
+    commentusername=StringField('commentusername')
+    commentuseremail=StringField('commentuseremail')
+    commentdate=DateField('commentdate')
+    comment=TextAreaField('comment')
+    submit=SubmitField()
 
 """class Form(FlaskForm):
     =StringField()

@@ -1,5 +1,5 @@
-ul{
-    padding: 0;
+ul {
+  padding: 0;
 }
 
 .news-blog-item {
@@ -156,7 +156,7 @@ ul{
   margin-bottom: 1.25rem;
 }
 .form-field .form-field-label,
-.form-field input[type="email"] {
+.form-field {
   margin: 0;
 }
 .form-field-label {
@@ -177,7 +177,7 @@ ul{
 label {
   display: inline-block;
 }
-input[type="email"] {
+/* input[type="email"] {
   display: block;
   font-size: 1rem;
   font-weight: 400;
@@ -191,7 +191,7 @@ input[type="email"] {
 }
 input[type="email"]:focus {
   border: solid 1px #568ad3;
-}
+} */
 input {
   overflow: visible;
 }
