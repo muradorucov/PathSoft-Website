@@ -176,6 +176,11 @@ class FooterContact(db.Model):
     footer_contact_icon=db.Column(db.String(255))
     footer_contact_link=db.Column(db.String(255))
 
+class ContactHeading(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    contact_subheding=db.Column(db.String(255))
+    contact_heading=db.Column(db.String(255))
+
 class ContactMap(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     map_link=db.Column(db.String(255))
@@ -192,7 +197,26 @@ class GalleryBox(db.Model):
     gallerybox_title=db.Column(db.String(255))
     gallerybox_img=db.Column(db.String(255))
 
+class GalleryHeading(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    gallery_subheding=db.Column(db.String(255))
+    gallery_heading=db.Column(db.String(255))
 
+class GalleryMenu(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    gallery_menu=db.Column(db.String(255))
+
+class ServicesHeading(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    servicessubheading=db.Column(db.String(255))
+    service_heading=db.Column(db.String(255))
+
+class ServicesBox(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    servicesbox_head=db.Column(db.String(255))
+    servicesbox_desc=db.Column(db.String(255))
+    servicesbox_url=db.Column(db.String(255))
+    servicesbox_icon=db.Column(db.String(255))
 
 class UserComment(db.Model):
     id=db.Column(db.Integer,primary_key=True)

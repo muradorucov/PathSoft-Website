@@ -143,7 +143,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="/admin">Contact Us Heading</a>
+                        <a class="nav-link " href="{{url_for('contactheadingAdd')}}">Contact Heading</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link " href="/admin">Contact Info</a>
@@ -170,10 +170,10 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="/admin">Gallery Heading</a>
+                        <a class="nav-link " href="{{url_for('galleryheadingAdd')}}">Gallery Heading</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="/admin">Gallery Menu</a>
+                        <a class="nav-link " href="{{url_for('gallerymenuAdd')}}">Gallery Menu</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link " href="{{url_for('galleryboxAdd')}}">Gallery Box</a>
@@ -195,6 +195,27 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link " href="/admin/usercomment">USer Comment</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="col-admin ">
+        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-primary">
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 align-items-center ">
+                    <li class="nav-item dropdown">
+                        <div class="logo">
+                            <a href="/services" style="text-decoration: none;"><img src="/static/uploads/PathSoft43.png"
+                                    alt="LOGO PathSoft">
+                                <span><b>Services</b></span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="{{url_for('servicesheadingAdd')}}">Services Heading</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="{{url_for('servicesboxAdd')}}">Services Box</a>
                     </li>
                 </ul>
             </div>

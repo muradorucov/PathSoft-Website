@@ -23,10 +23,12 @@
     <div class="container section-padding">
         <div class="row">
             <div class="col-12">
+                {% for contactheading in contactheadings %}
                 <div class="section-heading">
-                    <span class="section-heading-span">WE ARE ALWAYS IN TOUCH</span>
-                    <h2 class="section-heading-h2">Contact Us</h2>
+                    <span class="section-heading-span">{{contactheading.contact_subheding}}</span>
+                    <h2 class="section-heading-h2">{{contactheading.contact_heading}}</h2>
                 </div>
+                {% endfor %}
             </div>
         </div>
         <div class="row">

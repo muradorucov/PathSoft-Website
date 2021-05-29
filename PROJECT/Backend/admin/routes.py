@@ -15,28 +15,6 @@ def admin_index():
     usercomments=UserComment.query.all()
     return render_template("admin/index.html",usercomments=usercomments, contactforms=contactforms)
 
-@app.route('/admin/usercomment', methods=['GET','POST']) 
-def admincomment():
-   form=UserCommentForm()
-   usercomments=UserComment.query.all()
-   if request.method=='POST':
-      usercomment=UserComment(
-        commentusername=form.commentusername.data,
-        commentuseremail=form.commentuseremail.data,
-        commentdate=today,
-        comment=form.comment.data
-      )     
-      db.session.add(usercomment)
-      db.session.commit()
-      return redirect('/news/usercomment')
-   return render_template("admin/usercomment.html", form=form, usercomments=usercomments)
-
-@app.route("/admin/usercommentDelete/<id>")
-def usercommentDelete(id):
-   usercomment=UserComment.query.get(id)
-   db.session.delete(usercomment)
-   db.session.commit()
-   return redirect('/admin/comment')
 
 # Header Contact Info start
 @app.route("/admin/hcContactAdd/", methods=['GET','POST'])
@@ -1136,7 +1114,7 @@ def footersocialiconDelete(id):
 # Footer Socila icon End
 
 
-# Header Meniu Name start
+# Footer Meniu Name start
 @app.route("/admin/footermenuAdd", methods=['GET','POST'])
 def footermenuAdd():
     form=FooterMenuForm()
@@ -1168,11 +1146,11 @@ def footermenuDelete(id):
     db.session.delete(footer_menu)
     db.session.commit()
     return redirect(url_for('footermenuAdd'))
-# Header Meniu Name end
+# Footer Meniu Name end
 
 
 
-# Header Offer Name start
+# Footer Offer Name start
 @app.route("/admin/footerofferAdd", methods=['GET','POST'])
 def footerofferAdd():
     form=FooterOfferForm()
@@ -1204,7 +1182,7 @@ def footerofferDelete(id):
     db.session.delete(footer_offer)
     db.session.commit()
     return redirect(url_for('footerofferAdd'))
-# Header Offer Name end
+# Footer Offer Name end
 
 
 
@@ -1245,6 +1223,42 @@ def footercontactDelete(id):
 # Footer Socila icon End
 
 
+# Contact Heading start
+@app.route("/admin/contactheadingAdd", methods=['GET', 'POST'])
+def contactheadingAdd():
+    form=ContactHeadingForm()
+    contactheadings=ContactHeading.query.all()
+    if request.method=="POST":
+        contactheading=ContactHeading(
+            contact_subheding=form.contact_subheding.data,
+            contact_heading=form.contact_heading.data
+        )
+        db.session.add(contactheading)
+        db.session.commit()
+        return redirect(url_for('contactheadingAdd'))
+    return render_template('admin/contactheadingAdd.html',form=form, contactheadings=contactheadings)
+
+@app.route("/admin/contactheadingUpdate/<id>", methods=['GET','POST'])
+def contactheadingUpdate(id):
+    form=ContactHeadingForm()
+    contactheading=ContactHeading.query.get(id)
+    if request.method=='POST':
+        contactheading.contact_subheding=form.contact_subheding.data
+        contactheading.contact_heading=form.contact_heading.data
+        db.session.commit()
+        return redirect(url_for('contactheadingAdd'))
+    return render_template('admin/contactheadingUpdate.html',form=form, contactheading=contactheading)
+
+@app.route("/admin/contactheadingDelete/<id>")
+def contactheadingDelete(id):
+    contactheading=ContactHeading.query.get(id)
+    db.session.delete(contactheading)
+    db.session.commit()
+    return redirect(url_for('contactheadingAdd'))
+# Contact Heading end
+
+
+
 # Contact Loaction Link start
 @app.route("/admin/contactmapAdd", methods=['GET', 'POST'])
 def contactmapAdd():
@@ -1279,7 +1293,7 @@ def contactmapDelete(id):
 
 
 
-# Client Box  Start
+# Gallery Box  Start
 @app.route("/admin/galleryboxAdd/", methods=['GET','POST'])
 def galleryboxAdd():
     form=GalleryBoxForm()
@@ -1325,4 +1339,174 @@ def galleryboxDelete(id):
     db.session.delete(gallerybox)
     db.session.commit()
     return redirect(url_for('galleryboxAdd'))
-# Client Box End
+# Gallery Box End
+
+
+# Gallery Heading start
+@app.route("/admin/galleryheadingAdd", methods=['GET', 'POST'])
+def galleryheadingAdd():
+    form=GalleryHeadingForm()
+    galleryheadings=GalleryHeading.query.all()
+    if request.method=="POST":
+        galleryheading=GalleryHeading(
+            gallery_subheding=form.gallery_subheding.data,
+            gallery_heading=form.gallery_heading.data
+        )
+        db.session.add(galleryheading)
+        db.session.commit()
+        return redirect(url_for('galleryheadingAdd'))
+    return render_template('admin/galleryheadingAdd.html',form=form, galleryheadings=galleryheadings)
+
+@app.route("/admin/galleryheadingUpdate/<id>", methods=['GET','POST'])
+def galleryheadingUpdate(id):
+    form=GalleryHeadingForm()
+    galleryheading=GalleryHeading.query.get(id)
+    if request.method=='POST':
+        galleryheading.gallery_subheding=form.gallery_subheding.data
+        galleryheading.gallery_heading=form.gallery_heading.data
+        db.session.commit()
+        return redirect(url_for('galleryheadingAdd'))
+    return render_template('admin/galleryheadingUpdate.html',form=form, galleryheading=galleryheading)
+
+@app.route("/admin/galleryheadingDelete/<id>")
+def galleryheadingDelete(id):
+    galleryheading=GalleryHeading.query.get(id)
+    db.session.delete(galleryheading)
+    db.session.commit()
+    return redirect(url_for('galleryheadingAdd'))
+# gallery Heading end
+
+
+# Gallery Menu start
+@app.route("/admin/gallerymenuAdd", methods=['GET', 'POST'])
+def gallerymenuAdd():
+    form=GalleryMenuForm()
+    gallerymenus=GalleryMenu.query.all()
+    if request.method== "POST":
+        gallerymenu=GalleryMenu(
+            gallery_menu=form.gallery_menu.data
+        )
+        db.session.add(gallerymenu)
+        db.session.commit()
+        return redirect(url_for('gallerymenuAdd'))
+    return render_template('admin/gallerymenuAdd.html',form=form, gallerymenus=gallerymenus)
+
+@app.route("/admin/gallerymenuUpdate/<id>", methods=['GET','POST'])
+def gallerymenuUpdate(id):
+    form=GalleryMenuForm()
+    gallerymenu=GalleryMenu.query.get(id)
+    if request.method=='POST':
+        gallerymenu.gallery_menu=form.gallery_menu.data
+        db.session.commit()
+        return redirect(url_for('gallerymenuAdd'))
+    return render_template('admin/gallerymenuUpdate.html',form=form, gallerymenu=gallerymenu)
+
+@app.route("/admin/gallerymenuDelete/<id>")
+def gallerymenuDelete(id):
+    gallerymenu=GalleryMenu.query.get(id)
+    db.session.delete(gallerymenu)
+    db.session.commit()
+    return redirect(url_for('gallerymenuAdd'))
+# Gallery Menu end
+
+
+# Services Heading start
+@app.route("/admin/servicesheadingAdd", methods=['GET', 'POST'])
+def servicesheadingAdd():
+    form=ServicesHeadingForm()
+    servicesheadings=ServicesHeading.query.all()
+    if request.method=="POST":
+        servicesheading=ServicesHeading(
+            servicessubheading=form.servicessubheading.data,
+            service_heading=form.service_heading.data
+        )
+        db.session.add(servicesheading)
+        db.session.commit()
+        return redirect(url_for('servicesheadingAdd'))
+    return render_template('admin/servicesheadingAdd.html',form=form, servicesheadings=servicesheadings)
+
+@app.route("/admin/servicesheadingUpdate/<id>", methods=['GET','POST'])
+def servicesheadingUpdate(id):
+    form=ServicesHeadingForm()
+    servicesheading=ServicesHeading.query.get(id)
+    if request.method=='POST':
+        servicesheading.servicessubheading=form.servicessubheading.data
+        servicesheading.service_heading=form.service_heading.data
+        db.session.commit()
+        return redirect(url_for('servicesheadingAdd'))
+    return render_template('admin/servicesheadingUpdate.html',form=form, servicesheading=servicesheading)
+
+@app.route("/admin/servicesheadingDelete/<id>")
+def servicesheadingDelete(id):
+    servicesheading=ServicesHeading.query.get(id)
+    db.session.delete(servicesheading)
+    db.session.commit()
+    return redirect(url_for('servicesheadingAdd'))
+# Services Heading end
+
+
+
+# Service BOx start
+@app.route("/admin/servicesboxAdd", methods=['GET','POST'])
+def servicesboxAdd():
+    form=ServicesBoxForm()
+    servicesboxs=ServicesBox.query.all()
+    if request.method=='POST':
+        servicesbox=ServicesBox(
+            servicesbox_head=form.servicesbox_head.data,
+            servicesbox_desc=form.servicesbox_desc.data,
+            servicesbox_url=form.servicesbox_url.data,
+            servicesbox_icon=form.servicesbox_icon.data
+        )
+        db.session.add(servicesbox)
+        db.session.commit()
+        return redirect(url_for('servicesboxAdd'))
+    return render_template("admin/servicesboxAdd.html",form=form, servicesboxs=servicesboxs)
+
+@app.route("/admin/servicesboxUpdate/<id>",methods=['GET','POST'])
+def servicesboxUpdate(id):
+    form=ServicesBoxForm()
+    servicesbox=ServicesBox.query.get(id)
+    if request.method=='POST':
+        servicesbox.servicesbox_head=form.servicesbox_head.data
+        servicesbox.servicesbox_desc=form.servicesbox_desc.data
+        servicesbox.servicesbox_url=form.servicesbox_url.data
+        servicesbox.servicesbox_icon=form.servicesbox_icon.data
+        db.session.commit()
+        return redirect(url_for('servicesboxAdd'))
+    return render_template('admin/servicesboxUpdate.html',form=form, servicesbox=servicesbox)
+
+@app.route("/admin/servicesboxDelete/<id>")
+def servicesboxDelete(id):
+    servicesbox=ServicesBox.query.get(id)
+    db.session.delete(servicesbox)
+    db.session.commit()
+    return redirect(url_for('servicesboxAdd'))
+# Service Box End
+
+
+
+# BolgItem Comment Crud start
+@app.route('/admin/usercomment', methods=['GET','POST']) 
+def usercomment():
+   form=UserCommentForm()
+   usercomments=UserComment.query.all()
+   if request.method=='POST':
+      usercomment=UserComment(
+        commentusername=form.commentusername.data,
+        commentuseremail=form.commentuseremail.data,
+        commentdate=today,
+        comment=form.comment.data
+      )     
+      db.session.add(usercomment)
+      db.session.commit()
+      return redirect('/news/usercomment')
+   return render_template("admin/usercomment.html", form=form, usercomments=usercomments)
+
+@app.route("/admin/usercommentDelete/<id>")
+def usercommentDelete(id):
+   usercomment=UserComment.query.get(id)
+   db.session.delete(usercomment)
+   db.session.commit()
+   return redirect('/admin/usercomment')
+# BolgItem Comment Crud end

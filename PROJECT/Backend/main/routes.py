@@ -64,12 +64,14 @@ def service_index():
     headersocial_icons=HeaderSocialIcon.query.all()
     logos=MeniuLogo.query.all()
     meniu_names=MeniuName.query.all()
+    servicesheadings=ServicesHeading.query.all()
+    servicesboxs=ServicesBox.query.all()
     company_info_footers=FooterCompanyInfo.query.all()
     footer_social_icons=FooterSocialIcon.query.all()
     footer_menus=FooterMenu.query.all()
     footer_offers=FooterOffer.query.all()
     footer_contacts=FooterContact.query.all()
-    return render_template("main/services.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names , company_info_footers=company_info_footers, footer_social_icons=footer_social_icons, footer_menus=footer_menus, footer_offers=footer_offers, footer_contacts=footer_contacts)
+    return render_template("main/services.html",servicesboxs=servicesboxs, servicesheadings=servicesheadings, header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names , company_info_footers=company_info_footers, footer_social_icons=footer_social_icons, footer_menus=footer_menus, footer_offers=footer_offers, footer_contacts=footer_contacts)
 
 @app.route("/team")
 def team_index():
@@ -122,7 +124,8 @@ def contact_index():
     footer_offers=FooterOffer.query.all()
     footer_contacts=FooterContact.query.all()
     contactmaps=ContactMap.query.all()
-    return render_template("main/contact.html",contactmaps=contactmaps,company_info_footers=company_info_footers ,footer_social_icons=footer_social_icons , footer_menus=footer_menus, footer_offers=footer_offers, footer_contacts=footer_contacts, header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
+    contactheadings=ContactHeading.query.all()
+    return render_template("main/contact.html",contactheadings=contactheadings, contactmaps=contactmaps,company_info_footers=company_info_footers ,footer_social_icons=footer_social_icons , footer_menus=footer_menus, footer_offers=footer_offers, footer_contacts=footer_contacts, header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
 
 # Contact Form start
 @app.route('/admin/contactform', methods=['GET','POST']) 
@@ -169,13 +172,15 @@ def gallery_index():
     headersocial_icons=HeaderSocialIcon.query.all()
     logos=MeniuLogo.query.all()
     meniu_names=MeniuName.query.all()
+    galleryheadings=GalleryHeading.query.all()
+    gallerymenus=GalleryMenu.query.all()
     company_info_footers=FooterCompanyInfo.query.all()
     footer_social_icons=FooterSocialIcon.query.all()
     footer_menus=FooterMenu.query.all()
     footer_offers=FooterOffer.query.all()
     footer_contacts=FooterContact.query.all()
     galleryboxs=GalleryBox.query.all()
-    return render_template("main/gallery.html",galleryboxs=galleryboxs, company_info_footers=company_info_footers ,footer_social_icons=footer_social_icons ,footer_menus=footer_menus ,footer_offers=footer_offers ,footer_contacts=footer_contacts , header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
+    return render_template("main/gallery.html",gallerymenus=gallerymenus, galleryheadings=galleryheadings, galleryboxs=galleryboxs, company_info_footers=company_info_footers ,footer_social_icons=footer_social_icons ,footer_menus=footer_menus ,footer_offers=footer_offers ,footer_contacts=footer_contacts , header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
 
 @app.route("/news/blogitem")
 def blogitem_index():

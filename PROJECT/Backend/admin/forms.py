@@ -183,6 +183,11 @@ class FooterContactForm(FlaskForm):
     footer_contact_link=StringField('footer_contact_link')
     submit=SubmitField()
 
+class ContactHeadingForm(FlaskForm):
+    contact_subheding=StringField('Contact_subheding')
+    contact_heading=StringField('Contact_heading')
+    submit=SubmitField()
+
 class ContactMapForm(FlaskForm):
     map_link=TextAreaField('map_link')
     submit=SubmitField()
@@ -194,9 +199,30 @@ class ContactFormForm(FlaskForm):
     usermessage=TextAreaField('useremail')
     submit=SubmitField()
 
+class GalleryHeadingForm(FlaskForm):
+    gallery_subheding=StringField('gallery_subheding')
+    gallery_heading=StringField('gallery_heading')
+    submit=SubmitField()
+
+class GalleryMenuForm(FlaskForm):
+    gallery_menu=StringField('gallery_menu')
+    submit=SubmitField()
+
 class GalleryBoxForm(FlaskForm):
     gallerybox_title=StringField('gallerybox_title')
     gallerybox_img=FileField('gallerybox_img')
+    submit=SubmitField()
+
+class ServicesHeadingForm(FlaskForm):
+    servicessubheading=StringField('servicessubheading')
+    service_heading=StringField('service_heading')
+    submit=SubmitField()
+
+class ServicesBoxForm(FlaskForm):
+    servicesbox_head=StringField('servicesbox_head')
+    servicesbox_desc=StringField('servicesbox_desc')
+    servicesbox_url=StringField('servicesbox_url')
+    servicesbox_icon=StringField('servicesbox_icon')
     submit=SubmitField()
 
 class UserCommentForm(FlaskForm):
