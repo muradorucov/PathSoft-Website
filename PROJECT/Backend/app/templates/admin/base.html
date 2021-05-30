@@ -221,6 +221,30 @@
             </div>
         </nav>
     </div>
+    <div class="col-admin ">
+        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-primary">
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 align-items-center ">
+                    <li class="nav-item dropdown">
+                        <div class="logo">
+                            <a href="/about" style="text-decoration: none;"><img src="/static/uploads/PathSoft43.png"
+                                    alt="LOGO PathSoft">
+                                <span><b>About US</b></span></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="{{url_for('aboutheadingAdd')}}">About Heading</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="{{url_for('customerheadingAdd')}}">Customer Heading</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="{{url_for('brandAdd')}}">Brand Image</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <!-- =====Admin Nav bar Start==== -->
     {% block content %}
 

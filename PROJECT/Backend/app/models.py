@@ -218,6 +218,22 @@ class ServicesBox(db.Model):
     servicesbox_url=db.Column(db.String(255))
     servicesbox_icon=db.Column(db.String(255))
 
+class AboutHeading(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    about_subheading=db.Column(db.String(255))
+    about_heading=db.Column(db.String(255))
+    
+class CustomerHeading(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    customer_subheding=db.Column(db.String(255))
+    customer_heading=db.Column(db.String(255))
+    customer_desc=db.Column(db.String(255))
+    
+class Brand(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    brand_imgname=db.Column(db.String(255))
+    brand_img=db.Column(db.String(255))
+
 class UserComment(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     commentusername=db.Column(db.String(255))

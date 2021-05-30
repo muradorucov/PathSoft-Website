@@ -225,6 +225,22 @@ class ServicesBoxForm(FlaskForm):
     servicesbox_icon=StringField('servicesbox_icon')
     submit=SubmitField()
 
+class AboutHeadingForm(FlaskForm):
+    about_subheading=StringField('about_subheading')
+    about_heading=StringField('about_heading')
+    submit=SubmitField()
+
+class CustomerHeadingForm(FlaskForm):
+    customer_subheding=StringField('customer_subheding')
+    customer_heading=StringField('customer_heading')
+    customer_desc=TextAreaField("customer_desc")
+    submit=SubmitField()
+
+class BrandForm(FlaskForm):
+    brand_imgname=StringField('brand_imgname')
+    brand_img=FileField('brand_img')
+    submit=SubmitField()
+
 class UserCommentForm(FlaskForm):
     commentusername=StringField('commentusername')
     commentuseremail=StringField('commentuseremail')

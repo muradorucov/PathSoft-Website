@@ -49,8 +49,8 @@
         <div class="row justify-content-center">
             {% for serviceitem in serviceitems %}
             <div class="col-4 services-box">
-                <a href="{{serviceitem.servitem_url}}" class="service-style">
-                    <div class="services-item">
+                <div class="services-item service-style">
+                    <a href="{{serviceitem.servitem_url}}" class="">
                         <div class="overlay"></div>
                         <i
                             class=" services-icon material-icons material-icons-outlined md-icon1">{{serviceitem.servitem_icon}}</i>
@@ -60,8 +60,8 @@
                             <h2 class="section-item-h2">{{serviceitem.servitem_title}}</h2>
                             <p class="section-title">{{serviceitem.servitem_text}}</p>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
             {% endfor %}
 

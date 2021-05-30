@@ -6,8 +6,7 @@
         <div class="row align-items-center justify-content-between">
             <div class="col-auto">
                 <div class="crumbs-info">
-                    <span class="crumbs-home"><a href="/">Home</a></span> <i
-                        class="fas fa-angle-right"></i>
+                    <span class="crumbs-home"><a href="/">Home</a></span> <i class="fas fa-angle-right"></i>
                     <span class="crumbs-about">About us</span>
                 </div>
             </div>
@@ -22,10 +21,12 @@
     <div class="container section-padding">
         <div class="row">
             <div class="col-12">
+                {% for aboutheading in aboutheadings %}
                 <div class="section-heading">
-                    <span class="section-heading-span">MORE INFO</span>
-                    <h2 class="section-heading-h2">About us </h2>
+                    <span class="section-heading-span">{{aboutheading.about_subheading}}</span>
+                    <h2 class="section-heading-h2">{{aboutheading.about_heading}}</h2>
                 </div>
+                {% endfor %}
             </div>
         </div>
         <div class="row">
@@ -118,58 +119,25 @@
     <div class="container section-padding">
         <div class="row ">
             <div class="col-12">
+                {% for customerheading in customerheadings %}
                 <div class="section-heading">
-                    <span class="section-heading-span">THE BEST</span>
-                    <h2 class="section-heading-h2">Our customers</h2>
+                    <span class="section-heading-span">{{customerheading.customer_subheding}}</span>
+                    <h2 class="section-heading-h2">{{customerheading.customer_heading}}</h2>
                     <div class="col-6 margin-auto-ab">
-                        <p>Our customers have disrupted industries, opened new markets, and made countless lives better.
-                            We are privileged to work with hundreds of future-thinking businesses, including many of the
-                            world’s top hardware, software, and consumer brands.</p>
+                        <p>{{customerheading.customer_desc}}</p>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
+            {% for brand in brands %}
             <div class="col-3  col-margin">
                 <div class="customers-item">
-                    <img src="/static/uploads/costum1.png" alt="">
+                    <img src="/static/uploads/{{brand.brand_img}}" alt="{{brand.brand_imgname}}">
                 </div>
             </div>
-            <div class="col-3 col-margin">
-                <div class="customers-item">
-                    <img src="/static/uploads/costum2.png" alt="">
-                </div>
-            </div>
-            <div class="col-3 col-margin">
-                <div class="customers-item">
-                    <img src="/static/uploads/costum3.png" alt="">
-                </div>
-            </div>
-            <div class="col-3 col-margin">
-                <div class="customers-item">
-                    <img src="/static/uploads/costum4.png" alt="">
-                </div>
-            </div>
-            <div class="col-3 col-margin">
-                <div class="customers-item">
-                    <img src="/static/uploads/costum5.png" alt="">
-                </div>
-            </div>
-            <div class="col-3 col-margin">
-                <div class="customers-item">
-                    <img src="/static/uploads/costum6.png" alt="">
-                </div>
-            </div>
-            <div class="col-3 col-margin">
-                <div class="customers-item">
-                    <img src="/static/uploads/costum7.png" alt="">
-                </div>
-            </div>
-            <div class="col-3 col-margin">
-                <div class="customers-item">
-                    <img src="/static/uploads/costum8.png" alt="">
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

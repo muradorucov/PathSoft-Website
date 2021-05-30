@@ -49,14 +49,17 @@ def about_index():
     headersocial_icons=HeaderSocialIcon.query.all()
     logos=MeniuLogo.query.all()
     meniu_names=MeniuName.query.all()
+    aboutheadings=AboutHeading.query.all()
     reasonheadings=ReasonTitle.query.all()
     reasonitems=ReasonItem.query.all()
+    customerheadings=CustomerHeading.query.all()
+    brands=Brand.query.all()
     company_info_footers=FooterCompanyInfo.query.all()
     footer_social_icons=FooterSocialIcon.query.all()
     footer_menus=FooterMenu.query.all()
     footer_offers=FooterOffer.query.all()
     footer_contacts=FooterContact.query.all()
-    return render_template("main/about.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, reasonheadings=reasonheadings, reasonitems=reasonitems, company_info_footers=company_info_footers,footer_social_icons=footer_social_icons , footer_menus=footer_menus,footer_offers=footer_offers ,footer_contacts=footer_contacts )
+    return render_template("main/about.html",brands=brands,customerheadings=customerheadings, aboutheadings=aboutheadings,  header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, reasonheadings=reasonheadings, reasonitems=reasonitems, company_info_footers=company_info_footers,footer_social_icons=footer_social_icons , footer_menus=footer_menus,footer_offers=footer_offers ,footer_contacts=footer_contacts )
 
 @app.route("/services")
 def service_index():

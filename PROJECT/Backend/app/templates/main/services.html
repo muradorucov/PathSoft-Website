@@ -31,17 +31,21 @@
         <div class="row justify-content-center">
             {% for servicesbox in servicesboxs %}
             <div class="col-4 services-box">
-                <a href="{{servicesbox.servicesbox_url}}" class="service-style">
-                    <div class="services-item">
+
+                <div class="services-item service-style">
+                    <a href="{{servicesbox.servicesbox_url}}" class="">
                         <div class="overlay"></div>
-                        <i class=" services-icon material-icons material-icons-outlined md-icon1">{{servicesbox.servicesbox_icon}}</i>
+                        <i
+                            class=" services-icon material-icons material-icons-outlined md-icon1">{{servicesbox.servicesbox_icon}}</i>
                         <div class="services-info">
-                            <i class=" services-icon-main material-icons material-icons-outlined md-icon1">{{servicesbox.servicesbox_icon}}</i>
+                            <i
+                                class=" services-icon-main material-icons material-icons-outlined md-icon1">{{servicesbox.servicesbox_icon}}</i>
                             <h2 class="section-item-h2">{{servicesbox.servicesbox_head}}</h2>
                             <p class="section-title">{{servicesbox.servicesbox_desc}}</p>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
             </div>
             {% endfor %}
         </div>

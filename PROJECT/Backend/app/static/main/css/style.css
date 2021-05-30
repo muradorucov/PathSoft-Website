@@ -1,6 +1,7 @@
 body {
   font-family: "Istok Web", sans-serif;
 }
+
 h4,
 h3,
 h2 {
@@ -330,7 +331,7 @@ ul {
 }
 
 .textposition {
-  right: 49% !important;
+  right: 50% !important;
   left: 21% !important;
   top: 20% !important;
   bottom: 0 !important;
@@ -339,9 +340,9 @@ ul {
 .textposition h1,
 .textposition h2 {
   color: black;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 700;
-  opacity: 0.73;
+  opacity: 0.8;
   font-family: "Montserrat";
 }
 .textposition p {
@@ -430,7 +431,6 @@ ul {
   position: relative;
   overflow: hidden;
   text-align: center;
-  color: #3b3b44;
   border-radius: 9px;
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
@@ -440,15 +440,23 @@ ul {
 .section-item-h2 {
   margin-bottom: 19px;
   margin-top: 19px;
+  color: #3b3b44;
   font-family: Montserrat, sans-serif;
   font-weight: 700;
   font-size: 1.5em;
 }
-.services-item p {
+.services-item > a:hover h2 {
+  color: #ffffff;
+}
+.services-item > a:hover p {
+  color: #ffffff;
+}
+.services-item a p {
   margin: 0;
   padding: 0;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 23px;
+  color: #3b3b44;
 }
 .services-item:hover {
   color: white;
@@ -568,7 +576,7 @@ ul {
   outline: 0;
   border: 1px #917cddec solid;
 }
-.bttn:focus{
+.bttn:focus {
   outline: 0;
 }
 .bttn i {

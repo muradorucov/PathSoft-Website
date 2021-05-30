@@ -1486,6 +1486,130 @@ def servicesboxDelete(id):
 
 
 
+# About Heading start
+@app.route("/admin/aboutheadingAdd", methods=['GET', 'POST'])
+def aboutheadingAdd():
+    form=AboutHeadingForm()
+    aboutheadings=AboutHeading.query.all()
+    if request.method== "POST":
+        aboutheading=AboutHeading(
+            about_subheading=form.about_subheading.data,
+            about_heading=form.about_heading.data
+        )
+        db.session.add(aboutheading)
+        db.session.commit()
+        return redirect(url_for('aboutheadingAdd'))
+    return render_template('admin/aboutheadingAdd.html',form=form, aboutheadings=aboutheadings)
+
+@app.route("/admin/aboutheadingUpdate/<id>", methods=['GET','POST'])
+def aboutheadingUpdate(id):
+    form=AboutHeadingForm()
+    aboutheading=AboutHeading.query.get(id)
+    if request.method=='POST':
+        aboutheading.about_subheading=form.about_subheading.data
+        aboutheading.about_heading=form.about_heading.data
+        db.session.commit()
+        return redirect(url_for('aboutheadingAdd'))
+    return render_template('admin/aboutheadingUpdate.html',form=form, aboutheading=aboutheading)
+
+@app.route("/admin/aboutheadingDelete/<id>")
+def aboutheadingDelete(id):
+    aboutheading=AboutHeading.query.get(id)
+    db.session.delete(aboutheading)
+    db.session.commit()
+    return redirect(url_for('aboutheadingAdd'))
+# About Heading end
+
+
+
+# Customer Heading start
+@app.route("/admin/customerheadingAdd", methods=['GET', 'POST'])
+def customerheadingAdd():
+    form=CustomerHeadingForm()
+    customerheadings=CustomerHeading.query.all()
+    if request.method== "POST":
+        customerheading=CustomerHeading(
+            customer_subheding=form.customer_subheding.data,
+            customer_heading=form.customer_heading.data,
+            customer_desc=form.customer_desc.data
+        )
+        db.session.add(customerheading)
+        db.session.commit()
+        return redirect(url_for('customerheadingAdd'))
+    return render_template('admin/customerheadingAdd.html',form=form, customerheadings=customerheadings)
+
+@app.route("/admin/customerheadingUpdate/<id>", methods=['GET','POST'])
+def customerheadingUpdate(id):
+    form=CustomerHeadingForm()
+    customerheading=CustomerHeading.query.get(id)
+    if request.method=='POST':
+        customerheading.customer_subheding=form.customer_subheding.data
+        customerheading.customer_heading=form.customer_heading.data
+        customerheading.customer_desc=form.customer_desc.data
+        db.session.commit()
+        return redirect(url_for('customerheadingAdd'))
+    return render_template('admin/customerheadingUpdate.html',form=form, customerheading=customerheading)
+
+@app.route("/admin/customerheadingDelete/<id>")
+def customerheadingDelete(id):
+    customerheading=CustomerHeading.query.get(id)
+    db.session.delete(customerheading)
+    db.session.commit()
+    return redirect(url_for('customerheadingAdd'))
+# Customer Heading end
+
+
+
+# Brand Box  Start
+@app.route("/admin/brandAdd/", methods=['GET','POST'])
+def brandAdd():
+    form=BrandForm()
+    brands=Brand.query.all()
+    if request.method=='POST':
+        file=form.brand_img.data
+        brand_img_name=file.filename
+        randombrand_img=random.randint(30007,50000)
+        brand_imgname= secure_filename(form.brand_imgname.data)
+        brand_extention=brand_img_name.split(".")[-1]
+        BrandImg=brand_imgname+ str(randombrand_img)+"."+brand_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],BrandImg))
+        brand=Brand(
+            brand_imgname=form.brand_imgname.data,
+            brand_img=BrandImg
+        )
+        db.session.add(brand)
+        db.session.commit()
+        return redirect(url_for('brandAdd'))
+    return render_template("admin/brandAdd.html",form=form, brands=brands)
+
+@app.route("/admin/brandUpdate/<id>",methods=['GET','POST'])
+def brandUpdate(id):
+    form=BrandForm()
+    brand=Brand.query.get(id)
+    if request.method=='POST':
+        file=form.brand_img.data
+        brand_img_name=file.filename
+        randombrand_img=random.randint(30007,50000)
+        brand_imgname= secure_filename(form.brand_imgname.data)
+        brand_extention=brand_img_name.split(".")[-1]
+        BrandImg=brand_imgname+ str(randombrand_img)+"."+brand_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],BrandImg))
+        brand.brand_imgname=form.brand_imgname.data
+        brand.brand_img=BrandImg
+        db.session.commit()
+        return redirect(url_for('brandAdd'))
+    return render_template('admin/brandUpdate.html',form=form, brand=brand)
+
+@app.route("/admin/brandDelete/<id>")
+def brandDelete(id):
+    brand=Brand.query.get(id)
+    db.session.delete(brand)
+    db.session.commit()
+    return redirect(url_for('brandAdd'))
+# Brand Box End
+
+
+
 # BolgItem Comment Crud start
 @app.route('/admin/usercomment', methods=['GET','POST']) 
 def usercomment():
