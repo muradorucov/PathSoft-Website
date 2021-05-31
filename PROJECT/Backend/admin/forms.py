@@ -199,6 +199,12 @@ class ContactFormForm(FlaskForm):
     usermessage=TextAreaField('useremail')
     submit=SubmitField()
 
+class GalleryBoxForm(FlaskForm):
+    gallerybox_title=StringField('gallerybox_title')
+    gallerybox_img=FileField('gallerybox_img')
+    submit=SubmitField()
+
+
 class GalleryHeadingForm(FlaskForm):
     gallery_subheding=StringField('gallery_subheding')
     gallery_heading=StringField('gallery_heading')
@@ -228,6 +234,12 @@ class ServicesBoxForm(FlaskForm):
 class AboutHeadingForm(FlaskForm):
     about_subheading=StringField('about_subheading')
     about_heading=StringField('about_heading')
+    about_desc=TextAreaField('about_desc')
+    submit=SubmitField()
+
+class AboutDescForm(FlaskForm):
+    about_img=FileField('about_img')
+    about_desc=TextAreaField('about_desc')
     submit=SubmitField()
 
 class CustomerHeadingForm(FlaskForm):
@@ -240,6 +252,18 @@ class BrandForm(FlaskForm):
     brand_imgname=StringField('brand_imgname')
     brand_img=FileField('brand_img')
     submit=SubmitField()
+
+class NewsPostHeadingForm(FlaskForm):
+    newspost_subheading=StringField('newspost_subheading')
+    newspost_heading=StringField('newspost_heading')
+    submit=SubmitField()
+
+
+
+
+
+
+
 
 class UserCommentForm(FlaskForm):
     commentusername=StringField('commentusername')

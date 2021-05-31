@@ -1522,6 +1522,54 @@ def aboutheadingDelete(id):
 
 
 
+# About DEscription  Start
+@app.route("/admin/aboutdescAdd/", methods=['GET','POST'])
+def aboutdescAdd():
+    form=AboutDescForm()
+    aboutdesces=AboutDesc.query.all()
+    if request.method=='POST':
+        file=form.about_img.data
+        about_img_name=file.filename
+        randomabout_img=random.randint(3,300)
+        about_i_extention=about_img_name.split(".")[-1]
+        AboutImg="aboutimg"+str(randomabout_img)+"."+about_i_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],AboutImg))
+        aboutdesc=AboutDesc(
+            about_desc=form.about_desc.data,
+            about_img=AboutImg
+        )
+        db.session.add(aboutdesc)
+        db.session.commit()
+        return redirect(url_for('aboutdescAdd'))
+    return render_template("admin/aboutdescAdd.html",form=form, aboutdesces=aboutdesces)
+
+@app.route("/admin/aboutdescUpdate/<id>",methods=['GET','POST'])
+def aboutdescUpdate(id):
+    form=AboutDescForm()
+    aboutdesc=AboutDesc.query.get(id)
+    if request.method=='POST':
+        file=form.about_img.data
+        about_img_name=file.filename
+        randomabout_img=random.randint(3,300)
+        about_i_extention=about_img_name.split(".")[-1]
+        AboutImg="aboutimg"+str(randomabout_img)+"."+about_i_extention
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'],AboutImg))
+        aboutdesc.about_desc=form.about_desc.data
+        aboutdesc.about_img=AboutImg
+        db.session.commit()
+        return redirect(url_for('aboutdescAdd'))
+    return render_template('admin/aboutdescUpdate.html',form=form, aboutdesc=aboutdesc)
+
+@app.route("/admin/aboutdescDelete/<id>")
+def aboutdescDelete(id):
+    aboutdesc=AboutDesc.query.get(id)
+    db.session.delete(aboutdesc)
+    db.session.commit()
+    return redirect(url_for('aboutdescAdd'))
+# GAbout DEscription End
+
+
+
 # Customer Heading start
 @app.route("/admin/customerheadingAdd", methods=['GET', 'POST'])
 def customerheadingAdd():
@@ -1609,10 +1657,51 @@ def brandDelete(id):
 # Brand Box End
 
 
+# News Post Heading start
+@app.route("/admin/newspostheadingAdd", methods=['GET', 'POST'])
+def newspostheadingAdd():
+    form=NewsPostHeadingForm()
+    newspostheadings=NewsPostHeading.query.all()
+    if request.method== "POST":
+        newspostheading=NewsPostHeading(
+            newspost_subheading=form.newspost_subheading.data,
+            newspost_heading=form.newspost_heading.data
+        )
+        db.session.add(newspostheading)
+        db.session.commit()
+        return redirect(url_for('newspostheadingAdd'))
+    return render_template('admin/newspostheadingAdd.html',form=form, newspostheadings=newspostheadings)
 
-# BolgItem Comment Crud start
+@app.route("/admin/newspostheadingUpdate/<id>", methods=['GET','POST'])
+def newspostheadingUpdate(id):
+    form=NewsPostHeadingForm()
+    newspostheading=NewsPostHeading.query.get(id)
+    if request.method=='POST':
+        newspostheading.newspost_subheading=form.newspost_subheading.data
+        newspostheading.newspost_heading=form.newspost_heading.data
+        db.session.commit()
+        return redirect(url_for('newspostheadingAdd'))
+    return render_template('admin/newspostheadingUpdate.html',form=form, newspostheading=newspostheading)
+
+@app.route("/admin/newspostheadingDelete/<id>")
+def newspostheadingDelete(id):
+    newspostheading=NewsPostHeading.query.get(id)
+    db.session.delete(newspostheading)
+    db.session.commit()
+    return redirect(url_for('newspostheadingAdd'))
+# News Post Heading end
+
+
+
+
+
+
+
+
+
+
 @app.route('/admin/usercomment', methods=['GET','POST']) 
-def usercomment():
+def admincomment():
    form=UserCommentForm()
    usercomments=UserComment.query.all()
    if request.method=='POST':
@@ -1632,5 +1721,4 @@ def usercommentDelete(id):
    usercomment=UserComment.query.get(id)
    db.session.delete(usercomment)
    db.session.commit()
-   return redirect('/admin/usercomment')
-# BolgItem Comment Crud end
+   return redirect('/admin/comment')

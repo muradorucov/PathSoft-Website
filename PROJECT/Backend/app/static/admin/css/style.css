@@ -2,9 +2,7 @@
   padding: 0 !important;
   margin: 0 !important;
 }
-.col-admin {
-  margin: 15px 15px;
-}
+
 .marg {
   margin-bottom: 40px;
 }
@@ -64,11 +62,6 @@
 }
 
 .navbar {
-  border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -o-border-radius: 12px;
   transition: ease-out 0.5s;
   -webkit-transition: ease-out 0.5s;
   -moz-transition: ease-out 0.5s;

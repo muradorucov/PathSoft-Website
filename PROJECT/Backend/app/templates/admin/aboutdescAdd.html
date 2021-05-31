@@ -1,0 +1,57 @@
+{% extends "admin/base.html" %}
+
+
+{% block content %}
+
+<div class="adminright">
+    <h3 class="my-3" style="text-align: center;">About Description Add</h3>
+    <hr>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-9">
+                <form action="{{url_for('aboutdescAdd')}}" method='POST' enctype="multipart/form-data">
+                    {{ form.about_img(class="form-control-file my-2")}}
+                    <textarea name="about_desc" class="form-control my-2" cols="100" rows="10"
+                        placeholder="Info"></textarea>
+                    {{ form.submit(value='Add Info',class='btn btn-primary btn-lg btn-block')}}
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container marg">
+        <div class="row justify-content-center">
+            <div class="col-9 ">
+                <!-- =====Client Box Start==== -->
+                <table class="table table-hover " style="margin:35px 0px; border:1px solid rgba(0,0,0,.075);">
+                    <thead>
+                        <tr style="background-color: rgba(0,0,0,.075); color:blue">
+                            <th scope="col">id</th>
+                            <th scope="col">About Image</th>
+                            <th scope="col">About Desc</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for aboutdesc in aboutdesces %}
+                        <tr>
+                            <td scope="row">{{aboutdesc.id}}</td>
+                            <td>{{aboutdesc.about_img}}</td>
+                            <td>{{aboutdesc.about_desc}}</td>
+                            <td>
+                                <a href="{{url_for('aboutdescDelete', id=aboutdesc.id)}}"><i
+                                        class="bi bi-trash-fill"></i></a>
+                                <a href="{{url_for('aboutdescUpdate', id=aboutdesc.id)}}"><i
+                                        class="bi bi-pencil-square"></i></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <!-- =====Client Box End==== -->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

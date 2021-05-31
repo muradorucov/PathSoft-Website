@@ -222,17 +222,31 @@ class AboutHeading(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     about_subheading=db.Column(db.String(255))
     about_heading=db.Column(db.String(255))
-    
+
+class AboutDesc(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    about_img=db.Column(db.String(255))
+    about_desc=db.Column(db.Text)
+
 class CustomerHeading(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     customer_subheding=db.Column(db.String(255))
     customer_heading=db.Column(db.String(255))
-    customer_desc=db.Column(db.String(255))
+    customer_desc=db.Column(db.Text)
     
 class Brand(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     brand_imgname=db.Column(db.String(255))
     brand_img=db.Column(db.String(255))
+
+class NewsPostHeading(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    newspost_subheading=db.Column(db.String(255))
+    newspost_heading=db.Column(db.String(255))
+
+
+
+
 
 class UserComment(db.Model):
     id=db.Column(db.Integer,primary_key=True)

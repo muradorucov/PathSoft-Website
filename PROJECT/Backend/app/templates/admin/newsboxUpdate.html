@@ -9,15 +9,15 @@
         <div class="row justify-content-center">
             <div class="col-9 ">
                 <form action="{{url_for('newsboxUpdate',id=newsbox.id)}}" method='POST' enctype="multipart/form-data">
-                    {{ form.newsbox_title(class="form-control my-2",placeholder="Enter: News Title",
-                    value=newsbox.newsbox_title)}}
-                    {{ form.newsbox_desc(class="form-control my-2",placeholder="Enter: News Info" ,
-                    value=newsbox.newsbox_desc)}}
-                    {{ form.newsbox_link(class="form-control my-2",placeholder="Enter: News Link",
-                    value=newsbox.newsbox_link)}}
-                    {{ form.newsbox_img(class="form-control-file my-2")}}
-                    {{ form.newsbox_date(class="form-control my-2", value=newsbox.newsbox_date)}}
-                    {{ form.submit(value='Update News Box',class='btn btn-secondary btn-lg btn-block')}}
+                    <input type="text" class="form-control my-2" name='newsbox_title' placeholder="Enter: News Title"
+                        value="{{newsbox.newsbox_title}}">
+                    <input type="text" class="form-control my-2" name='newsbox_link' placeholder="Enter: News Link"
+                        value="{{newsbox.newsbox_link}}">
+                    <input type="date" class="form-control my-2" name='newsbox_date' value="{{newsbox.newsbox_date}}">
+                    <textarea name="newsbox_desc" class="form-control my-2" cols="100" rows="10" " placeholder=" Enter:
+                        News Info">{{newsbox.newsbox_desc}}</textarea>
+                    <input type="file" class="form-control-file my-2" name='newsbox_img' multiple>
+                    <input type="submit" class="btn btn-secondary btn-lg btn-block" value='Update News Box'>
                 </form>
             </div>
         </div>
