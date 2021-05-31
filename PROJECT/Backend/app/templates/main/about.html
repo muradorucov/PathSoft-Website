@@ -36,7 +36,7 @@
                     <div class="about-img">
                         <img src="static/uploads/{{aboutdesc.about_img}}" alt="">
                     </div>
-                    <span>{{aboutdesc.about_desc}}</span>
+                    <span>{{aboutdesc.about_desc|safe}}</span>
                 </div>
                 {% endfor %}
             </div>
