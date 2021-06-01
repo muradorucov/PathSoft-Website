@@ -824,58 +824,6 @@ def clientheadingDelete(id):
 # Client Heading end
 
 
-# Client Box  Start
-@app.route("/admin/clientboxAdd/", methods=['GET','POST'])
-def clientboxAdd():
-    form=ClientBoxForm()
-    clientboxs=ClientBox.query.all()
-    if request.method=='POST':
-        file=form.client_img.data
-        client_img_name=file.filename
-        randomclient_img=random.randint(9959,12809)
-        client_name= secure_filename(form.client_name.data)
-        client_extention=client_img_name.split(".")[-1]
-        ClientImg=client_name+ str(randomclient_img)+"."+client_extention
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'],ClientImg))
-        clientbox=ClientBox(
-            client_name=form.client_name.data,
-            client_status=form.client_status.data,
-            client_desc=form.client_desc.data,
-            client_img=ClientImg
-        )
-        db.session.add(clientbox)
-        db.session.commit()
-        return redirect(url_for('clientboxAdd'))
-    return render_template("admin/clientboxAdd.html",form=form, clientboxs=clientboxs)
-
-@app.route("/admin/clientboxUpdate/<id>",methods=['GET','POST'])
-def clientboxUpdate(id):
-    form=ClientBoxForm()
-    clientbox=ClientBox.query.get(id)
-    if request.method=='POST':
-        file=form.client_img.data
-        client_img_name=file.filename
-        randomclient_img=random.randint(9959,12809)
-        client_name= secure_filename(form.client_name.data)
-        client_extention=client_img_name.split(".")[-1]
-        ClientImg=client_name+ str(randomclient_img)+"."+client_extention
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'],ClientImg))
-        clientbox.client_name=form.client_name.data
-        clientbox.client_status=form.client_status.data
-        clientbox.client_desc=form.client_desc.data
-        clientbox.client_img=ClientImg
-        db.session.commit()
-        return redirect(url_for('clientboxAdd'))
-    return render_template('admin/clientboxUpdate.html',form=form, clientbox=clientbox)
-
-@app.route("/admin/clientboxDelete/<id>")
-def clientboxDelete(id):
-    clientbox=ClientBox.query.get(id)
-    db.session.delete(clientbox)
-    db.session.commit()
-    return redirect(url_for('clientboxAdd'))
-# Client Box End
-
 
 
 # Client Button start
@@ -1692,33 +1640,33 @@ def newspostheadingDelete(id):
 # News Post Heading end
 
 
+# feedback form start
+@app.route('/admin/feedback') 
+def feedback():
+   testimonials=Feedback.query.all()
+   return render_template("admin/feedback.html",testimonials=testimonials)
+
+
+@app.route("/admin/feedbackDelete/<id>")
+def feedbackDelete(id):
+   testimonial=Feedback.query.get(id)
+   db.session.delete(testimonial)
+   db.session.commit()
+   return redirect(url_for('feedback'))
+
+# feedback form end
 
 
 
 
-
-
-
-
-@app.route('/admin/usercomment', methods=['GET','POST']) 
+@app.route('/admin/usercomment') 
 def admincomment():
-   form=UserCommentForm()
    usercomments=UserComment.query.all()
-   if request.method=='POST':
-      usercomment=UserComment(
-        commentusername=form.commentusername.data,
-        commentuseremail=form.commentuseremail.data,
-        commentdate=today,
-        comment=form.comment.data
-      )     
-      db.session.add(usercomment)
-      db.session.commit()
-      return redirect('/news/usercomment')
-   return render_template("admin/usercomment.html", form=form, usercomments=usercomments)
+   return render_template("admin/usercomment.html",usercomments=usercomments)
 
 @app.route("/admin/usercommentDelete/<id>")
 def usercommentDelete(id):
    usercomment=UserComment.query.get(id)
    db.session.delete(usercomment)
    db.session.commit()
-   return redirect('/admin/comment')
+   return redirect('/admin/usercomment')

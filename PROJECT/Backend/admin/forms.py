@@ -125,12 +125,6 @@ class ClientHeadingForm(FlaskForm):
     client_title=StringField('client_title')
     submit=SubmitField()
 
-class ClientBoxForm(FlaskForm):
-    client_name=StringField('client_name')
-    client_status=StringField('client_status')
-    client_desc=StringField('client_desc')
-    client_img=FileField('client_img')
-    submit=SubmitField()
 
 class ClientButtonForm(FlaskForm):
     clientbutton_title=StringField('clientbutton_title')
@@ -258,7 +252,12 @@ class NewsPostHeadingForm(FlaskForm):
     newspost_heading=StringField('newspost_heading')
     submit=SubmitField()
 
-
+class FeedbackForm(FlaskForm):
+    clientname=StringField('clientname')
+    clientemail=StringField('clientemail')
+    clientphoto=FileField('clientphoto')
+    clientmessage=TextAreaField('clientmessage')
+    submit=SubmitField()
 
 
 

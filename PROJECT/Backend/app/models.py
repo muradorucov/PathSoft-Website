@@ -118,12 +118,6 @@ class ClientHeading(db.Model):
     client_subheading=db.Column(db.String(255))
     client_title=db.Column(db.String(255))
 
-class ClientBox(db.Model):
-    id=db.Column(db.Integer,primary_key=True)
-    client_name=db.Column(db.String(255))
-    client_status=db.Column(db.String(255))
-    client_desc=db.Column(db.String(255))
-    client_img=db.Column(db.String(255))
 
 class ClientButton(db.Model):
     id=db.Column(db.Integer,primary_key=True)
@@ -244,8 +238,12 @@ class NewsPostHeading(db.Model):
     newspost_subheading=db.Column(db.String(255))
     newspost_heading=db.Column(db.String(255))
 
-
-
+class Feedback(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    clientname=db.Column(db.String(255))
+    clientemail=db.Column(db.String(255))
+    clientphoto=db.Column(db.String(255))
+    clientmessage=db.Column(db.Text)
 
 
 class UserComment(db.Model):

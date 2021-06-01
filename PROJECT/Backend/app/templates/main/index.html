@@ -301,22 +301,24 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            {% for clientbox in clientboxs %}
+            {% for n in range(1) %}
+            {% for testimonial in testimonials %}
             <div class="col-4 team-box">
                 <div class="client-item">
                     <div class="client-title">
-                        <div class="client-img"><img src="/static/uploads/{{clientbox.client_img}}"
-                                alt="{{clientbox.client_name}}"></div>
+                        <div class="client-img"><img src="/static/uploads/{{testimonial.clientphoto}}"
+                                alt="{{testimonial.clientphoto}}"></div>
                         <div class="client-name">
-                            <h4>{{clientbox.client_name}}</h4>
-                            <p>{{clientbox.client_status}}</p>
+                            <h4>{{testimonial.clientname}}</h4>
+                            <p>Regular Client</p>
                         </div>
                     </div>
                     <div class="client-info">
-                        <p>{{clientbox.client_desc}}</p>
+                        <p>{{testimonial.clientmessage}}</p>
                     </div>
                 </div>
             </div>
+            {% endfor %}
             {% endfor %}
         </div>
         <div class="row">

@@ -2,11 +2,15 @@ from wtforms import form
 from app import app
 from app.models import*
 from app import db
+import os
+import random
 from admin.forms import*
 from werkzeug.utils import secure_filename
 from flask import Flask,redirect,url_for,render_template,request
 from datetime import date
 today = date.today()
+
+
 
 
 @app.route("/")
@@ -31,7 +35,7 @@ def index():
     teamsocialicons=TeamSocilIcon.query.all()
     teambuttons=TeamButton.query.all()
     clientheadings=ClientHeading.query.all()
-    clientboxs=ClientBox.query.all()
+    testimonials=Feedback.query.all()
     clientbuttons=ClientButton.query.all()
     newsheadings=NewsHeading.query.all()
     newsboxs=NewsBox.query.all()
@@ -41,7 +45,7 @@ def index():
     footer_menus=FooterMenu.query.all()
     footer_offers=FooterOffer.query.all()
     footer_contacts=FooterContact.query.all()
-    return render_template("main/index.html", header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns, serviceheadings=serviceheadings, serviceitems=serviceitems ,servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems,projectheadings=projectheadings, projectmenus=projectmenus,projectboxs=projectboxs, projectbtns=projectbtns,teamheadings=teamheadings, teamboxs=teamboxs, teamsocialicons=teamsocialicons, teambuttons=teambuttons, clientboxs=clientboxs,clientheadings=clientheadings, clientbuttons=clientbuttons , newsheadings=newsheadings,newsboxs=newsboxs,newsbuttons=newsbuttons,company_info_footers=company_info_footers , footer_social_icons=footer_social_icons,footer_menus=footer_menus , footer_offers=footer_offers, footer_contacts=footer_contacts)
+    return render_template("main/index.html",testimonials=testimonials, header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names, sliders=sliders, sliderbttns=sliderbttns, serviceheadings=serviceheadings, serviceitems=serviceitems ,servicebttns=servicebttns, reasonheadings=reasonheadings, reasonitems=reasonitems,projectheadings=projectheadings, projectmenus=projectmenus,projectboxs=projectboxs, projectbtns=projectbtns,teamheadings=teamheadings, teamboxs=teamboxs, teamsocialicons=teamsocialicons, teambuttons=teambuttons, clientheadings=clientheadings, clientbuttons=clientbuttons , newsheadings=newsheadings,newsboxs=newsboxs,newsbuttons=newsbuttons,company_info_footers=company_info_footers , footer_social_icons=footer_social_icons,footer_menus=footer_menus , footer_offers=footer_offers, footer_contacts=footer_contacts)
 
 @app.route("/about")
 def about_index():
@@ -90,18 +94,47 @@ def team_index():
     footer_contacts=FooterContact.query.all()
     return render_template("main/team.html",company_info_footers=company_info_footers , footer_social_icons=footer_social_icons, footer_menus=footer_menus, footer_offers=footer_offers, footer_contacts=footer_contacts, header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
 
+# Feedback Form start
 @app.route("/testimonials")
 def testimonials_index():
     header_contacts=HeaderContact.query.all()
     headersocial_icons=HeaderSocialIcon.query.all()
     logos=MeniuLogo.query.all()
     meniu_names=MeniuName.query.all()
+    testimonials=Feedback.query.all()
     company_info_footers=FooterCompanyInfo.query.all()
     footer_social_icons=FooterSocialIcon.query.all()
     footer_menus=FooterMenu.query.all()
     footer_offers=FooterOffer.query.all()
     footer_contacts=FooterContact.query.all()
-    return render_template("main/testimonials.html", company_info_footers=company_info_footers,footer_social_icons=footer_social_icons ,footer_menus=footer_menus , footer_offers=footer_offers, footer_contacts=footer_contacts, header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
+    return render_template("main/testimonials.html",testimonials=testimonials, company_info_footers=company_info_footers,footer_social_icons=footer_social_icons ,footer_menus=footer_menus , footer_offers=footer_offers, footer_contacts=footer_contacts, header_contacts=header_contacts, headersocial_icons=headersocial_icons, logos=logos, meniu_names=meniu_names)
+
+@app.route('/testimonials', methods=['GET','POST']) 
+def testimonial():
+   form=FeedbackForm()
+   testimonials=Feedback.query.all()
+   if request.method=='POST':
+      file=form.clientphoto.data
+      clientphoto_name=file.filename
+      randomclientphoto=random.randint(0,100)
+      clientname= secure_filename(form.clientname.data)
+      client_extention=clientphoto_name.split(".")[-1]
+      ClientImg="feedback"+clientname+ str(randomclientphoto)+"."+client_extention
+      file.save(os.path.join(app.config['UPLOAD_FOLDER'],ClientImg))
+      testimonial=Feedback(
+         clientname=form.clientname.data,
+         clientemail=form.clientemail.data,
+         clientphoto=ClientImg,
+         clientmessage=form.clientmessage.data
+      )     
+      db.session.add(testimonial)
+      db.session.commit()
+      return redirect('/testimonials')
+   return render_template(form=form, testimonials=testimonials)
+# Feedback Form end
+
+
+
 
 @app.route("/news")
 def news_index():
@@ -217,6 +250,6 @@ def Usercomment():
       db.session.add(usercomment)
       db.session.commit()
       return redirect('/news/blogitem')
-   return render_template('admin/blogitem.html',"admin/usercomment.html", form=form, usercomments=usercomments)
+   return render_template(form=form, usercomments=usercomments)
 
 # comment Form end

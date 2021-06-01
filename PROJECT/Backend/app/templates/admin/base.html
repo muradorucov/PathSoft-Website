@@ -103,7 +103,7 @@
                             aria-haspopup="true" aria-expanded="false">Client</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
                             <a class="dropdown-item" href="{{url_for('clientheadingAdd')}}">Client Heading</a>
-                            <a class="dropdown-item" href="{{url_for('clientboxAdd')}}">Client Box</a>
+                            <a class="dropdown-item" href="{{url_for('feedback')}}">Client Box</a>
                             <a class="dropdown-item" href="{{url_for('clientbuttonAdd')}}">Client Button</a>
                         </div>
                     </li>
@@ -137,136 +137,65 @@
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 align-items-center ">
                     <li class="nav-item dropdown">
                         <div class="logo">
-                            <a href="/about" style="text-decoration: none;"><img src="/static/uploads/PathSoft43.png"
-                                    alt="LOGO PathSoft">
-                                <span><b>About US</b></span></a>
+                            <a href="/" style="text-decoration: none;"><img src="/static/uploads/PathSoft43.png"
+                                    alt="LOGO PathSoft"></a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('aboutheadingAdd')}}">About Heading</a>
+                        <a class="nav-link dropdown-toggle" href="/about" id="dropdownId" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">About US</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="{{url_for('aboutheadingAdd')}}">About Heading</a>
+                            <a class="dropdown-item" href="{{url_for('aboutdescAdd')}}">About Description</a>
+                            <a class="dropdown-item" href="{{url_for('customerheadingAdd')}}">Customer Heading</a>
+                            <a class="dropdown-item" href="{{url_for('brandAdd')}}">Brand Image</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('aboutdescAdd')}}">About Description</a>
+                        <a class="nav-link dropdown-toggle" href="/contact" id="dropdownId" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Contact Us</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="{{url_for('contactheadingAdd')}}">Contact Heading</a>
+                            <a class="dropdown-item" href="/admin">Contact Info</a>
+                            <a class="dropdown-item" href="{{url_for('contactform')}}">Contact Form</a>
+                            <a class="dropdown-item" href="{{url_for('contactmapAdd')}}">Contact Map link</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('customerheadingAdd')}}">Customer Heading</a>
+                        <a class="nav-link dropdown-toggle" href="/gallery" id="dropdownId" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Gallery</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="{{url_for('galleryheadingAdd')}}">Gallery Heading</a>
+                            <a class="dropdown-item" href="{{url_for('gallerymenuAdd')}}">Gallery Menu</a>
+                            <a class="dropdown-item" href="{{url_for('galleryboxAdd')}}">Gallery Box</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('brandAdd')}}">Brand Image</a>
+                        <a class="nav-link dropdown-toggle" href="/services" id="dropdownId" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Services</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="{{url_for('servicesheadingAdd')}}">Services Heading</a>
+                            <a class="dropdown-item" href="{{url_for('servicesboxAdd')}}">Services Box</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/news" id="dropdownId" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">News</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="{{url_for('newspostheadingAdd')}}">News Post Heading</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/news/blogitem" id="dropdownId" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Blog Item</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="/admin/usercomment">USer Comment</a>
+                        </div>
                     </li>
                 </ul>
             </div>
         </nav>
     </div>
-    <div class="col-admin ">
-        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-primary">
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 align-items-center ">
-                    <li class="nav-item dropdown">
-                        <div class="logo">
-                            <a href="/contact" style="text-decoration: none;"><img src="/static/uploads/PathSoft43.png"
-                                    alt="LOGO PathSoft">
-                                <span><b>Contact Us</b></span></a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('contactheadingAdd')}}">Contact Heading</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="/admin">Contact Info</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('contactform')}}">Contact Form</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('contactmapAdd')}}">Contact Map link</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <div class="col-admin ">
-        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-primary">
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 align-items-center ">
-                    <li class="nav-item dropdown">
-                        <div class="logo">
-                            <a href="/gallery" style="text-decoration: none;"><img src="/static/uploads/PathSoft43.png"
-                                    alt="LOGO PathSoft">
-                                <span><b>Gallery</b></span></a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('galleryheadingAdd')}}">Gallery Heading</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('gallerymenuAdd')}}">Gallery Menu</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('galleryboxAdd')}}">Gallery Box</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <div class="col-admin ">
-        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-primary">
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 align-items-center ">
-                    <li class="nav-item dropdown">
-                        <div class="logo">
-                            <a href="/services" style="text-decoration: none;"><img src="/static/uploads/PathSoft43.png"
-                                    alt="LOGO PathSoft">
-                                <span><b>Services</b></span></a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('servicesheadingAdd')}}">Services Heading</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('servicesboxAdd')}}">Services Box</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <div class="col-admin ">
-        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-primary">
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 align-items-center ">
-                    <li class="nav-item dropdown">
-                        <div class="logo">
-                            <a href="/news/blogitem" style="text-decoration: none;"><img
-                                    src="/static/uploads/PathSoft43.png" alt="LOGO PathSoft">
-                                <span><b>Blog Item</b></span></a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="/admin/usercomment">USer Comment</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <div class="col-admin ">
-        <nav class="navbar navbar-expand-sm navbar navbar-dark bg-primary">
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 align-items-center ">
-                    <li class="nav-item dropdown">
-                        <div class="logo">
-                            <a href="/news" style="text-decoration: none;"><img src="/static/uploads/PathSoft43.png"
-                                    alt="LOGO PathSoft">
-                                <span><b>News</b></span></a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{url_for('newspostheadingAdd')}}">News Post Heading</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    
     <!-- =====Admin Nav bar Start==== -->
     {% block content %}
 

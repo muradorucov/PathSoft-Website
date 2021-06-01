@@ -1,135 +1,94 @@
 {% extends "main/base.html" %}{% block contentmain %}
 
 
-    <!-- crumbs section start -->
-    <section id="crumbs">
-        <div class="container crumbs-bread">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-auto">
+<!-- crumbs section start -->
+<section id="crumbs">
+    <div class="container crumbs-bread">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-auto">
                 <div class="crumbs-info">
-                    <span class="crumbs-home"><a href="/">Home</a></span> <i
-                        class="fas fa-angle-right"></i>
+                    <span class="crumbs-home"><a href="/">Home</a></span> <i class="fas fa-angle-right"></i>
                     <span class="crumbs-about">Testimonials</span>
-                </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- crumbs section end -->
+    </div>
+</section>
+<!-- crumbs section end -->
+<div class="feedback">
+    <div class="container section-padding ">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h2 class="section-heading-h2">Feedback</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form action="/testimonials" class="contact-form" method='POST' enctype="multipart/form-data">
+                    <div class="row ">
+                        <div class="col-4">
+                            <input type="text" name="clientname" placeholder="Your Name and Surname" class="form">
+                        </div>
+                        <div class="col-4">
+                            <input type="email" name="clientemail" placeholder="Your Email" class="form">
+                        </div>
+                        <div class="col-4">
+                            <input type="file" name="clientphoto" placeholder="Your Photo" class="formfile">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <textarea cols="30" rows="8" name="clientmessage" placeholder="Your Message"
+                                class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-start">
+                            <div class="bttn-row testimonalssubmit" style="margin-top:20px;">
+                                <button type="submit" class="bttn testimonalssubmit">Send Feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
-    <!-- Clients section start -->
-    <section id="client">
-        <div class="container section-padding">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading">
-                        <h2 class="section-heading-h2">Testimonials</h2>
+
+<!-- Clients section start -->
+<section id="client" class="client">
+    <div class="container section-padding">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h2 class="section-heading-h2">Testimonials</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row d-block">
+            {% for testimonial in testimonials %}
+            <div class="col-12 team-box">
+                <div class="client-item">
+                    <div class="client-title">
+                        <div class="client-img"><img src="static/uploads/{{testimonial.clientphoto}}" alt=""></div>
+                        <div class="client-name">
+                            <h4>{{testimonial.clientname}}</h4>
+                            <p>Regular client</p>
+                        </div>
+                    </div>
+                    <div class="client-info">
+                        <p>{{testimonial.clientmessage}}</p>
                     </div>
                 </div>
             </div>
-            <div class="row d-block">
-                <div class="col-12 team-box">
-                    <div class="client-item">
-                        <div class="client-title">
-                            <div class="client-img"><img src="static/uploads/Catherine_Williams12589.jpg" alt=""></div>
-                            <div class="client-name">
-                                <h4>Catherine Williams</h4>
-                                <p>Regular client</p>
-                            </div>
-                        </div>
-                        <div class="client-info">
-                            <p>PathSoft offers a high caliber of resources skilled in Microsoft Azure.NET, mobile and
-                                Quality Assurance. They became our true business partners over the past three years.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 team-box">
-                    <div class="client-item">
-                        <div class="client-title">
-                            <div class="client-img"><img src="static/uploads/Rupert_Wood12647.jpg" alt=""></div>
-                            <div class="client-name">
-                                <h4>Rupert Wood</h4>
-                                <p>Regular client</p>
-                            </div>
-                        </div>
-                        <div class="client-info">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit consequuntur sequi eos
-                                beatae deleniti culpa cupiditate rerum. Similique, blanditiis rem perspiciatis fugiat
-                                voluptatem quas officiis ducimus reprehenderit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 team-box">
-                    <div class="client-item">
-                        <div class="client-title">
-                            <div class="client-img"><img src="static/uploads/Catherine_Williams12589.jpg" alt=""></div>
-                            <div class="client-name">
-                                <h4>Catherine Williams</h4>
-                                <p>Regular client</p>
-                            </div>
-                        </div>
-                        <div class="client-info">
-                            <p>PathSoft offers a high caliber of resources skilled in Microsoft Azure.NET, mobile and
-                                Quality Assurance. They became our true business partners over the past three years.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 team-box">
-                    <div class="client-item">
-                        <div class="client-title">
-                            <div class="client-img"><img src="static/uploads/Rupert_Wood12647.jpg" alt=""></div>
-                            <div class="client-name">
-                                <h4>Rupert Wood</h4>
-                                <p>Regular client</p>
-                            </div>
-                        </div>
-                        <div class="client-info">
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit consequuntur sequi eos
-                                beatae deleniti culpa cupiditate rerum. Similique, blanditiis rem perspiciatis fugiat
-                                voluptatem quas officiis ducimus reprehenderit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 team-box">
-                    <div class="client-item">
-                        <div class="client-title">
-                            <div class="client-img"><img src="static/uploads/Samantha_Brown10696.jpg" alt=""></div>
-                            <div class="client-name">
-                                <h4>Samantha Brown</h4>
-                                <p>Regular client</p>
-                            </div>
-                        </div>
-                        <div class="client-info">
-                            <p>We sincerely hope that each and every user entering our website will find exactly. With
-                                advanced features of activating account and new login widgets, you will definitely have
-                                a great experience of using our web page.We sincerely hope that each and every user entering our website
-                                will find exactly. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 team-box">
-                    <div class="client-item">
-                        <div class="client-title">
-                            <div class="client-img"><img src="static/uploads/Samantha_Brown10696.jpg" alt=""></div>
-                            <div class="client-name">
-                                <h4>Samantha Brown</h4>
-                                <p>Regular client</p>
-                            </div>
-                        </div>
-                        <div class="client-info">
-                            <p>We sincerely hope that each and every user entering our website will find exactly. With
-                                advanced features of activating account and new login widgets, you will definitely have
-                                a great experience of using our web page.We sincerely hope that each and every user entering our website will find exactly. With
-                                advanced features of activating account and new login widgets, you will definitely have
-                                a great experience of using our web page.We sincerely hope that each and every user entering our website will find exactly. With
-                                advanced features of activating account and new login widgets, you will definitely have
-                                a great experience of using our web page.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <!-- Clients section end -->
+            {% endfor %}
+        </div>
+</section>
+<!-- Clients section end -->
 
 
 {% endblock %}
