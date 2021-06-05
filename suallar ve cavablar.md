@@ -34,7 +34,7 @@
         b="76" //string
         c=a+b="576"//string (bu proqramda isə a dəyişənin tipi number, b dəyişənin tipi isə stringdir(mətn tipli) , c dəyişənin tipi string olacaqdır, burada ki çevrilmə avtomatik javascript tərəfindən aparılır) 
         
-        və ya başqa bir proqram yazaq:
+        Və ya başqa bir proqram yazaq:
         var b=6
         b = Boolean(b);
         document.write(b + " : " + typeof b);
@@ -49,4 +49,3 @@
     3.Vurma, bölmə varsa onlar həll edilir.
     4.Sonda toplama, çıxma həll edilir.
 ```
-   
