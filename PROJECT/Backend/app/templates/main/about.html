@@ -33,7 +33,7 @@
             <div class="col-12">
                 {% for aboutdesc in aboutdesces %}
                 <div class="about-item">
-                    <div class="about-img">
+                    <div class="about-img ">
                         <img src="static/uploads/{{aboutdesc.about_img}}" alt="">
                     </div>
                     <span>{{aboutdesc.about_desc|safe}}</span>
@@ -60,7 +60,7 @@
         </div>
         <div class="row justify-content-center">
             {% for reasonitem in reasonitems %}
-            <div class="col-4 col-margin">
+            <div class="col-4 col-margin reason-scroll">
                 <div class="reasons-item">
                     <div class="reasons-item-number"><span>{{reasonitem.reasonitem_number}}</span></div>
                     <div class="reasons-item-info">
@@ -94,7 +94,7 @@
         <div class="row justify-content-center">
             {% for brand in brands %}
             <div class="col-3  col-margin">
-                <div class="customers-item">
+                <div class="customers-item animation">
                     <img src="/static/uploads/{{brand.brand_img}}" alt="{{brand.brand_imgname}}">
                 </div>
             </div>

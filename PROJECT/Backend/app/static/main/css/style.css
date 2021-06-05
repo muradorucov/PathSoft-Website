@@ -301,8 +301,8 @@ ul {
 }
 .carousel-item img {
   width: 100%;
-  height: 550px;
-  object-fit: cover;
+  height: 590px;
+  object-fit: cover !important;
   background-position: center;
 }
 .carousel-item {
@@ -331,9 +331,9 @@ ul {
 }
 
 .textposition {
-  right: 50% !important;
-  left: 21% !important;
-  top: 20% !important;
+  right: 51% !important;
+  left: 19% !important;
+  top: 23% !important;
   bottom: 0 !important;
   text-align: left !important;
 }
@@ -358,8 +358,8 @@ ul {
   font-size: 14px;
   position: absolute;
   z-index: 10;
-  left: 21%;
-  bottom: 25%;
+  left: 19%;
+  bottom: 27%;
 }
 .bttn-blue {
   background: linear-gradient(to left, #0f58bd 0, #568ad3 100%);
@@ -417,7 +417,7 @@ ul {
   height: 100%;
   margin-bottom: 20px;
 }
-.services-box {
+.services-item-box {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-bottom: 20px;

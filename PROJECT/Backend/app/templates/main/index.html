@@ -47,8 +47,9 @@
             </div>
         </div>
         <div class="row justify-content-center">
+
             {% for serviceitem in serviceitems %}
-            <div class="col-4 services-box">
+            <div class="col-4 services-item-box services-box ">
                 <div class="services-item service-style">
                     <a href="{{serviceitem.servitem_url}}" class="">
                         <div class="overlay"></div>
@@ -64,6 +65,7 @@
                 </div>
             </div>
             {% endfor %}
+            {# {% endfor %}{% for n in range(1) %} #}
 
 
         </div>
@@ -101,7 +103,7 @@
         </div>
         <div class="row justify-content-center">
             {% for reasonitem in reasonitems %}
-            <div class="col-4 col-margin">
+            <div class="col-4 col-margin reason-scroll ">
                 <div class="reasons-item">
                     <div class="reasons-item-number"><span>{{reasonitem.reasonitem_number}}</span></div>
                     <div class="reasons-item-info">
@@ -122,11 +124,11 @@
     <div class="container">
         <div class="row">
             <div class="col-5">
-                <div class="main-counter">
-                    <div class="main-counter-item">
+                <div class="main-counter scroll-counter">
+                    <div class="main-counter-item scroll-counter">
                         <div class="main-counter-item-center">
                             <div>
-                                <div class="main-counter-numb" data-from="0" data-to="10">10</div>
+                                <div class="main-counter-numb number1">0</div>
                                 <div class="main-counter-title">Years Of Experience</div>
                             </div>
                         </div>
@@ -134,20 +136,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6 ">
+            <div class="col-6 scroll-counter">
                 <div class="section-margin-second">
                     <div class="">
-                        <div class="counter-item-numb"><span class="" data-from="0" data-to="2"
-                                style="opacity: 1;">2</span>K</div>
+                        <div class="counter-item-numb"><span class="number2" style="opacity: 1;">0</span>K</div>
                         <h4 class="counter-item-title">Аpps Developed</h4>
                     </div>
                     <div class="">
-                        <div class="counter-item-numb " data-from="0" data-to="40" style="opacity: 1;">40
+                        <div class="counter-item-numb number3" style="opacity: 1;">0
                         </div>
                         <h4 class="counter-item-title">Consultans</h4>
                     </div>
                     <div class="">
-                        <div class="counter-item-numb " data-from="0" data-to="160" style="opacity: 1;">160
+                        <div class="counter-item-numb number4" style="opacity: 1;">0
                         </div>
                         <h4 class="counter-item-title">Employers</h4>
                     </div>
@@ -188,7 +189,7 @@
         <div class="row project-height justify-content-center">
 
             {% for projectbox in projectboxs %}
-            <div class="col-4 col-margin project-box">
+            <div class="col-4 col-margin animation ">
                 <div class="project-item">
                     <div class="project-item-card front">
                         <img src="/static/uploads/{{projectbox.project_img}}" alt="">
@@ -243,7 +244,7 @@
         </div>
         <div class="row justify-content-center">
             {% for teambox in teamboxs %}
-            <div class="col-3 team-box">
+            <div class="col-3 team-box teambox">
                 <div class="team-item">
                     <div class="team-img"><img src="/static/uploads/{{teambox.teammate_img}}"
                             alt="{{teambox.teammate_name}}"></div>
@@ -303,7 +304,7 @@
         <div class="row justify-content-center">
             {% for n in range(1) %}
             {% for testimonial in testimonials %}
-            <div class="col-4 team-box">
+            <div class="col-4 team-box clientbox">
                 <div class="client-item">
                     <div class="client-title">
                         <div class="client-img"><img src="/static/uploads/{{testimonial.clientphoto}}"
@@ -354,7 +355,7 @@
         </div>
         <div class="row justify-content-center">
             {% for newsbox in newsboxs %}
-            <div class="col-4">
+            <div class="col-4 newsbox">
                 <div class="news-item">
                     <a href="{{newsbox.newsbox_link}}" class="news-img">
                         <img src="/static/uploads/{{newsbox.newsbox_img}}" alt="{{newsbox.newsbox_title}}">

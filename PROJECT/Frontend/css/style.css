@@ -109,9 +109,12 @@ ul {
 /*<====-- header contact info and social icon end --====>*/
 
 /*<====-- header meniu start --====>*/
+.sticky-menu {
+  position: sticky;
+  top: 0;
+  z-index: 10000000;
+}
 #meniu-bar {
-  position: relative;
-  z-index: 100000000;
   box-sizing: border-box;
   box-shadow: 0.125rem 0.25rem 1.25rem 0.0875rem rgb(45 45 45 / 13%);
   font-family: "Istok Web", sans-serif;
@@ -298,8 +301,8 @@ ul {
 }
 .carousel-item img {
   width: 100%;
-  height: 550px;
-  object-fit: cover;
+  height: 590px;
+  object-fit: cover !important;
   background-position: center;
 }
 .carousel-item {
@@ -328,18 +331,18 @@ ul {
 }
 
 .textposition {
-  right: 49% !important;
-  left: 21% !important;
-  top: 20% !important;
+  right: 51% !important;
+  left: 19% !important;
+  top: 23% !important;
   bottom: 0 !important;
   text-align: left !important;
 }
 .textposition h1,
 .textposition h2 {
   color: black;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 700;
-  opacity: 0.73;
+  opacity: 0.8;
   font-family: "Montserrat";
 }
 .textposition p {
@@ -355,8 +358,8 @@ ul {
   font-size: 14px;
   position: absolute;
   z-index: 10;
-  left: 21%;
-  bottom: 25%;
+  left: 19%;
+  bottom: 27%;
 }
 .bttn-blue {
   background: linear-gradient(to left, #0f58bd 0, #568ad3 100%);
@@ -414,7 +417,7 @@ ul {
   height: 100%;
   margin-bottom: 20px;
 }
-.services-box {
+.services-item-box {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-bottom: 20px;
@@ -563,6 +566,8 @@ ul {
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
+  outline: 0;
+  border: 1px #917cddec solid;
 }
 .bttn i {
   height: 21px;
